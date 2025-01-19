@@ -6,9 +6,12 @@ from msclap import CLAP
 import sys
 
 # Load and initialize CLAP
+print("Loading CLAP model")
 clap_model = CLAP(version = 'clapcap', use_cuda=False)
 
 def clap_inference(audio_files = []):
+
+    print(f"Clap inference with files: {audio_files}")
 
     # Generate captions for the recording
     captions = clap_model.generate_caption(audio_files, 
