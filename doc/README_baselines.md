@@ -52,7 +52,7 @@ Run the following command to install CLAP:
 bash src/clap/install_clap.sh
 ```
 
-Run the following command to test CLAP inference:
+Run the following command to test CLAP inference (each script call provides a different output for the same input file):
 
 ```
 bash src/clap/test_inference.sh
