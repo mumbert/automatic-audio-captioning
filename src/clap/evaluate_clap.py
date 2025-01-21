@@ -8,7 +8,7 @@ import os
 
 # params
 subset="val"
-batch_size=2
+batch_size=4
 
 # dataset and subset folders
 datafolder = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -26,13 +26,13 @@ clap_model = CLAP(version = 'clapcap', use_cuda=False)
 # Get captions
 candidates = []
 mult_references = []
-max_elements = 2
-for i, batch in tqdm(enumerate(dataloader), total=len(dataloader)):
+max_elements = float('Inf')
+for i, batch in tqdm(enumerate(dataloader), total=min(max_elements, len(dataloader))):
     if i+1 > max_elements:
         break
 
     # Generate captions for the recording
-    print(f"{batch['fname']}")
+    # print(f"{batch['fname']}")
     audio_files = [os.path.join(subsetfolder, fname) for fname in batch['fname']]
     captions = clap_model.generate_caption(audio_files, 
                                            resample=True, 
@@ -41,9 +41,9 @@ for i, batch in tqdm(enumerate(dataloader), total=len(dataloader)):
                                            temperature=0.01)
     candidates.extend(captions)
     mult_references.extend(batch['captions'])
-    print(f"i: {i+1}/{max_elements}: ")
-    print(batch['captions'])
-    print(captions)
+    # print(f"i: {i+1}/{max_elements}: ")
+    # print(batch['captions'])
+    # print(captions)
 
 # Evaluate captions
 evaluate = Evaluate(metrics=["spider", "fense", "vocab"])
@@ -53,3 +53,7 @@ print(corpus_scores)
 vocab_size = corpus_scores["vocab.cands"]
 spider_score = corpus_scores["spider"]
 fense_score = corpus_scores["fense"]
+
+print(vocab_size)
+print(spider_score)
+print(fense_score)
