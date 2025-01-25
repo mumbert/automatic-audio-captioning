@@ -6,6 +6,12 @@ from msclap import CLAP
 from tqdm import tqdm
 import os
 
+import sys
+dir_path = os.path.dirname(os.path.realpath(__file__))
+folder_append=os.path.join(dir_path, "..")
+sys.path.append(folder_append)
+from common import utils
+
 ##### Proposal to generalize baseline evaluation that could also be useful for trained models
 
 # Read configuration YAML file
@@ -28,6 +34,9 @@ import os
 # params
 subset="eval" # 'dev', 'val', 'eval', 'dcase_aac_test', 'dcase_aac_analysis', 'dcase_t2a_audio', 'dcase_t2a_captions'
 batch_size=4
+output_root = "/".join(__file__.split("/")[:-3])
+output_folder = os.path.join(output_root, "results", "clap", subset)
+os.makedirs(output_folder, exist_ok=True)
 
 # dataset and subset folders
 datafolder = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
@@ -48,7 +57,7 @@ clap_model = CLAP(version = 'clapcap', use_cuda=False)
 # Get captions
 candidates = []
 mult_references = []
-max_elements = float('Inf')
+max_elements = 2 # float('Inf')
 for i, batch in tqdm(enumerate(dataloader), total=min(max_elements, len(dataloader))):
     if i+1 > max_elements:
         break
@@ -67,7 +76,14 @@ for i, batch in tqdm(enumerate(dataloader), total=min(max_elements, len(dataload
     # print(batch['captions'])
     # print(captions)
 
+# Saving pickle files with the data
+output_file_candidate = os.path.join(output_folder, "candidates.pkl")
+output_file_references = os.path.join(output_folder, "mult_references.pkl")
+utils.save_pickle(filename=output_file_candidate, data=candidates)
+utils.save_pickle(filename=output_file_references, data=mult_references)
+
 # Evaluate captions
+print("Evaluating")
 evaluate = Evaluate(metrics=["spider", "fense", "vocab"])
 corpus_scores, _ = evaluate(candidates, mult_references)
 print(corpus_scores)
