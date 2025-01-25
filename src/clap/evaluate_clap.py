@@ -7,15 +7,16 @@ from tqdm import tqdm
 import os
 
 # params
-subset="val"
+subset="eval" # 'dev', 'val', 'eval', 'dcase_aac_test', 'dcase_aac_analysis', 'dcase_t2a_audio', 'dcase_t2a_captions'
 batch_size=4
 
 # dataset and subset folders
 datafolder = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-subset2folder={"val": "validation", "dcase_aac_test": "test"}
+# datafolder = "/".join(__file__.split("/")[:-4])
+subset2folder={"val": "validation", "dcase_aac_test": "test", "eval": "evaluation"}
 subsetfolder = os.path.join(datafolder, "CLOTHO_v2.1/clotho_audio_files/", subset2folder[subset])
 
-print(f"Loading Clotho subset: {subset}")
+print(f"Downloading Clotho subset: {subset} in folder {datafolder}")
 dataset = Clotho(root=datafolder, subset=subset, download=True) # dcase_aac_test
 dataloader = DataLoader(dataset, batch_size=batch_size, collate_fn=BasicCollate())
 
