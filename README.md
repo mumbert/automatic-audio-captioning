@@ -30,6 +30,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+       <li><a href="#DCASE 2024 and CLAP demo deployment">Usage</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#demo">Demo</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -75,7 +76,7 @@ AAC represents a cutting‐edge intersection of audio signal processing and natu
 
 
 
-Thus, the **objectives of this project** are to investigate and experiment with AAC by systematically analyzing state-of-the-art methods, replicating established baselines, and evaluating modifications to model architectures. The key objectives are as follows:
+Thus, the **objectives of this project** include investigating and experimenting with AAC by systematically analyzing state-of-the-art methods, replicating established baselines, and evaluating modifications to model architectures. The specific key goals are as follows:
 
 
 
@@ -84,7 +85,7 @@ Thus, the **objectives of this project** are to investigate and experiment with 
 
 2. **DCASE 2024 challenge baseline replication**  
    The DCASE Challenge 2024 baseline model will be deployed and trained from scratch to assess the feasibility of reproducing reported benchmark metrics. This process will validate the reproducibility of existing AAC models and serve as a reference point for subsequent experiments.
-
+ 
 3. **Modify the decoder architecture and adjust training strategies**  
    Modifications to the decoder architecture will be introduced to analyze their impact on performance. Particular attention will be given to model explainability, with a focus on interpreting attention weights and understanding how the model processes audio representations. Alternative training strategies will also be explored to optimize performance and generalization.
 
@@ -93,16 +94,127 @@ Thus, the **objectives of this project** are to investigate and experiment with 
 
 This structured approach ensures a methodical evaluation of AAC systems, contributing both to theoretical understanding and practical advancements in the field.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## Getting started
 
 ### Prerequisites
 
-Detail what is needed to run the project. We can detail what we have used either google cloud, AWS, or locally.
+This project is founded on cloud-based infrastructure, specifically Google Cloud, to handle the extensive computational requirements associated with the large dataset used. Due to the substantial size of the dataset and the complexity of model training, the project utilizes Google Cloud's Virtual Machines (VMs) with specialized GPU support for efficient processing.
+
+
+#### Hardware
+The machine configuration is as follows:
+
+- **Machine Type:** g2-standard-4  
+This machine type is equipped with 4 vCPUs and 16 GB of memory, offering an appropriate balance of resources for handling data preprocessing and model training tasks.
+
+- **GPU:** 1 x NVIDIA L4 GPU
+The NVIDIA L4 GPU was chosen for its optimized performance in deep learning tasks, ensuring fast training and inference times for large models and datasets.
+
+- **Architecture:** x86-64
+The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
+
+#### Software setup
+
+For software, the project uses Google Cloud's environment alongside Python-based frameworks and libraries. Below are the steps to set up the project environment:
+
+1. **Java Installation**
+
+```
+sudo apt update
+sudo apt install default-jdk
+```
+2. **DSCASE 2024 code modification**
+A slight modification in the codebase is needed to avoid potential issues with multiprocessing in PyTorch. Specifically, add the following line after line 39 in the `cnext.py` script:
+
+```
+torch.multiprocessing.set_start_method('spawn')
+```
+
+3. **Creating the virtual environment**
+The project utilizes a conda environment for managing dependencies. To create the environment, run:
+```
+conda create -n env_dcase24 python=3.11
+conda activate env_dcase24
+```
+
+4. **Downgrading pip**
+After activating the virtual environment, downgrade `pip` to a specific version for compatibility:
+
+
+
+```
+python -m pip install --force-reinstall pip==24.0
+```
+
+5. **Install project dependencies**
+The required Python packages are listed in `requirements.txt`, which should be installed by running:
+```
+pip install -r requirements.txt
+```
+
+The ```requirements.txt``` file includes essential dependencies for AAC model training and evaluation. These include:
+```
+aac-datasets==0.5.0
+aac-metrics==0.5.3
+black==24.2.0
+codecarbon==2.3.4
+deepspeed==0.13.1
+flake8==7.0.0
+hydra-colorlog==1.2.0
+hydra-core==1.3.2
+ipykernel==6.29.3
+ipython==8.22.1
+lightning==2.2.0
+nltk==3.8.1
+numpy==1.26.4
+pre-commit==3.6.2
+pytest==8.0.2
+PyYAML==6.0.1
+tensorboard==2.16.2
+tokenizers==0.15.2
+torch==2.2.1
+torchlibrosa==0.1.0
+torchoutil[extras]==0.3.0
+```
+6. **Baseline deployment**
+Final deployment of baseline can be conducting by following 
+[The DCASE 2024 Task 6 Baseline Repository](https://github.com/Labbeti/dcase2024-task6-baseline) instructions. For further assistance, the following [instructions](doc/README_baselines.md) can also be consulted.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Installation
 
 What script needs to be run to install the project.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## DCASE 2024 and CLAP demo deployment
+
+To enhance the accessibility and user engagement of the AAC project, the DCASE 2024 baseline model and CLAP demo have been deployed as an [interactive web application on Hugging Face Spaces](https://huggingface.co/spaces/mumbert/automatic-audio-captioning-demo). This platform allows users to seamlessly experience the capabilities of the models through a user-friendly interface (see [Figure 2](#fig-example-demo)).
+
+The application provides two primary modes for audio input:
+
+- **Microphone Input**: Users can record audio directly using their device's microphone.
+
+  - Action: Click the record button to start recording.
+  - Input Selection: Choose the desired microphone from the dropdown menu.
+- **File Upload**: Users can upload audio files for processing.
+
+  - Action: Click *Place the audio here area* or *Click to upload button* to select a file from your device.
+
+
+
+
+<p align="center">
+  <img src="doc/images/example_demo_huggingface.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 2: Example of the DCASE demo deployment employing microphone input for audio recording.</em></p>
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,7 +249,7 @@ We can list here while working on the project some roadmap items or we can even 
 
 Thanks to the following contributors:
 - [Martí Umbert](https://github.com/mumbert)
-- [Victor Cuevas](https://github.com/contributor2)
+- [Victor Cuevas](https://github.com/victorcuevasv)
 - [Roger Vergés](https://github.com/eirasroger)
 - [Roger Calaf](https://github.com/Rcalaf)
 
