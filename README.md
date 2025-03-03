@@ -72,9 +72,11 @@ For more information on the topic, please check the [topic description README](d
 
 ## About the project
 
+### Motivation
+
 AAC represents a cutting‐edge intersection of audio signal processing and natural language generation with significant real-world impact. The practical applications of AAC are manifold—from enhancing accessibility for the hearing-impaired and augmenting multimedia retrieval systems to serving as a critical component in intelligent monitoring and human–machine interaction. In parallel, the emergence of challenges such as [DCASE 2024](#dcase2024) has highlighted the growing research momentum and industry relevance of AAC. The DCASE challenge not only benchmarks state-of-the-art methods but also catalyzes innovation by providing a structured platform for evaluating model performance under diverse conditions. This project is driven by the dual purposes of exploring AAC’s promising practical implementations and taking into account the insights gained from DCASE 2024 to refine and advance current methodologies.
 
-
+### Objectives
 
 Thus, the **objectives of this project** include investigating and experimenting with AAC by systematically analyzing state-of-the-art methods, replicating established baselines, and evaluating modifications to model architectures. The specific key goals are as follows:
 
@@ -93,6 +95,26 @@ Thus, the **objectives of this project** include investigating and experimenting
    Through experimentation and analysis, broader insights into AAC model behavior, limitations, and potential improvements will be gathered. This includes understanding the trade-offs between model complexity, explainability, and performance and identifying directions for future research in audio captioning.
 
 This structured approach ensures a methodical evaluation of AAC systems, contributing both to theoretical understanding and practical advancements in the field.
+
+
+### Schedule
+
+The project is scheduled to run from December 1st to March 17th.  [Figure 2](#fig-schedule) provides an overview of the main objectives and corresponding tasks.
+
+
+<p align="center">
+  <img src="doc/images/schedule.png" alt="AAC Pipeline" width="700" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-schedule"></a><em>Figure 2: Project schedule</em></p>
+
+The first goal, state-of-the-art review, was scheduled for completion by the end of January. Key tasks include conducting a literature review on architecture, datasets, and common evaluation metrics, as well as deploying the existing trained DCASE and CLAP baselines.
+
+The second goal involves training the DCASE model from scratch using a virtual machine and comparing its performance against benchmarked metrics. This phase was also expected to be completed by the end of January.
+
+The third goal focuses on evaluating the current model architecture, modifying it, retraining, and testing it to assess performance improvements. Additionally, for explainability, tasks include generating attention maps, analyzing model weights, and identifying the frames the model prioritizes when generating captions. These activities take place throughout February, with final explainability analysis conducted in early March.
+
+Lastly, the fourth goal involves synthesizing all gathered insights and conducting the final discussion and conclusions. This phase is scheduled for the last weeks of the project in March.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -194,17 +216,14 @@ What script needs to be run to install the project.
 
 ## DCASE 2024 and CLAP demo deployment
 
-To enhance the accessibility and user engagement of the AAC project, the DCASE 2024 baseline model and CLAP demo have been deployed as an [interactive web application on Hugging Face Spaces](https://huggingface.co/spaces/mumbert/automatic-audio-captioning-demo). This platform allows users to seamlessly experience the capabilities of the models through a user-friendly interface (see [Figure 2](#fig-example-demo)).
+To enhance the accessibility and user engagement of the AAC project, the DCASE 2024 baseline model and CLAP demo have been deployed as an [interactive web application on Hugging Face Spaces](https://huggingface.co/spaces/mumbert/automatic-audio-captioning-demo). This platform allows users to seamlessly experience the capabilities of the models through a user-friendly interface (see [Figure 3](#fig-example-demo)).
 
 The application provides two primary modes for audio input:
 
 - **Microphone Input**: Users can record audio directly using their device's microphone.
-
-  - Action: Click the record button to start recording.
-  - Input Selection: Choose the desired microphone from the dropdown menu.
 - **File Upload**: Users can upload audio files for processing.
 
-  - Action: Click *Place the audio here area* or *Click to upload button* to select a file from your device.
+
 
 
 
@@ -212,8 +231,9 @@ The application provides two primary modes for audio input:
 <p align="center">
   <img src="doc/images/example_demo_huggingface.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 2: Example of the DCASE demo deployment employing microphone input for audio recording.</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 3: Example of the DCASE demo deployment employing microphone input for audio recording.</em></p>
 
+For more information on the demo, please check the following [demo README](doc/README_demo.md).
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -226,13 +246,6 @@ For more information on using this project, please check the following [usage RE
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Demo
-
-Placeholder for the demo we might want to create, be it notebooks, fastAPI, etc.
-
-For more information on the demo, please check the following [demo README](doc/README_demo.md).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Roadmap
 
@@ -242,6 +255,46 @@ We can list here while working on the project some roadmap items or we can even 
 - [ ] Test baseline
 - [ ] Review DCASE dataset
 - [ ] Review DCASE metrics
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## Attention maps
+
+
+<p align="center">
+  <audio controls>
+    <source src="doc/audios/140815_drezyna_3.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+</p>
+
+
+model: ```a train approaches and passes by on the tracks```
+
+
+<p align="center">
+  <img src="doc/images/attentionmap.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+
+
+<p align="center">
+  <img src="doc/images/attention_audio.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+
+
+<p align="center">
+  <img src="doc/images/token1.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 6: token etc</em></p>
+
+train
+
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -271,3 +324,5 @@ Thanks to the following contributors:
 
 <a id="Mei2021"></a>Mei, X., Liu, X., Plumbley, M. D., & Wang, W. (2021). Audio captioning transformer. Detection and Classification of Acoustic Scenes and Events (DCASE 2021). https://doi.org/10.48550/arXiv.2107.09817
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
