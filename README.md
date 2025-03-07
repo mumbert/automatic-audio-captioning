@@ -111,7 +111,7 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 
 # Objectives 
 
-## Understand state-of-the-art AAC systems
+## 1. Understand state-of-the-art AAC systems
 
 ### Introduction
 
@@ -196,9 +196,9 @@ Despite these advancements, a significant gap remains between machine-generated 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# DCASE 2024 challenge baseline replication
+## 2. DCASE 2024 challenge baseline replication
 
-## Introduction
+### Introduction
 
 > [!NOTE]
 > Victor si puedes revisar que en este punto no me haya dejado nada o que no esté diciendo nada que no sea cierto.
@@ -207,9 +207,9 @@ Manage to deploy the DCase baseline model into our server, will provide the need
 
 This project is founded on cloud-based infrastructure, specifically Google Cloud, to handle the extensive computational requirements associated with the large dataset used. Due to the substantial size of the dataset and the complexity of model training, the project utilizes Google Cloud's Virtual Machines (VMs) with specialized GPU support for efficient processing.
 
-## Prerequisites
+### Prerequisites
 
-### Hardware
+#### Hardware
 The machine configuration is as follows:
 
 - **Machine Type:** g2-standard-4  
@@ -221,7 +221,7 @@ The NVIDIA L4 GPU was chosen for its optimized performance in deep learning task
 - **Architecture:** x86-64
 The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
 
-## Installation
+### Installation
 
 Essentially the installation process requires 4 parts: 
 - **1.Prepare Environment and Install Repository**
@@ -256,7 +256,7 @@ We have created different guides and scripts that helps to prepare install and l
 > Once we have the environment created please follow the next step by step guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md).
 
 
-## Training Process
+### Training Process
 
 Once the dataset is prepared, model training follows the standard PyTorch Lightning workflow:
 
@@ -274,7 +274,7 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
   After training, the model’s performance is assessed using aac-metrics, a package that computes SPIDEr-FL, METEOR, CIDEr, BLEU, and ROUGE scores.
   The results are compared with official DCASE Challenge benchmarks to ensure consistency.
 
-## Conclusions 
+### Conclusions 
 
 After overcoming challenges related to dependency management and securing a cost-effective GPU instance within the Google Cloud environment, we successfully deployed the DCASE baseline model. Subsequently, we proceeded with training the model and conducted a comparative analysis against the results reported in the DCASE Challenge. As demonstrated in the figures below, our training outcomes closely align with those obtained in the challenge
 
