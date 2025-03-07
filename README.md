@@ -134,7 +134,7 @@ Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translat
 
 ### Model Architectures
 
-The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1, the encoder processes the input audio clip, and the decoder generates the corresponding caption.
+The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1 [ paper reference CoNette], the encoder processes the input audio clip, and the decoder generates the corresponding caption.
 
 <p align="center">
   <img src="doc/images/fig1.png" alt="AAC process overview" width="600" style="max-width: 100%; height: auto;">
@@ -147,15 +147,44 @@ Encoders extract audio features using various neural networks types, including:
 - **Recurrent Neural Networks (RNNs):** Early approaches utilized RNNs (e.g., GRUs, LSTMs) to model temporal relationships in audio. For instance, Drossos et al. (cited within the provided paper) used a three-layered bi-directional GRU network as the encoder. RNNs process audio as a time-series signal, where the hidden states of the last layer of the RNN are regarded as the audio feature sequences, which are then fed into the text decoder for caption generation.
   - ***Challenges:*** RNNs alone may struggle with long-range dependencies, making it difficult to learn the correspondence between words and audio features.Also, using RNNs alone as the encoder is not found to give strong performance.
   - ***Advantages:*** RNNs are simple to implement and designed to process sequential data of variable lengths.
+
 - **Convolutional Neural Networks (CNNs):** Adapted from computer vision, CNNs excel at extracting robust audio patterns. Figure 3 of the paper illustrates a typical CNN audio encoder.
+
+  <p align="center">
+    <img src="doc/images/fig2.png" alt="CNN diagram" width="600" style="max-width: 100%; height: auto;">
+  </p>
+
   - ***Challenges:*** CNNs struggle to capture the temporal dependencies within audio signals effectively.
   - ***Advantage:*** CNNs show powerful ability in extracting robust audio patterns
+
 - **Transformers:** Have gained popularity due to their ability to model long-range dependencies effectively. Transformers can capture dependencies between distant parts of the audio signal, enabling the model to generate more coherent and contextually relevant captions.
   - ***Challenges:*** Transformers are computationally expensive and require large amounts of training data.
   - ***Advantages:*** Transformers excel at modeling long-range dependencies and can process the input sequence in parallel.
 
 Decoders, typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
 
+### Training Strategies
+
+Recent developments in AAC training strategies focus on addressing key challenges and improving model performance. The main approaches include:
+ 
+ - **Cross-Entropy Training:**Cross-entropy (CE) loss with maximum likelihood estimation remains a standard approach for training AAC models5. It uses a 'teacher-forcing' strategy during training, minimizing the negative log-likelihood of the ground truth word given previous ground truth words. While effective at generating syntactically correct sentences, it has limitations [(Mei et al., 2022)](#Mei2022):
+    - ***Exposure Bias:***Discrepancy between training (using ground truth words) and testing (using generated words) conditions leads to error accumulation
+    - ***Generic Captions:***Models tend to produce simple, generic captions rather than specific, detailed descriptions
+ 
+ - **Reinforcement Learning:**Reinforcement learning (RL) addresses some limitations of CE training[(Mei et al., 2021)](Mei2021b):
+    - ***Optimizing Evaluation Metrics***RL directly incorporates non-differentiable evaluation metrics into the optimization process
+    - ***Mitigating Exposure Bias***By allowing the model to explore its own output space during training
+
+ - **Transfer Learning:**To combat data scarcity in AAC:
+    - ***Pre-trained Audio Encoders***Using models like PANNs significantly improves performance across evaluation metrics
+    - ***Cross-Modal Transfer***Pre-training on larger datasets like AudioCaps enables knowledge transfer in both audio and language modalities
+
+- **Weakly-Supervised Approaches:**Recent work proposes training AAC models using only text data and pre-trained **CLAP (Contrastive Language-Audio Pretraining)** models, reducing the need for paired audio-caption data [(T.Kouzelis, 2023)](#Kouzelis2023)
+
+- **Continual Learning:** Approaches for adapting pre-optimized AAC models to new information without forgetting previous knowledge are being explored[(J. Berg, 2023)](#jberg2023).
+
+While these strategies show promise, their effectiveness can vary across datasets and implementations. Ongoing research continues to refine and combine these approaches to improve AAC performance.
+  
 
 ## Getting started
 
@@ -361,6 +390,16 @@ Thanks to the following contributors:
 
 
 <a id="Mei2021"></a>Mei, X., Liu, X., Plumbley, M. D., & Wang, W. (2021). Audio captioning transformer. Detection and Classification of Acoustic Scenes and Events (DCASE 2021). https://doi.org/10.48550/arXiv.2107.09817
+
+<a id="Mei2021b"></a>Xinhao Mei, Qiushi Huang, Xubo Liu, Gengyun Chen, Jingqian Wu, Yusong Wu, Jinzheng Zhao, Shengchen Li, Tom Ko, H Lilian Tang, Xi Shao, Mark D. Plumbley, Wenwu Wang (2021). An Encoder-Decoder Based audio captioning system with transfer and reinforcement lerning. https://xinhaomei.github.io/files/audio_captioning_with_transfer_and_reinforcement_learning.pdf
+
+<a id="Mei2022"></a>Xinhao Mei, Xubo Liu, Mark D. Plumbley and Wenwu Wang (2022). Automated Audio Captioning: An Overview of
+Recent Progress and New Challenges. https://arxiv.org/pdf/2205.05949
+
+<a id="Kouzelis2023"></a>Theodoros Kouzelis, Vassilis Katsouros (2023). Weakly-supervised Automated Audio Captioning via text only training. https://arxiv.org/pdf/2309.12242
+
+<a id="Jberg2023"></a>Jan Berg, Konstantinos Drossos (2023). Continual Learning for Automated Audio Captioning Using The Learning Without Forgetting Approach. https://arxiv.org/pdf/2107.08028
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
