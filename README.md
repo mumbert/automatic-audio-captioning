@@ -281,23 +281,23 @@ After overcoming challenges related to dependency management and securing a cost
 
 ### Detailed results
 
-| Metric | Score on Clotho-eval |           
-| --- | --- |                                 
-| BLEU-1 | 0.5948 |                          
-| BLEU-2 | 0.3924 |
-| BLEU-3 | 0.2603 |
-| BLEU-4 | 0.1695 |
-| METEOR | 0.1897 |
-| ROUGE-L | 0.3927 |
-| CIDEr-D | 0.4619 |
-| SPICE | 0.1335 |
-| SPIDEr | 0.2977 |
-| SPIDEr-FL | 0.2962 |
-| SBERT-sim | 0.5059 |
-| FER | 0.0038 |
-| FENSE | 0.5040 |
-| BERTScore | 0.9766 |
-| Vocabulary (words) | 551 |
+| Metric | Score on Clotho-eval | Score on our server |           
+| --- | --- | --- |                                 
+| BLEU-1 | 0.5948 | 0.60076 |                       
+| BLEU-2 | 0.3924 | 0.40016 |
+| BLEU-3 | 0.2603 | 0.27183
+| BLEU-4 | 0.1695 | 0.18060
+| METEOR | 0.1897 | 0.18706
+| ROUGE-L | 0.3927 | 0.39235
+| CIDEr-D | 0.4619 | 0.48064
+| SPICE | 0.1335 | 0.13289
+| SPIDEr | 0.2977 | 0.30676
+| SPIDEr-FL | 0.2962 | 0.30551
+| SBERT-sim | 0.5059 | 0.50817
+| FER | 0.0038 | 0.00765
+| FENSE | 0.5040 | 0.50456
+| BERTScore | 0.9766 | 0.97755
+| Vocabulary (words) | 551 | 523.0
 
 
 Image of the training results here:
