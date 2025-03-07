@@ -20,22 +20,29 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#Introduction and state-of-the-art">About The Project</a>
-         <a href="#about-the-project">About The Project</a>
+      <a href="#Introduction">Introduction</a>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="##State-of-the-art">State of the art</a>
+    </li>
+    <li>
+      <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#prerequisites">Motivation</a></li>
+        <li><a href="#installation">Objectives</a></li>
+        <li><a href="#installation">Schedule</a></li>
       </ul>
     </li>
-       <li><a href="#DCASE 2024 and CLAP demo deployment">Usage</a></li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#demo">Demo</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-        <li><a href="#References">Contributing</a></li>
+    <li>
+      <a href="#Execution">Execution</a>
+      <ul>
+        <li><a href="#Understand-state-of-the-art-AAC-systems">Understand stat of the art AAC systems</a></li>
+        <li><a href="#DCASE-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a></li>
+        <li><a href="#Modify the decoder architecture and adjust training strategies">Modify the decoder architecture and adjust training strategies</a></li>
+        <li><a href="#Modify the decoder architecture and adjust training strategies">Gain insights into audio captioning and deep learning</a></li>
+        <li><a href="#installation">Objectives (Update)</a></li>
+      </ul>
+    </li>
   </ol>
 </details>
 
@@ -80,8 +87,6 @@ AAC represents a cutting‐edge intersection of audio signal processing and natu
 
 Thus, the **objectives of this project** include investigating and experimenting with AAC by systematically analyzing state-of-the-art methods, replicating established baselines, and evaluating modifications to model architectures. The specific key goals are as follows:
 
-
-
 1. **Understand state-of-the-art AAC systems**  
    A comprehensive review of recent developments in AAC will be conducted, focusing on model architectures, training strategies, and evaluation metrics. This includes analyzing encoder-decoder frameworks, transformer-based approaches, and techniques used to improve caption generation quality.
 
@@ -95,6 +100,9 @@ Thus, the **objectives of this project** include investigating and experimenting
    Through experimentation and analysis, broader insights into AAC model behavior, limitations, and potential improvements will be gathered. This includes understanding the trade-offs between model complexity, explainability, and performance and identifying directions for future research in audio captioning.
 
 This structured approach ensures a methodical evaluation of AAC systems, contributing both to theoretical understanding and practical advancements in the field.
+
+> [!NOTE]
+> TODO: indicate reaso why the last two objectives have changed and indicate the new objectives.
 
 
 ### Schedule
@@ -117,6 +125,36 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Execution
+
+### Understand state-of-the-art AAC systems
+
+Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. This review focuses on key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
+
+### Model Architectures
+
+The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1, the encoder processes the input audio clip, and the decoder generates the corresponding caption.
+
+<p align="center">
+  <img src="doc/images/fig1.png" alt="AAC process overview" width="600" style="max-width: 100%; height: auto;">
+</p>
+
+The model is composed by an audio encoder which produces a frame-level audio representation of the audio and a captioning decoder which produces the next word distribution according to the previous words and to the audio. This process is repeated for each word in the reference, except for the Begin-Of-Sentence (<bos>) token.
+
+Encoders extract audio features using various neural networks types, including:
+
+- **Recurrent Neural Networks (RNNs):** Early approaches utilized RNNs (e.g., GRUs, LSTMs) to model temporal relationships in audio. For instance, Drossos et al. (cited within the provided paper) used a three-layered bi-directional GRU network as the encoder. RNNs process audio as a time-series signal, where the hidden states of the last layer of the RNN are regarded as the audio feature sequences, which are then fed into the text decoder for caption generation.
+  - ***Challenges:*** RNNs alone may struggle with long-range dependencies, making it difficult to learn the correspondence between words and audio features.Also, using RNNs alone as the encoder is not found to give strong performance.
+  - ***Advantages:*** RNNs are simple to implement and designed to process sequential data of variable lengths.
+- **Convolutional Neural Networks (CNNs):** Adapted from computer vision, CNNs excel at extracting robust audio patterns. Figure 3 of the paper illustrates a typical CNN audio encoder.
+  - ***Challenges:*** CNNs struggle to capture the temporal dependencies within audio signals effectively.
+  - ***Advantage:*** CNNs show powerful ability in extracting robust audio patterns
+- **Transformers:** Have gained popularity due to their ability to model long-range dependencies effectively. Transformers can capture dependencies between distant parts of the audio signal, enabling the model to generate more coherent and contextually relevant captions.
+  - ***Challenges:*** Transformers are computationally expensive and require large amounts of training data.
+  - ***Advantages:*** Transformers excel at modeling long-range dependencies and can process the input sequence in parallel.
+
+Decoders, typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
 
 
 ## Getting started
