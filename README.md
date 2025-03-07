@@ -116,10 +116,12 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Objectives 
 <a id="objectives-main"></a>
-## 1. Understand state-of-the-art AAC systems
+# Objectives 
+
 <a id="Understand-stat-of-the-art-AAC-systems"></a>
+
+## 1. Understand state-of-the-art AAC systems
 ### Introduction
 
 Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. 
@@ -203,8 +205,10 @@ Despite these advancements, a significant gap remains between machine-generated 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 2. DCASE 2024 challenge baseline replication
 <a id="DCASE-2024-challenge-baseline-replication"></a>
+
+## 2. DCASE 2024 challenge baseline replication
+
 ### Introduction
 
 > [!NOTE]
