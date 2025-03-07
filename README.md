@@ -34,6 +34,11 @@
       <a href="#objectives-main">Objectives</a>
       <ul>
         <li><a href="#Understand-stat-of-the-art-AAC-systems">1.Understand stat of the art AAC systems</a></li>
+          <ul>
+            <li><a href="#objective1-introduction">Introduction</a>
+            <li><a href="#objective1-model-architectures">Model Architectures</a>
+            <li><a href="#objective1-training-strategies">Training Strategies</a></li>
+          </ul>
         <li><a href="#DCASE-2024-challenge-baseline-replication">2.DCASE 2024 challenge baseline replication</a>
           <ul>
             <li><a href="#DCASE-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a>
@@ -122,6 +127,8 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 <a id="Understand-stat-of-the-art-AAC-systems"></a>
 
 ## 1. Understand state-of-the-art AAC systems
+
+<a id="objective1-introduction"></a>
 ### Introduction
 
 Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. 
@@ -137,6 +144,7 @@ The most recent advances have integrated ideas from the computer vision domain t
 Despite these advances, several challenges persist. Current systems still face limitations due to the scarcity of high-quality annotated datasets, potential biases inherited from pre-trained models, and difficulties in capturing the complex temporal and contextual relationships present in natural audio signals. Future research is likely to focus on developing more robust, data-efficient models and on further refining multi-modal approaches to close the gap between machine-generated and human-level descriptions.
 
 Down below we summarize key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
+<a id="objective1-model-architectures"></a>
 
 ### Model Architectures
 
@@ -169,6 +177,7 @@ Encoders extract audio features using various neural networks types, including:
 
 Decoders, typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
 
+<a id="objectives-training-strategies"></a>
 ### Training Strategies
 
 Recent developments in AAC training strategies focus on addressing key challenges and improving model performance. The main approaches include:
