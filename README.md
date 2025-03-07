@@ -126,9 +126,9 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Execution
+# Objectives 
 
-### Understand state-of-the-art AAC systems
+## Understand state-of-the-art AAC systems
 
 Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. This review focuses on key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
 
@@ -172,12 +172,12 @@ Recent developments in AAC training strategies focus on addressing key challenge
     - ***Generic Captions:***Models tend to produce simple, generic captions rather than specific, detailed descriptions
  
  - **Reinforcement Learning:**Reinforcement learning (RL) addresses some limitations of CE training[(Mei et al., 2021)](Mei2021b):
-    - ***Optimizing Evaluation Metrics***RL directly incorporates non-differentiable evaluation metrics into the optimization process
-    - ***Mitigating Exposure Bias***By allowing the model to explore its own output space during training
+    - **Optimizing Evaluation Metrics**RL directly incorporates non-differentiable evaluation metrics into the optimization process
+    - **Mitigating Exposure Bias**By allowing the model to explore its own output space during training
 
- - **Transfer Learning:**To combat data scarcity in AAC:
-    - ***Pre-trained Audio Encoders***Using models like PANNs significantly improves performance across evaluation metrics
-    - ***Cross-Modal Transfer***Pre-training on larger datasets like AudioCaps enables knowledge transfer in both audio and language modalities
+ - **Transfer Learning:**To combat data scarcity in AAC[(Mei et al., 2021)](Mei2021b):
+    - **Pre-trained Audio Encoders**Using models like PANNs significantly improves performance across evaluation metrics
+    - **Cross-Modal Transfer**Pre-training on larger datasets like AudioCaps enables knowledge transfer in both audio and language modalities
 
 - **Weakly-Supervised Approaches:**Recent work proposes training AAC models using only text data and pre-trained **CLAP (Contrastive Language-Audio Pretraining)** models, reducing the need for paired audio-caption data [(T.Kouzelis, 2023)](#Kouzelis2023)
 
