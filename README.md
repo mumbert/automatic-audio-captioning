@@ -132,7 +132,7 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 
 Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. This review focuses on key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
 
-### Model Architectures
+## Model Architectures
 
 The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1 [ paper reference CoNette], the encoder processes the input audio clip, and the decoder generates the corresponding caption.
 
@@ -163,7 +163,7 @@ Encoders extract audio features using various neural networks types, including:
 
 Decoders, typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
 
-### Training Strategies
+## Training Strategies
 
 Recent developments in AAC training strategies focus on addressing key challenges and improving model performance. The main approaches include:
  
