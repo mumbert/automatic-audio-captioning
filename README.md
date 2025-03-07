@@ -84,8 +84,8 @@ Thus, the **objectives of this project** include investigating and experimenting
 
 This structured approach ensures a methodical evaluation of AAC systems, contributing both to theoretical understanding and practical advancements in the field.
 
-> [!NOTE]
-> TODO: indicate reaso why the last two objectives have changed and indicate the new objectives.
+> [!UPDATE]
+> After studing the DCASE baseline model and trying to use different decoder types like BERT [process explained here](#objective3) for the caption generation process, we concluded that with the time and resources we had left, it was maybe a bit too ambitious objective. Hence, we decided to change it by dropping the decoding modification part and focus on how to improve the training by exploring different **Hyperparameter** specifications.
 
 
 ## Schedule
@@ -114,6 +114,9 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 ## Understand state-of-the-art AAC systems
 
 ### Introduction
+
+Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. 
+
 Recent advances in AAC have progressively enhanced the ability to generate natural language descriptions for audio content. Early work in the field established the feasibility of the task by employing encoder–decoder frameworks based on RNNs with attention mechanisms. For example, [Drossos et al. (2017)](#drossos2017) introduced one of the first AAC systems using bi-directional gated recurrent units (GRUs) to capture temporal dynamics and an alignment model to focus the decoder on relevant audio features. While this approach demonstrated promising results, it also highlighted challenges in modeling long-range dependencies and the fine-grained acoustic details required for accurate captioning.
 
 Subsequent research shifted towards leveraging CNNs and their hybrid forms (e.g., CRNNs) to improve feature extraction. CNN-based encoders proved effective at capturing local patterns and robust audio representations from spectrogram inputs. However, due to the inherent limitations of fixed receptive fields in CNNs, these methods often struggled to capture global contextual information across longer audio sequences.
@@ -124,10 +127,7 @@ The most recent advances have integrated ideas from the computer vision domain t
 
 Despite these advances, several challenges persist. Current systems still face limitations due to the scarcity of high-quality annotated datasets, potential biases inherited from pre-trained models, and difficulties in capturing the complex temporal and contextual relationships present in natural audio signals. Future research is likely to focus on developing more robust, data-efficient models and on further refining multi-modal approaches to close the gap between machine-generated and human-level descriptions.
 
-
-For more information on the topic, please check the [topic description README](doc/README_topic_description.md).
-
-Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. This review focuses on key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
+Down below we summarize key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
 
 ### Model Architectures
 
@@ -198,12 +198,16 @@ Despite these advancements, a significant gap remains between machine-generated 
 
 # DCASE 2024 challenge baseline replication
 
-## Getting started
+## Introduction
 
-### Prerequisites
+> [!NOTE]
+> Victor si puedes revisar que en este punto no me haya dejado nada o que no esté diciendo nada que no sea cierto.
+
+Manage to deploy the DCase baseline model into our server, will provide the needed foundation for the project. As the rest of the objectives will revolve around this model it is critical that we succeed on running the model to study it. 
 
 This project is founded on cloud-based infrastructure, specifically Google Cloud, to handle the extensive computational requirements associated with the large dataset used. Due to the substantial size of the dataset and the complexity of model training, the project utilizes Google Cloud's Virtual Machines (VMs) with specialized GPU support for efficient processing.
 
+### Prerequisites
 
 #### Hardware
 The machine configuration is as follows:
@@ -217,80 +221,56 @@ The NVIDIA L4 GPU was chosen for its optimized performance in deep learning task
 - **Architecture:** x86-64
 The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
 
-#### Software setup
+#### Installation
 
-For software, the project uses Google Cloud's environment alongside Python-based frameworks and libraries. Below are the steps to set up the project environment:
+Essentially the installation process requires 4 parts: 
+- **1.Prepare Environment and Install Repository**
+Create the environment, download the repository and install the different dependencies.
 
-1. **Java Installation**
+- **2.Download External Models (ConvNeXt for Feature Extraction)**
+The baseline model relies on ConvNeXt, a deep convolutional network originally developed for image classification, adapted here for audio feature extraction. This model is pretrained on AudioSet and serves as the encoder, converting raw audio waveforms into feature embeddings.
 
-```
-sudo apt update
-sudo apt install default-jdk
-```
-2. **DSCASE 2024 code modification**
-A slight modification in the codebase is needed to avoid potential issues with multiprocessing in PyTorch. Specifically, add the following line after line 39 in the `cnext.py` script:
+The script automatically downloads ConvNeXt’s pretrained weights from a specified repository.
+These weights are used to generate audio feature representations, which are then passed to the Transformer decoder for caption generation.
 
-```
-torch.multiprocessing.set_start_method('spawn')
-```
+- **3.Download Clotho Dataset**
+The Clotho dataset v2 is the primary dataset for training and evaluation. It contains audio clips ranging from 15 to 30 seconds, each paired with five human-annotated captions.
 
-3. **Creating the virtual environment**
-The project utilizes a conda environment for managing dependencies. To create the environment, run:
-```
-conda create -n env_dcase24 python=3.11
-conda activate env_dcase24
-```
+The dataset is automatically downloaded using aac-datasets, a Python package that provides easy access to standard AAC datasets.
+The Clotho dataset is structured into train, validation, and test subsets, ensuring a standardized benchmarking setup.
 
-4. **Downgrading pip**
-After activating the virtual environment, downgrade `pip` to a specific version for compatibility:
+- **4.Preprocess Data & Create HDF Files**
+Before training, the raw audio files need to be converted into a structured format for efficient processing.
+
+Mel-spectrogram features are extracted from each audio file using the ConvNeXt encoder.
+The preprocessed features, along with captions, are stored in HDF5 (Hierarchical Data Format) files using torchoutil.
+This structured format speeds up data loading during training and evaluation, reducing the need for redundant computations.
+
+> [!NOTE]
+> The DCASE Baseline repository provides a series of scripts that help with this process in case one decides to not do it manually.
+
+We have created different guides and scripts that helps to prepare install and lunch the DCASE Baseline into a GPU instance.
+
+For a step by step guide to create the environment, please check the following [Environment Setup](doc/README_baseline_setps.md).
+Once we have the environment created please follow the next step by step guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md).
 
 
 
-```
-python -m pip install --force-reinstall pip==24.0
-```
 
-5. **Install project dependencies**
-The required Python packages are listed in `requirements.txt`, which should be installed by running:
-```
-pip install -r requirements.txt
-```
 
-The ```requirements.txt``` file includes essential dependencies for AAC model training and evaluation. These include:
-```
-aac-datasets==0.5.0
-aac-metrics==0.5.3
-black==24.2.0
-codecarbon==2.3.4
-deepspeed==0.13.1
-flake8==7.0.0
-hydra-colorlog==1.2.0
-hydra-core==1.3.2
-ipykernel==6.29.3
-ipython==8.22.1
-lightning==2.2.0
-nltk==3.8.1
-numpy==1.26.4
-pre-commit==3.6.2
-pytest==8.0.2
-PyYAML==6.0.1
-tensorboard==2.16.2
-tokenizers==0.15.2
-torch==2.2.1
-torchlibrosa==0.1.0
-torchoutil[extras]==0.3.0
-```
-6. **Baseline deployment**
-Final deployment of baseline can be conducting by following 
-[The DCASE 2024 Task 6 Baseline Repository](https://github.com/Labbeti/dcase2024-task6-baseline) instructions. For further assistance, the following [instructions](doc/README_baselines.md) can also be consulted.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Installation
 
-What script needs to be run to install the project.
+## Conclusions 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+After overcoming challenges related to dependency management and securing a cost-effective GPU instance within the Google Cloud environment, we successfully deployed the DCASE baseline model. Subsequently, we proceeded with training the model and conducted a comparative analysis against the results reported in the DCASE Challenge. As demonstrated in the figures below, our training outcomes closely align with those obtained in the challenge
+
+Image of the training results here:
+
+
+
+
+
 
 
 ## DCASE 2024 and CLAP demo deployment
