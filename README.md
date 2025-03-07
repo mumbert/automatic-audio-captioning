@@ -23,24 +23,31 @@
       <a href="#Introduction">Introduction</a>
     </li>
     <li>
-      <a href="##State-of-the-art">State of the art</a>
-    </li>
-    <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#prerequisites">Motivation</a></li>
-        <li><a href="#installation">Objectives</a></li>
-        <li><a href="#installation">Schedule</a></li>
+        <li><a href="#motivation">Motivation</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#schedule">Schedule</a></li>
       </ul>
     </li>
     <li>
-      <a href="#Execution">Execution</a>
+      <a href="#objectives-main">Objectives</a>
       <ul>
-        <li><a href="#Understand-state-of-the-art-AAC-systems">Understand stat of the art AAC systems</a></li>
-        <li><a href="#DCASE-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a></li>
-        <li><a href="#Modify the decoder architecture and adjust training strategies">Modify the decoder architecture and adjust training strategies</a></li>
-        <li><a href="#Modify the decoder architecture and adjust training strategies">Gain insights into audio captioning and deep learning</a></li>
-        <li><a href="#installation">Objectives (Update)</a></li>
+        <li><a href="#Understand-stat-of-the-art-AAC-systems">1.Understand stat of the art AAC systems</a></li>
+        <li><a href="#DCASE-2024-challenge-baseline-replication">2.DCASE 2024 challenge baseline replication</a>
+          <ul>
+            <li><a href="#DCASE-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a>
+            <li><a href="#CLAP-replication">CLAP replication</a>
+            <li><a href="#Understand-state-of-the-art-AAC-systems">DCASE 2024 and CLAP demo deployment</a></li>
+          </ul>
+        </li>
+        <li><a href="#Modify-the-decoder-architecture-and-adjust-training-strategies">3.Modify the decoder architecture and adjust training strategies</a>
+         <ul>
+             <li><a href="#Explore-Hyperparameters-to-improve-training-results">UPDATE: Explore Hyperparameters to improve training results</a>
+         </ul>
+        </li>
+        <li><a href="#Gain-insights-into-audio-captioning-and-deep-learning">4.Gain insights into audio captioning and deep learning</a>
+        </li>
       </ul>
     </li>
   </ol>
@@ -276,7 +283,7 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
 
 ### Conclusions 
 
-After overcoming challenges related to dependency management and securing a cost-effective GPU instance within the Google Cloud environment, we successfully deployed the DCASE baseline model. Subsequently, we proceeded with training the model and conducted a comparative analysis against the results reported in the DCASE Challenge. As demonstrated in the figures below, our training outcomes closely align with those obtained in the challenge
+After overcoming challenges related to dependency management and securing a cost-effective GPU instance within the Google Cloud environment, we successfully deployed the DCASE baseline model. Subsequently, we proceeded with training the model and conducted a comparative analysis against the results reported in the DCASE Challenge. As demonstrated in the figures below, our training results outcomes closely align with those obtained in the challenge proving that our installation and deployment of the baseline model has been successful. 
 
 
 ### Detailed results
@@ -297,7 +304,7 @@ After overcoming challenges related to dependency management and securing a cost
 | FER | 0.0038 | 0.00765
 | FENSE | 0.5040 | 0.50456
 | BERTScore | 0.9766 | 0.97755
-| Vocabulary (words) | 551 | 523.0
+| Vocabulary (words) | 551 | 523
 
 
 Image of the training results here:
@@ -307,6 +314,8 @@ Image of the training results here:
   </p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 2.B. DCASE 2024 challenge baseline replication
 
 ## DCASE 2024 and CLAP demo deployment
 
