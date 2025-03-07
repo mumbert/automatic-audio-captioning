@@ -278,6 +278,28 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
 
 After overcoming challenges related to dependency management and securing a cost-effective GPU instance within the Google Cloud environment, we successfully deployed the DCASE baseline model. Subsequently, we proceeded with training the model and conducted a comparative analysis against the results reported in the DCASE Challenge. As demonstrated in the figures below, our training outcomes closely align with those obtained in the challenge
 
+
+### Detailed results
+
+| Metric | Score on Clotho-eval |             | Metric | Score on Clotho-eval |
+| --- | --- |                                 | --- | --- |
+| BLEU-1 | 0.5948 |                           | BLEU-1 | 0.5948 |
+| BLEU-2 | 0.3924 |
+| BLEU-3 | 0.2603 |
+| BLEU-4 | 0.1695 |
+| METEOR | 0.1897 |
+| ROUGE-L | 0.3927 |
+| CIDEr-D | 0.4619 |
+| SPICE | 0.1335 |
+| SPIDEr | 0.2977 |
+| SPIDEr-FL | 0.2962 |
+| SBERT-sim | 0.5059 |
+| FER | 0.0038 |
+| FENSE | 0.5040 |
+| BERTScore | 0.9766 |
+| Vocabulary (words) | 551 |
+
+
 Image of the training results here:
 
   <p align="center">
