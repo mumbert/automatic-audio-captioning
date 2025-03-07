@@ -151,7 +151,7 @@ Encoders extract audio features using various neural networks types, including:
 - **Convolutional Neural Networks (CNNs):** Adapted from computer vision, CNNs excel at extracting robust audio patterns. Figure 3 of the paper illustrates a typical CNN audio encoder.
 
   <p align="center">
-    <img src="doc/images/fig2.png" alt="CNN diagram" width="600" style="max-width: 100%; height: auto;">
+    <img src="doc/images/fig2.png" alt="CNN diagram" width="600" style="max-width: 50%; height: auto;">
   </p>
 
   - ***Challenges:*** CNNs struggle to capture the temporal dependencies within audio signals effectively.
@@ -172,12 +172,12 @@ Recent developments in AAC training strategies focus on addressing key challenge
     - ***Generic Captions:*** Models tend to produce simple, generic captions rather than specific, detailed descriptions
  
  - **Reinforcement Learning:** Reinforcement learning (RL) addresses some limitations of CE training[(Mei et al., 2021)](Mei2021b):
-    - **Optimizing Evaluation Metrics** RL directly incorporates non-differentiable evaluation metrics into the optimization process
-    - **Mitigating Exposure Bias** By allowing the model to explore its own output space during training
+    - ***Optimizing Evaluation Metrics*** RL directly incorporates non-differentiable evaluation metrics into the optimization process
+    - ***Mitigating Exposure Bias*** By allowing the model to explore its own output space during training
 
  - **Transfer Learning:** To combat data scarcity in AAC[(Mei et al., 2021)](Mei2021b):
-    - **Pre-trained Audio Encoders** Using models like PANNs significantly improves performance across evaluation metrics
-    - **Cross-Modal Transfer** Pre-training on larger datasets like AudioCaps enables knowledge transfer in both audio and language modalities
+    - ***Pre-trained Audio Encoders*** Using models like PANNs significantly improves performance across evaluation metrics
+    - ***Cross-Modal Transfer*** Pre-training on larger datasets like AudioCaps enables knowledge transfer in both audio and language modalities
 
 - **Weakly-Supervised Approaches:** Recent work proposes training AAC models using only text data and pre-trained **CLAP (Contrastive Language-Audio Pretraining)** models, reducing the need for paired audio-caption data [(T.Kouzelis, 2023)](#Kouzelis2023)
 
@@ -185,6 +185,7 @@ Recent developments in AAC training strategies focus on addressing key challenge
 
 While these strategies show promise, their effectiveness can vary across datasets and implementations. Ongoing research continues to refine and combine these approaches to improve AAC performance.
   
+
 
 ## Getting started
 
