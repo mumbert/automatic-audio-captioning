@@ -43,12 +43,14 @@
         <li><a href="#DCASE-2024-challenge-baseline-replication">2.DCASE 2024 challenge baseline replication</a>
           <ul>
             <li><a href="#DCASE-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a>
-              <li><a href="#objective2-introduction">Introduction</a>
-              <li><a href="#objective2-prerequisitss">Prerequisits</a>
-              <li><a href="#objective2-installation">Installation</a></li>
-              <li><a href="#objective2-training-process">Training Process</a></li>
-              <li><a href="#objective2-results">results</a></li>
-              <li><a href="#objective2-conclusions">Conclusions</a></li>
+              <ul>
+                <li><a href="#objective2-introduction">Introduction</a>
+                <li><a href="#objective2-prerequisitss">Prerequisits</a>
+                <li><a href="#objective2-installation">Installation</a></li>
+                <li><a href="#objective2-training-process">Training Process</a></li>
+                <li><a href="#objective2-results">results</a></li>
+                <li><a href="#objective2-conclusions">Conclusions</a></li>
+              </ul>
             </li>
             <li><a href="#CLAP-replication">CLAP replication</a>
             <li><a href="#Understand-state-of-the-art-AAC-systems">DCASE 2024 and CLAP demo deployment</a></li>
