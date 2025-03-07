@@ -46,9 +46,9 @@
   </ol>
 </details>
 
-## Introduction and state-of-the-art
 
-### Introduction
+
+# Introduction
 
 Automatic Audio Captioning (AAC) is the task of generating natural language descriptions for audio recordings. It involves analyzing complex acoustic signals and translating them into human-readable text, often describing specific sound events, their interactions, or environmental context. This process combines signal processing, deep learning, and natural language processing techniques.
 
@@ -59,31 +59,14 @@ Recent advancements in deep learning have significantly improved AAC performance
 </p>
 <p align="center"><a id="fig-aac-pipeline"></a><em>Figure 1: Overview of a typical AAC pipeline</em></p>
 
-### State-of-the-art
 
-Recent advances in AAC have progressively enhanced the ability to generate natural language descriptions for audio content. Early work in the field established the feasibility of the task by employing encoder–decoder frameworks based on RNNs with attention mechanisms. For example, [Drossos et al. (2017)](#drossos2017) introduced one of the first AAC systems using bi-directional gated recurrent units (GRUs) to capture temporal dynamics and an alignment model to focus the decoder on relevant audio features. While this approach demonstrated promising results, it also highlighted challenges in modeling long-range dependencies and the fine-grained acoustic details required for accurate captioning.
+# About the project
 
-Subsequent research shifted towards leveraging CNNs and their hybrid forms (e.g., CRNNs) to improve feature extraction. CNN-based encoders proved effective at capturing local patterns and robust audio representations from spectrogram inputs. However, due to the inherent limitations of fixed receptive fields in CNNs, these methods often struggled to capture global contextual information across longer audio sequences.
-
-A major turning point in AAC research has been the introduction of Transformer architectures. Transformer-based models, such as the Audio Captioning Transformer (ACT) presented in the 2021 DCASE work [(Mei et al., 2021)](#Mei2021), employ self-attention mechanisms that allow the model to directly model long-range dependencies. This approach enables a more holistic understanding of the audio input, resulting in improved coherence and contextual accuracy in the generated captions.
-
-The most recent advances have integrated ideas from the computer vision domain to further enhance audio encoding efficiency. The CoNeTTE system [(Labbé et al., 2023)](#Labbe2023)  exemplifies this trend by adapting a ConvNeXt architecture—originally designed for image classification—for audio feature extraction. The incorporation of dataset-specific task embeddings to address biases arising from pre-training on large-scale audio tagging datasets makes CoNeTTE achieve competitive performance while significantly reducing the number of parameters compared to previous models.
-
-Despite these advances, several challenges persist. Current systems still face limitations due to the scarcity of high-quality annotated datasets, potential biases inherited from pre-trained models, and difficulties in capturing the complex temporal and contextual relationships present in natural audio signals. Future research is likely to focus on developing more robust, data-efficient models and on further refining multi-modal approaches to close the gap between machine-generated and human-level descriptions.
-
-
-For more information on the topic, please check the [topic description README](doc/README_topic_description.md).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-## About the project
-
-### Motivation
+## Motivation
 
 AAC represents a cutting‐edge intersection of audio signal processing and natural language generation with significant real-world impact. The practical applications of AAC are manifold—from enhancing accessibility for the hearing-impaired and augmenting multimedia retrieval systems to serving as a critical component in intelligent monitoring and human–machine interaction. In parallel, the emergence of challenges such as [DCASE 2024](#dcase2024) has highlighted the growing research momentum and industry relevance of AAC. The DCASE challenge not only benchmarks state-of-the-art methods but also catalyzes innovation by providing a structured platform for evaluating model performance under diverse conditions. This project is driven by the dual purposes of exploring AAC’s promising practical implementations and taking into account the insights gained from DCASE 2024 to refine and advance current methodologies.
 
-### Objectives
+## Objectives
 
 Thus, the **objectives of this project** include investigating and experimenting with AAC by systematically analyzing state-of-the-art methods, replicating established baselines, and evaluating modifications to model architectures. The specific key goals are as follows:
 
@@ -105,7 +88,7 @@ This structured approach ensures a methodical evaluation of AAC systems, contrib
 > TODO: indicate reaso why the last two objectives have changed and indicate the new objectives.
 
 
-### Schedule
+## Schedule
 
 The project is scheduled to run from December 1st to March 17th.  [Figure 2](#fig-schedule) provides an overview of the main objectives and corresponding tasks.
 
@@ -129,6 +112,20 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 # Objectives 
 
 ## Understand state-of-the-art AAC systems
+
+### Introduction
+Recent advances in AAC have progressively enhanced the ability to generate natural language descriptions for audio content. Early work in the field established the feasibility of the task by employing encoder–decoder frameworks based on RNNs with attention mechanisms. For example, [Drossos et al. (2017)](#drossos2017) introduced one of the first AAC systems using bi-directional gated recurrent units (GRUs) to capture temporal dynamics and an alignment model to focus the decoder on relevant audio features. While this approach demonstrated promising results, it also highlighted challenges in modeling long-range dependencies and the fine-grained acoustic details required for accurate captioning.
+
+Subsequent research shifted towards leveraging CNNs and their hybrid forms (e.g., CRNNs) to improve feature extraction. CNN-based encoders proved effective at capturing local patterns and robust audio representations from spectrogram inputs. However, due to the inherent limitations of fixed receptive fields in CNNs, these methods often struggled to capture global contextual information across longer audio sequences.
+
+A major turning point in AAC research has been the introduction of Transformer architectures. Transformer-based models, such as the Audio Captioning Transformer (ACT) presented in the 2021 DCASE work [(Mei et al., 2021)](#Mei2021), employ self-attention mechanisms that allow the model to directly model long-range dependencies. This approach enables a more holistic understanding of the audio input, resulting in improved coherence and contextual accuracy in the generated captions.
+
+The most recent advances have integrated ideas from the computer vision domain to further enhance audio encoding efficiency. The CoNeTTE system [(Labbé et al., 2023)](#Labbe2023)  exemplifies this trend by adapting a ConvNeXt architecture—originally designed for image classification—for audio feature extraction. The incorporation of dataset-specific task embeddings to address biases arising from pre-training on large-scale audio tagging datasets makes CoNeTTE achieve competitive performance while significantly reducing the number of parameters compared to previous models.
+
+Despite these advances, several challenges persist. Current systems still face limitations due to the scarcity of high-quality annotated datasets, potential biases inherited from pre-trained models, and difficulties in capturing the complex temporal and contextual relationships present in natural audio signals. Future research is likely to focus on developing more robust, data-efficient models and on further refining multi-modal approaches to close the gap between machine-generated and human-level descriptions.
+
+
+For more information on the topic, please check the [topic description README](doc/README_topic_description.md).
 
 Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. This review focuses on key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
 
@@ -197,7 +194,7 @@ The evaluation of AAC systems involves metrics that assess the quality and relev
  - **Word Error Rate (WER):** WER is based on the Levenshtein distance and represents the number of edits needed to change one sequence into the other.
 Despite these advancements, a significant gap remains between machine-generated and human-level captions, highlighting the need for future research.
 
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # DCASE 2024 challenge baseline replication
 
