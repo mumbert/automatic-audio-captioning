@@ -281,9 +281,9 @@ After overcoming challenges related to dependency management and securing a cost
 
 ### Detailed results
 
-| Metric | Score on Clotho-eval |             | Metric | Score on Clotho-eval |
-| --- | --- |                                 | --- | --- |
-| BLEU-1 | 0.5948 |                           | BLEU-1 | 0.5948 |
+| Metric | Score on Clotho-eval |           
+| --- | --- |                                 
+| BLEU-1 | 0.5948 |                          
 | BLEU-2 | 0.3924 |
 | BLEU-3 | 0.2603 |
 | BLEU-4 | 0.1695 |
