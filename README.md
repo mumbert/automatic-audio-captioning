@@ -207,9 +207,9 @@ Manage to deploy the DCase baseline model into our server, will provide the need
 
 This project is founded on cloud-based infrastructure, specifically Google Cloud, to handle the extensive computational requirements associated with the large dataset used. Due to the substantial size of the dataset and the complexity of model training, the project utilizes Google Cloud's Virtual Machines (VMs) with specialized GPU support for efficient processing.
 
-### Prerequisites
+## Prerequisites
 
-#### Hardware
+### Hardware
 The machine configuration is as follows:
 
 - **Machine Type:** g2-standard-4  
@@ -221,7 +221,7 @@ The NVIDIA L4 GPU was chosen for its optimized performance in deep learning task
 - **Architecture:** x86-64
 The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
 
-#### Installation
+## Installation
 
 Essentially the installation process requires 4 parts: 
 - **1.Prepare Environment and Install Repository**
@@ -251,15 +251,28 @@ Before training, the raw audio files need to be converted into a structured form
 
 We have created different guides and scripts that helps to prepare install and lunch the DCASE Baseline into a GPU instance.
 
-For a step by step guide to create the environment, please check the following [Environment Setup](doc/README_baseline_setps.md).
-Once we have the environment created please follow the next step by step guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md).
+> For a step by step guide to create the environment, please check the following [Environment Setup](doc/README_baseline_setps.md).
+>
+> Once we have the environment created please follow the next step by step guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md).
 
 
+## Training Process
 
+Once the dataset is prepared, model training follows the standard PyTorch Lightning workflow:
 
+- **1.Initialize Components:**
+  - ***Callbacks*** – Custom functions for logging, model checkpointing, and early stopping.
+  - ***Tokenizer*** – Processes text input, converting words into token sequences suitable for the Transformer decoder.
+  - ***Datamodule*** – Manages dataset loading, batching, and preprocessing.
+  - ***Model*** – Defines the architecture, loss function, and optimization strategy.
 
+- **2.Train the Model:**
+  PyTorch Lightning simplifies training by handling multi-GPU training, logging, and validation.
+  The model is trained to minimize captioning loss, ensuring the generated text closely matches human-annotated captions. 
 
-
+- **3.Evaluate the Model:**
+  After training, the model’s performance is assessed using aac-metrics, a package that computes SPIDEr-FL, METEOR, CIDEr, BLEU, and ROUGE scores.
+  The results are compared with official DCASE Challenge benchmarks to ensure consistency.
 
 ## Conclusions 
 
@@ -267,13 +280,16 @@ After overcoming challenges related to dependency management and securing a cost
 
 Image of the training results here:
 
+  <p align="center">
+    <img src="doc/images/dcase24-training.jpg" alt="CNN diagram" width="600" style="height: auto;">
+  </p>
 
-
-
-
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## DCASE 2024 and CLAP demo deployment
+
+> [!NOTE]
+>  Victor y/o Martí me podeis explicar con un poco más de detalle la demo?
 
 To enhance the accessibility and user engagement of the AAC project, the DCASE 2024 baseline model and CLAP demo have been deployed as an [interactive web application on Hugging Face Spaces](https://huggingface.co/spaces/mumbert/automatic-audio-captioning-demo). This platform allows users to seamlessly experience the capabilities of the models through a user-friendly interface (see [Figure 3](#fig-example-demo)).
 
