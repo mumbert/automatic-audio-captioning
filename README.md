@@ -230,21 +230,21 @@ Create the environment, download the repository and install the different depend
 - **2.Download External Models (ConvNeXt for Feature Extraction)**
 The baseline model relies on ConvNeXt, a deep convolutional network originally developed for image classification, adapted here for audio feature extraction. This model is pretrained on AudioSet and serves as the encoder, converting raw audio waveforms into feature embeddings.
 
-The script automatically downloads ConvNeXt’s pretrained weights from a specified repository.
-These weights are used to generate audio feature representations, which are then passed to the Transformer decoder for caption generation.
+    The script automatically downloads ConvNeXt’s pretrained weights from a specified repository.
+    These weights are used to generate audio feature representations, which are then passed to the Transformer decoder for caption generation.
 
 - **3.Download Clotho Dataset**
 The Clotho dataset v2 is the primary dataset for training and evaluation. It contains audio clips ranging from 15 to 30 seconds, each paired with five human-annotated captions.
 
-The dataset is automatically downloaded using aac-datasets, a Python package that provides easy access to standard AAC datasets.
-The Clotho dataset is structured into train, validation, and test subsets, ensuring a standardized benchmarking setup.
+    The dataset is automatically downloaded using aac-datasets, a Python package that provides easy access to standard AAC datasets.
+    The Clotho dataset is structured into train, validation, and test subsets, ensuring a standardized benchmarking setup.
 
 - **4.Preprocess Data & Create HDF Files**
 Before training, the raw audio files need to be converted into a structured format for efficient processing.
 
-Mel-spectrogram features are extracted from each audio file using the ConvNeXt encoder.
-The preprocessed features, along with captions, are stored in HDF5 (Hierarchical Data Format) files using torchoutil.
-This structured format speeds up data loading during training and evaluation, reducing the need for redundant computations.
+    Mel-spectrogram features are extracted from each audio file using the ConvNeXt encoder.
+    The preprocessed features, along with captions, are stored in HDF5 (Hierarchical Data Format) files using torchoutil.
+    This structured format speeds up data loading during training and evaluation, reducing the need for redundant computations.
 
 > [!NOTE]
 > The DCASE Baseline repository provides a series of scripts that help with this process in case one decides to not do it manually.
