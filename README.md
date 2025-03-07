@@ -151,7 +151,7 @@ Encoders extract audio features using various neural networks types, including:
 - **Convolutional Neural Networks (CNNs):** Adapted from computer vision, CNNs excel at extracting robust audio patterns. Figure 3 of the paper illustrates a typical CNN audio encoder.
 
   <p align="center">
-    <img src="doc/images/fig2.png" alt="CNN diagram" width="600" style="max-width: 50%; height: auto;">
+    <img src="doc/images/fig2.png" alt="CNN diagram" width="280" style="height: auto;">
   </p>
 
   - ***Challenges:*** CNNs struggle to capture the temporal dependencies within audio signals effectively.
@@ -185,7 +185,21 @@ Recent developments in AAC training strategies focus on addressing key challenge
 
 While these strategies show promise, their effectiveness can vary across datasets and implementations. Ongoing research continues to refine and combine these approaches to improve AAC performance.
   
+### Evaluation Metrics
 
+The evaluation of AAC systems involves metrics that assess the quality and relevance of generated captions compared to human-generated references. Common metrics include:
+
+ - **BLEU (Bilingual Evaluation Understudy):** Measures the n-gram overlap between the generated caption and reference captions.
+ - **ROUGE (Recall-Oriented Understudy for Gisting Evaluation):** Measures the overlap of n-grams, word sequences, and word pairs between the generated caption and reference captions.
+ - **CIDEr (Consensus-based Image Description Evaluation):** Measures the similarity between the generated caption and reference captions based on term frequency-inverse document frequency (TF-IDF) weighting.
+ - **SPICE (Semantic Propositional Image Captioning Evaluation):** Evaluates the semantic content of the generated captions by extracting semantic propositions and comparing them to those in the reference captions.
+ - **METEOR (Metric for Evaluation of Translation with Explicit Ordering):** Based on explicit word-to-word matching between the generated and reference captions.
+ - **Word Error Rate (WER):** WER is based on the Levenshtein distance and represents the number of edits needed to change one sequence into the other.
+Despite these advancements, a significant gap remains between machine-generated and human-level captions, highlighting the need for future research.
+
+
+
+# DCASE 2024 challenge baseline replication
 
 ## Getting started
 
@@ -292,10 +306,6 @@ The application provides two primary modes for audio input:
 - **File Upload**: Users can upload audio files for processing.
 
 
-
-
-
-
 <p align="center">
   <img src="doc/images/example_demo_huggingface.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
 </p>
@@ -384,8 +394,6 @@ Thanks to the following contributors:
 <a id="dcase2024"></a>DCASE. (2024). Detection and Classification of Acoustic Scenes and Events (DCASE) Challenge 2024. DCASE. https://dcase.community/challenge2024/
 
 <a id="drossos2017"></a>Drossos, K., Adavanne, S., & Virtanen, T. (2017). Automated audio captioning with recurrent neural networks. *2017 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA).* [https://doi.org/10.48550/arXiv.1706.10006](https://doi.org/10.48550/arXiv.1706.10006)
-
-
 
 <a id="Labbe2023"></a>Labbé, É., Pellegrini, T., & Pinquier, J. (2023). CoNeTTE: An efficient audio captioning system leveraging multiple datasets with task embedding. https://doi.org/10.48550/arXiv.2309.00454
 
