@@ -132,7 +132,7 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 
 Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. This review focuses on key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
 
-## Model Architectures
+### Model Architectures
 
 The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1 [ paper reference CoNette], the encoder processes the input audio clip, and the decoder generates the corresponding caption.
 
@@ -163,23 +163,23 @@ Encoders extract audio features using various neural networks types, including:
 
 Decoders, typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
 
-## Training Strategies
+### Training Strategies
 
 Recent developments in AAC training strategies focus on addressing key challenges and improving model performance. The main approaches include:
  
- - **Cross-Entropy Training:**Cross-entropy (CE) loss with maximum likelihood estimation remains a standard approach for training AAC models5. It uses a 'teacher-forcing' strategy during training, minimizing the negative log-likelihood of the ground truth word given previous ground truth words. While effective at generating syntactically correct sentences, it has limitations [(Mei et al., 2022)](#Mei2022):
-    - ***Exposure Bias:***Discrepancy between training (using ground truth words) and testing (using generated words) conditions leads to error accumulation
-    - ***Generic Captions:***Models tend to produce simple, generic captions rather than specific, detailed descriptions
+ - **Cross-Entropy Training:** Cross-entropy (CE) loss with maximum likelihood estimation remains a standard approach for training AAC models5. It uses a 'teacher-forcing' strategy during training, minimizing the negative log-likelihood of the ground truth word given previous ground truth words. While effective at generating syntactically correct sentences, it has limitations [(Mei et al., 2022)](#Mei2022):
+    - ***Exposure Bias:*** Discrepancy between training (using ground truth words) and testing (using generated words) conditions leads to error accumulation
+    - ***Generic Captions:*** Models tend to produce simple, generic captions rather than specific, detailed descriptions
  
- - **Reinforcement Learning:**Reinforcement learning (RL) addresses some limitations of CE training[(Mei et al., 2021)](Mei2021b):
-    - **Optimizing Evaluation Metrics**RL directly incorporates non-differentiable evaluation metrics into the optimization process
-    - **Mitigating Exposure Bias**By allowing the model to explore its own output space during training
+ - **Reinforcement Learning:** Reinforcement learning (RL) addresses some limitations of CE training[(Mei et al., 2021)](Mei2021b):
+    - **Optimizing Evaluation Metrics** RL directly incorporates non-differentiable evaluation metrics into the optimization process
+    - **Mitigating Exposure Bias** By allowing the model to explore its own output space during training
 
- - **Transfer Learning:**To combat data scarcity in AAC[(Mei et al., 2021)](Mei2021b):
-    - **Pre-trained Audio Encoders**Using models like PANNs significantly improves performance across evaluation metrics
-    - **Cross-Modal Transfer**Pre-training on larger datasets like AudioCaps enables knowledge transfer in both audio and language modalities
+ - **Transfer Learning:** To combat data scarcity in AAC[(Mei et al., 2021)](Mei2021b):
+    - **Pre-trained Audio Encoders** Using models like PANNs significantly improves performance across evaluation metrics
+    - **Cross-Modal Transfer** Pre-training on larger datasets like AudioCaps enables knowledge transfer in both audio and language modalities
 
-- **Weakly-Supervised Approaches:**Recent work proposes training AAC models using only text data and pre-trained **CLAP (Contrastive Language-Audio Pretraining)** models, reducing the need for paired audio-caption data [(T.Kouzelis, 2023)](#Kouzelis2023)
+- **Weakly-Supervised Approaches:** Recent work proposes training AAC models using only text data and pre-trained **CLAP (Contrastive Language-Audio Pretraining)** models, reducing the need for paired audio-caption data [(T.Kouzelis, 2023)](#Kouzelis2023)
 
 - **Continual Learning:** Approaches for adapting pre-optimized AAC models to new information without forgetting previous knowledge are being explored[(J. Berg, 2023)](#jberg2023).
 
