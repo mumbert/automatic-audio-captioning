@@ -48,7 +48,7 @@
                 <li><a href="#objective2-prerequisitss">Prerequisits</a>
                 <li><a href="#objective2-installation">Installation</a></li>
                 <li><a href="#objective2-training-process">Training Process</a></li>
-                <li><a href="#objective2-results">results</a></li>
+                <li><a href="#objective2-results">Results</a></li>
                 <li><a href="#objective2-conclusions">Conclusions</a></li>
               </ul>
             </li>
