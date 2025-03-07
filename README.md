@@ -38,10 +38,18 @@
             <li><a href="#objective1-introduction">Introduction</a>
             <li><a href="#objective1-model-architectures">Model Architectures</a>
             <li><a href="#objective1-training-strategies">Training Strategies</a></li>
+            <li><a href="#objective1-evaluation metrics">Evaluation Metrics</a></li>
           </ul>
         <li><a href="#DCASE-2024-challenge-baseline-replication">2.DCASE 2024 challenge baseline replication</a>
           <ul>
             <li><a href="#DCASE-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a>
+              <li><a href="#objective2-introduction">Introduction</a>
+              <li><a href="#objective2-prerequisitss">Prerequisits</a>
+              <li><a href="#objective2-installation">Installation</a></li>
+              <li><a href="#objective2-training-process">Training Process</a></li>
+              <li><a href="#objective2-results">results</a></li>
+              <li><a href="#objective2-conclusions">Conclusions</a></li>
+            </li>
             <li><a href="#CLAP-replication">CLAP replication</a>
             <li><a href="#Understand-state-of-the-art-AAC-systems">DCASE 2024 and CLAP demo deployment</a></li>
           </ul>
@@ -123,11 +131,8 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 
 <a id="objectives-main"></a>
 # Objectives 
-
 <a id="Understand-stat-of-the-art-AAC-systems"></a>
-
 ## 1. Understand state-of-the-art AAC systems
-
 <a id="objective1-introduction"></a>
 ### Introduction
 
@@ -144,8 +149,8 @@ The most recent advances have integrated ideas from the computer vision domain t
 Despite these advances, several challenges persist. Current systems still face limitations due to the scarcity of high-quality annotated datasets, potential biases inherited from pre-trained models, and difficulties in capturing the complex temporal and contextual relationships present in natural audio signals. Future research is likely to focus on developing more robust, data-efficient models and on further refining multi-modal approaches to close the gap between machine-generated and human-level descriptions.
 
 Down below we summarize key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
-<a id="objective1-model-architectures"></a>
 
+<a id="objective1-model-architectures"></a>
 ### Model Architectures
 
 The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1 [ paper reference CoNette], the encoder processes the input audio clip, and the decoder generates the corresponding caption.
@@ -177,7 +182,7 @@ Encoders extract audio features using various neural networks types, including:
 
 Decoders, typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
 
-<a id="objectives-training-strategies"></a>
+<a id="objective1-training-strategies"></a>
 ### Training Strategies
 
 Recent developments in AAC training strategies focus on addressing key challenges and improving model performance. The main approaches include:
@@ -199,7 +204,8 @@ Recent developments in AAC training strategies focus on addressing key challenge
 - **Continual Learning:** Approaches for adapting pre-optimized AAC models to new information without forgetting previous knowledge are being explored[(J. Berg, 2023)](#jberg2023).
 
 While these strategies show promise, their effectiveness can vary across datasets and implementations. Ongoing research continues to refine and combine these approaches to improve AAC performance.
-  
+
+<a id="objective1-evaluation-metrics"></a>  
 ### Evaluation Metrics
 
 The evaluation of AAC systems involves metrics that assess the quality and relevance of generated captions compared to human-generated references. Common metrics include:
@@ -215,9 +221,8 @@ Despite these advancements, a significant gap remains between machine-generated 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="DCASE-2024-challenge-baseline-replication"></a>
-
 ## 2. DCASE 2024 challenge baseline replication
-
+<a id="objective2-introduction"></a>
 ### Introduction
 
 > [!NOTE]
@@ -226,9 +231,8 @@ Despite these advancements, a significant gap remains between machine-generated 
 Manage to deploy the DCase baseline model into our server, will provide the needed foundation for the project. As the rest of the objectives will revolve around this model it is critical that we succeed on running the model to study it. 
 
 This project is founded on cloud-based infrastructure, specifically Google Cloud, to handle the extensive computational requirements associated with the large dataset used. Due to the substantial size of the dataset and the complexity of model training, the project utilizes Google Cloud's Virtual Machines (VMs) with specialized GPU support for efficient processing.
-
+<a id="objective2-prerequisites"></a>
 ### Prerequisites
-
 #### Hardware
 The machine configuration is as follows:
 
@@ -240,7 +244,7 @@ The NVIDIA L4 GPU was chosen for its optimized performance in deep learning task
 
 - **Architecture:** x86-64
 The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
-
+<a id="objective2-installation"></a>
 ### Installation
 
 Essentially the installation process requires 4 parts: 
@@ -275,7 +279,7 @@ We have created different guides and scripts that helps to prepare install and l
 >
 > Once we have the environment created please follow the next step by step guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md).
 
-
+<a id="objective2-training-process"></a>
 ### Training Process
 
 Once the dataset is prepared, model training follows the standard PyTorch Lightning workflow:
@@ -294,11 +298,7 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
   After training, the model’s performance is assessed using aac-metrics, a package that computes SPIDEr-FL, METEOR, CIDEr, BLEU, and ROUGE scores.
   The results are compared with official DCASE Challenge benchmarks to ensure consistency.
 
-### Conclusions 
-
-After overcoming challenges related to dependency management and securing a cost-effective GPU instance within the Google Cloud environment, we successfully deployed the DCASE baseline model. Subsequently, we proceeded with training the model and conducted a comparative analysis against the results reported in the DCASE Challenge. As demonstrated in the figures below, our training results outcomes closely align with those obtained in the challenge proving that our installation and deployment of the baseline model has been successful. 
-
-
+<a id="objective2-results"></a>
 ### Detailed results
 
 | Metric | Score on Clotho-eval | Score on our server |           
@@ -326,9 +326,15 @@ Image of the training results here:
     <img src="doc/images/dcase24-training.jpg" alt="CNN diagram" width="600" style="height: auto;">
   </p>
 
+<a id="objective2-conclusions"></a>
+### Conclusions 
+
+After overcoming challenges related to dependency management and securing a cost-effective GPU instance within the Google Cloud environment, we successfully deployed the DCASE baseline model. Subsequently, we proceeded with training the model and conducted a comparative analysis against the results reported in the DCASE Challenge. As demonstrated in the figures below, our training results outcomes closely align with those obtained in the challenge proving that our installation and deployment of the baseline model has been successful. 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 2.B. DCASE 2024 challenge baseline replication
+<a id="objective2b-CLAP"></a>
+## 2.B. CLAP replication
 
 ## DCASE 2024 and CLAP demo deployment
 
