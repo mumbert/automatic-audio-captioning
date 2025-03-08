@@ -365,7 +365,7 @@ After overcoming challenges related to dependency management and securing a cost
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a id="#objective2c-demos"></a>
+<a id="objective2c-demos"></a>
 
 ## DCASE 2024 and CLAP demo deployment
 
@@ -410,18 +410,18 @@ We can list here while working on the project some roadmap items or we can even 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a id="#objective3-modify-and-adjust"></a>
+<a id="objective3-modify-and-adjust"></a>
 ## 3. Modify the decoder architecture and adjust training strategies</a>
 
 > Content here: Roger
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a id="#objective4-gain-insights"></a>
+<a id="objective4-gain-insights"></a>
 
 ## 4. Gain insights into audio captioning and deep learning
 
-<a id="#objective4-explainability"></a>
+<a id="objective4-explainability"></a>
 
 ### Approach to explainability
 
@@ -436,7 +436,7 @@ There multiple files that need to be modified in order to be able to log in the 
 
 More details are provided in the next subsection.
 
-<a id="#objective4-modified-code"></a>
+<a id="objective4-modified-code"></a>
 
 ### Modified code
 
@@ -458,13 +458,13 @@ These are the files:
        - we are able to convert from frames to time since the hop_size is 320ms as specified in the configuration. This, 10 frames correspond to 3.2 seconds, for instance. 
     - [add_time_stamps_to_tags()](missing link once merged): this function is called within the plot_attention function in order to be able to print a subtitle that combines all decoded tokens with some time stamps, only the once related to relevant words like nouns and verbs. We use the NLTK library to detect the part-of-speech tag of the different words in the sentence.
 
-<a id="#objective4-examples"></a>
+<a id="objective4-examples"></a>
 
 ### Attention maps examples
 
 In this section we show some attention maps examples with their corresponding audio samples used as input:
 
-<a id="#objective4-examples1"></a>
+<a id="objective4-examples1"></a>
 
 #### Example 1
 
@@ -500,21 +500,19 @@ In this section we show some attention maps examples with their corresponding au
 
 train
 
-<a id="#objective4-examples2"></a>
+<a id="objective4-examples2"></a>
 
 #### Example 2
 
-<a id="#objective4-examples3"></a>
+<a id="objective4-examples3"></a>
 
 #### Example 3
 
 
-<a id="#objective4-examples4"></a>
-
+<a id="objective4-examples4"></a>
 #### Example 4
 
-<a id="#objective4-examples5"></a>
-
+<a id="objective4-examples5"></a>
 #### Example 5
 
 
