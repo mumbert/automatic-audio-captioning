@@ -20,7 +20,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#Introduction">Introduction</a>
+      <a href="#introduction">Introduction</a>
     </li>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -33,35 +33,40 @@
     <li>
       <a href="#objectives-main">Objectives</a>
       <ul>
-        <li><a href="#Understand-stat-of-the-art-AAC-systems">1.Understand stat of the art AAC systems</a></li>
+        <li>
+          <a href="#understand-stat-of-the-art-aac-systems">1.Understand stat of the art AAC systems</a>
           <ul>
-            <li><a href="#objective1-introduction">Introduction</a>
-            <li><a href="#objective1-model-architectures">Model Architectures</a>
+            <li><a href="#objective1-introduction">Introduction</a></li>
+            <li><a href="#objective1-model-architectures">Model Architectures</a></li>
             <li><a href="#objective1-training-strategies">Training Strategies</a></li>
-            <li><a href="#objective1-evaluation metrics">Evaluation Metrics</a></li>
+            <li><a href="#objective1-evaluation-metrics">Evaluation Metrics</a></li>
           </ul>
-        <li><a href="#DCASE-2024-challenge-baseline-replication">2.DCASE 2024 challenge baseline replication</a>
+        </li>
+        <li>
+          <a href="#baseline-models">2.DCASE 2024 challenge baseline replication</a>
           <ul>
-            <li><a href="#DCASE-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a>
+            <li>
+              <a href="#dcase-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a>
               <ul>
-                <li><a href="#objective2-introduction">Introduction</a>
-                <li><a href="#objective2-prerequisitss">Prerequisits</a>
+                <li><a href="#objective2-introduction">Introduction</a></li>
+                <li><a href="#objective2-prerequisites">Prerequisits</a></li>
                 <li><a href="#objective2-installation">Installation</a></li>
                 <li><a href="#objective2-training-process">Training Process</a></li>
                 <li><a href="#objective2-results">Results</a></li>
                 <li><a href="#objective2-conclusions">Conclusions</a></li>
               </ul>
             </li>
-            <li><a href="#CLAP-replication">CLAP replication</a>
-            <li><a href="#Understand-state-of-the-art-AAC-systems">DCASE 2024 and CLAP demo deployment</a></li>
+            <li><a href="#objective2b-clap">CLAP replication</a></li>
+            <li><a href="#objective2c-dcase">DCASE 2024 and CLAP demo deployment</a></li>
           </ul>
         </li>
-        <li><a href="#Modify-the-decoder-architecture-and-adjust-training-strategies">3.Modify the decoder architecture and adjust training strategies</a>
-         <ul>
-             <li><a href="#Explore-Hyperparameters-to-improve-training-results">UPDATE: Explore Hyperparameters to improve training results</a>
-         </ul>
+        <li>
+          <a href="#modify-the-decoder-architecture-and-adjust-training-strategies">3.Modify the decoder architecture and adjust training strategies</a>
+          <ul>
+              <li><a href="#explore-hyperparameters-to-improve-training-results">UPDATE: Explore Hyperparameters to improve training results</a></li>
+          </ul>
         </li>
-        <li><a href="#Gain-insights-into-audio-captioning-and-deep-learning">4.Gain insights into audio captioning and deep learning</a>
+        <li><a href="#gain-insights-into-audio-captioning-and-deep-learning">4.Gain insights into audio captioning and deep learning</a>
         </li>
       </ul>
     </li>
@@ -69,7 +74,7 @@
 </details>
 
 
-
+<a id="introduction"></a>
 # Introduction
 
 Automatic Audio Captioning (AAC) is the task of generating natural language descriptions for audio recordings. It involves analyzing complex acoustic signals and translating them into human-readable text, often describing specific sound events, their interactions, or environmental context. This process combines signal processing, deep learning, and natural language processing techniques. In contrast to automatic speech recognition (ASR), audio captioning prioritizes environmental sounds while disregarding any speech content that might be present in an audio clip, and thus it is not about transcribing the voice content of what a speaker might be saying.
@@ -81,13 +86,15 @@ Recent advancements in deep learning have significantly improved AAC performance
 </p>
 <p align="center"><a id="fig-aac-pipeline"></a><em>Figure 1: Overview of a typical AAC pipeline</em></p>
 
-
+<a id="about-the-project"></a>
 # About the project
 
+<a id="motivation"></a>
 ## Motivation
 
 AAC represents a cutting‐edge intersection of audio signal processing and natural language generation with significant real-world impact. The practical applications of AAC are manifold—from enhancing accessibility for the hearing-impaired and augmenting multimedia retrieval systems to serving as a critical component in intelligent monitoring and human–machine interaction. In parallel, the emergence of challenges such as [DCASE 2024](#dcase2024) has highlighted the growing research momentum and industry relevance of AAC. The DCASE challenge not only benchmarks state-of-the-art methods but also catalyzes innovation by providing a structured platform for evaluating model performance under diverse conditions. This project is driven by the dual purposes of exploring AAC’s promising practical implementations and taking into account the insights gained from DCASE 2024 to refine and advance current methodologies.
 
+<a id="objectives"></a>
 ## Objectives
 
 Thus, the **objectives of this project** include investigating and experimenting with AAC by systematically analyzing state-of-the-art methods, replicating established baselines, and evaluating modifications to model architectures. The specific key goals are as follows:
@@ -107,9 +114,9 @@ Thus, the **objectives of this project** include investigating and experimenting
 This structured approach ensures a methodical evaluation of AAC systems, contributing both to theoretical understanding and practical advancements in the field.
 
 > [!UPDATE]
-> After studing the DCASE baseline model and trying to use different decoder types like BERT [process explained here](#objective3) for the caption generation process, we concluded that with the time and resources we had left, it was maybe a bit too ambitious objective. Hence, we decided to change it by dropping the decoding modification part and focus on how to improve the training by exploring different **Hyperparameter** specifications.
+> After studing the DCASE baseline model and trying to use different decoder types like BERT [process explained here](#objective3) for the caption generation process, we concluded that with the time and resources we had left, it was maybe a bit too ambitious objective. Hence, we decided to change it by dropping the decoding modification part (within objective 3) and focus on how to improve the training by exploring different **Hyperparameter** specifications.
 
-
+<a id="schedule"></a>
 ## Schedule
 
 The project is scheduled to run from December 1st to March 17th.  [Figure 2](#fig-schedule) provides an overview of the main objectives and corresponding tasks.
@@ -118,6 +125,7 @@ The project is scheduled to run from December 1st to March 17th.  [Figure 2](#fi
 <p align="center">
   <img src="doc/images/schedule.png" alt="AAC Pipeline" width="700" style="max-width: 100%; height: auto;">
 </p>
+
 <p align="center"><a id="fig-schedule"></a><em>Figure 2: Project schedule</em></p>
 
 The first goal, state-of-the-art review, was scheduled for completion by the end of January. Key tasks include conducting a literature review on architecture, datasets, and common evaluation metrics, as well as deploying the existing trained DCASE and CLAP baselines.
@@ -133,8 +141,10 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 
 <a id="objectives-main"></a>
 # Objectives 
-<a id="Understand-stat-of-the-art-AAC-systems"></a>
+
+<a id="understand-stat-of-the-art-aac-systems"></a>
 ## 1. Understand state-of-the-art AAC systems
+
 <a id="objective1-introduction"></a>
 ### Introduction
 
@@ -336,8 +346,11 @@ After overcoming challenges related to dependency management and securing a cost
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2b-CLAP"></a>
-## 2.B. CLAP replication
+## CLAP replication
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<a id="#objective2c-DCASE"></a>
 ## DCASE 2024 and CLAP demo deployment
 
 > [!NOTE]
