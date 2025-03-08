@@ -34,7 +34,7 @@
       <a href="#objectives-main">Objectives</a>
       <ul>
         <li>
-          <a href="#understand-stat-of-the-art-aac-systems">1.Understand stat of the art AAC systems</a>
+          <a href="#understand-stat-of-the-art-aac-systems">1. Understand stat of the art AAC systems</a>
           <ul>
             <li><a href="#objective1-introduction">Introduction</a></li>
             <li><a href="#objective1-model-architectures">Model Architectures</a></li>
@@ -43,13 +43,13 @@
           </ul>
         </li>
         <li>
-          <a href="#baseline-models">2.DCASE 2024 challenge baseline replication</a>
+          <a href="#objective2-baseline-models">2. Baseline models replication</a>
           <ul>
             <li>
               <a href="#dcase-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a>
               <ul>
                 <li><a href="#objective2-introduction">Introduction</a></li>
-                <li><a href="#objective2-prerequisites">Prerequisits</a></li>
+                <li><a href="#objective2-prerequisites">Prerequisites</a></li>
                 <li><a href="#objective2-installation">Installation</a></li>
                 <li><a href="#objective2-training-process">Training Process</a></li>
                 <li><a href="#objective2-results">Results</a></li>
@@ -57,16 +57,16 @@
               </ul>
             </li>
             <li><a href="#objective2b-clap">CLAP replication</a></li>
-            <li><a href="#objective2c-dcase">DCASE 2024 and CLAP demo deployment</a></li>
+            <li><a href="#objective2c-demos">DCASE 2024 and CLAP demo deployment</a></li>
           </ul>
         </li>
         <li>
-          <a href="#modify-the-decoder-architecture-and-adjust-training-strategies">3.Modify the decoder architecture and adjust training strategies</a>
+          <a href="#objective3-modify-and-adjust">3. Modify the decoder architecture and adjust training strategies</a>
           <ul>
-              <li><a href="#explore-hyperparameters-to-improve-training-results">UPDATE: Explore Hyperparameters to improve training results</a></li>
+              <li><a href="#objective3-update">UPDATE: Explore Hyperparameters to improve training results</a></li>
           </ul>
         </li>
-        <li><a href="#gain-insights-into-audio-captioning-and-deep-learning">4.Gain insights into audio captioning and deep learning</a>
+        <li><a href="#objective4-gain-insights">4. Gain insights into audio captioning and deep learning</a>
         </li>
       </ul>
     </li>
@@ -163,6 +163,7 @@ Despite these advances, several challenges persist. Current systems still face l
 Down below we summarize key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
 
 <a id="objective1-model-architectures"></a>
+
 ### Model Architectures
 
 The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1 [ paper reference CoNette], the encoder processes the input audio clip, and the decoder generates the corresponding caption.
@@ -195,6 +196,7 @@ Encoders extract audio features using various neural networks types, including:
 Decoders, typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
 
 <a id="objective1-training-strategies"></a>
+
 ### Training Strategies
 
 Recent developments in AAC training strategies focus on addressing key challenges and improving model performance. The main approaches include:
@@ -217,7 +219,8 @@ Recent developments in AAC training strategies focus on addressing key challenge
 
 While these strategies show promise, their effectiveness can vary across datasets and implementations. Ongoing research continues to refine and combine these approaches to improve AAC performance.
 
-<a id="objective1-evaluation-metrics"></a>  
+<a id="objective1-evaluation-metrics"></a>
+
 ### Evaluation Metrics
 
 The evaluation of AAC systems involves metrics that assess the quality and relevance of generated captions compared to human-generated references. Common metrics include:
@@ -232,10 +235,17 @@ Despite these advancements, a significant gap remains between machine-generated 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a id="DCASE-2024-challenge-baseline-replication"></a>
-## 2. DCASE 2024 challenge baseline replication
+<a id="objective2-baseline-models"></a>
+
+## 2. Baseline models replication
+
+<a id="dcase-2024-challenge-baseline-replication"></a>
+
+### DCASE 2024 challenge baseline replication
+
 <a id="objective2-introduction"></a>
-### Introduction
+
+#### Introduction
 
 > [!NOTE]
 > Victor si puedes revisar que en este punto no me haya dejado nada o que no esté diciendo nada que no sea cierto.
@@ -243,9 +253,11 @@ Despite these advancements, a significant gap remains between machine-generated 
 Manage to deploy the DCase baseline model into our server, will provide the needed foundation for the project. As the rest of the objectives will revolve around this model it is critical that we succeed on running the model to study it. 
 
 This project is founded on cloud-based infrastructure, specifically Google Cloud, to handle the extensive computational requirements associated with the large dataset used. Due to the substantial size of the dataset and the complexity of model training, the project utilizes Google Cloud's Virtual Machines (VMs) with specialized GPU support for efficient processing.
+
 <a id="objective2-prerequisites"></a>
-### Prerequisites
-#### Hardware
+
+#### Prerequisites
+##### Hardware
 The machine configuration is as follows:
 
 - **Machine Type:** g2-standard-4  
@@ -292,7 +304,8 @@ We have created different guides and scripts that helps to prepare install and l
 > Once we have the environment created please follow the next step by step guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md).
 
 <a id="objective2-training-process"></a>
-### Training Process
+
+#### Training Process
 
 Once the dataset is prepared, model training follows the standard PyTorch Lightning workflow:
 
@@ -311,7 +324,8 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
   The results are compared with official DCASE Challenge benchmarks to ensure consistency.
 
 <a id="objective2-results"></a>
-### Detailed results
+
+#### Detailed results
 
 | Metric | Score on Clotho-eval | Score on our server |           
 | --- | --- | --- |                                 
@@ -339,18 +353,20 @@ Image of the training results here:
   </p>
 
 <a id="objective2-conclusions"></a>
-### Conclusions 
+#### Conclusions 
 
 After overcoming challenges related to dependency management and securing a cost-effective GPU instance within the Google Cloud environment, we successfully deployed the DCASE baseline model. Subsequently, we proceeded with training the model and conducted a comparative analysis against the results reported in the DCASE Challenge. As demonstrated in the figures below, our training results outcomes closely align with those obtained in the challenge proving that our installation and deployment of the baseline model has been successful. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a id="objective2b-CLAP"></a>
+<a id="objective2b-clap"></a>
+
 ## CLAP replication
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a id="#objective2c-DCASE"></a>
+<a id="#objective2c-demos"></a>
+
 ## DCASE 2024 and CLAP demo deployment
 
 > [!NOTE]
@@ -394,10 +410,66 @@ We can list here while working on the project some roadmap items or we can even 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<a id="#objective3-modify-and-adjust"></a>
+## 3. Modify the decoder architecture and adjust training strategies</a>
 
+> Content here: Roger
 
-## Attention maps
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<a id="#objective4-gain-insights"></a>
+
+## 4. Gain insights into audio captioning and deep learning
+
+<a id="#objective4-explainability"></a>
+
+### Approach to explainability
+
+Given the transformer-based architecture of the DCASE baseline code, our approach to explainability focuses on getting the attention maps and analyzing them.
+
+The originally released code did not provide such feature so we consider this a challenging and interesing enough task to work on for the project.
+
+There multiple files that need to be modified in order to be able to log in the tensorboard some examples of attention maps. What we want to achieve is that:
+- perform the analysis via the tensorboard. the original project already makes use of it to log the evolution of the loss values.
+- log the attention plots aligned with the tokens
+- if possible, make use of some NLP libraries to highlight where the actual item is detected in the attention map (just for some relevant words like verbs and nouns).
+
+More details are provided in the next subsection.
+
+<a id="#objective4-modified-code"></a>
+
+### Modified code
+
+There are 2 kind of files which had to be modified:
+- pytorch library files in order to be able to store the attentio maps in the decoder layers.
+- audio captioning code of the baseline model in order to log it in tensorboard, realize plots, and detect relevant words.
+
+These are the files:
+- from the pytorch library:
+  - sfg
+- from the baseline code:
+  - `src/conf/expt/baseline.yaml`: where we have used `beam_size: 1` in order to avoid having to backtrack the best path.
+  - `src/dcase24t6/models/trans_decoder.py`: 
+    - [decode_audio()](missing link once merged): this function is the wrapper used to generate the encoded audio embeddings into a sequence of words. There are several modes of using it, like `forcing` (for teacher forcing while training), or `generate` while at inference. In the second case, we are interested to provide the sequence of words from the decoded tokens apart from the original string. This is to be able to directly assign time-stamps to the different tokens. That is why we save the list of candidates in `cands_list` variable.
+    - [validation_step()](missing link once merged): it is during the validation step that the logging of the attention maps is produced. each time the function is called one example is logged, and given the amount of files for validation this happens a total amount of 17 times. At the end of the validation process that are 17 plots saved for exploration.
+    - [plot_attention()](missing link once merged): 
+       - this function is called within the validation step in order to make the plot and log it using the `.add_figure()` function of the tensorboard logger. plots are not actually saved as files, but inserted in the tensorboard dashboard instead for exploration.
+       - we call this function for each layer in the decoder and also for the mean of all layers.
+       - we are able to convert from frames to time since the hop_size is 320ms as specified in the configuration. This, 10 frames correspond to 3.2 seconds, for instance. 
+    - [add_time_stamps_to_tags()](missing link once merged): this function is called within the plot_attention function in order to be able to print a subtitle that combines all decoded tokens with some time stamps, only the once related to relevant words like nouns and verbs. We use the NLTK library to detect the part-of-speech tag of the different words in the sentence.
+
+<a id="#objective4-examples"></a>
+
+### Attention maps examples
+
+In this section we show some attention maps examples with their corresponding audio samples used as input:
+
+<a id="#objective4-examples1"></a>
+
+#### Example 1
+
+- Decoded sentence: ```a train approaches and passes by on the tracks```
+- Audio:
 
 <p align="center">
   <audio controls>
@@ -406,15 +478,14 @@ We can list here while working on the project some roadmap items or we can even 
   </audio>
 </p>
 
-
-model: ```a train approaches and passes by on the tracks```
-
+ - Attention map:
 
 <p align="center">
   <img src="doc/images/attentionmap.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
 </p>
 <p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
 
+- Audio waveform:
 
 <p align="center">
   <img src="doc/images/attention_audio.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
@@ -429,6 +500,22 @@ model: ```a train approaches and passes by on the tracks```
 
 train
 
+<a id="#objective4-examples2"></a>
+
+#### Example 2
+
+<a id="#objective4-examples3"></a>
+
+#### Example 3
+
+
+<a id="#objective4-examples4"></a>
+
+#### Example 4
+
+<a id="#objective4-examples5"></a>
+
+#### Example 5
 
 
 
@@ -446,8 +533,6 @@ Thanks to the following contributors:
 
 
 ## References
-
-
 
 <a id="dcase2024"></a>DCASE. (2024). Detection and Classification of Acoustic Scenes and Events (DCASE) Challenge 2024. DCASE. https://dcase.community/challenge2024/
 
