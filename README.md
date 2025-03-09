@@ -127,8 +127,9 @@
       - [Example 4](#example-4)
       - [Example 5](#example-5)
     - [Conclusions](#conclusions-1)
-  - [Contributing](#contributing)
-  - [References](#references)
+- [MLOps Tensorboard](#mlops-tensorboard)
+- [Contributing](#contributing)
+- [References](#references)
   
 </details>
 
@@ -753,6 +754,11 @@ train
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## <a name='mlops-tensorboard'></a>MLOps Tensorboard
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## <a name='Contributing'></a>Contributing
 
