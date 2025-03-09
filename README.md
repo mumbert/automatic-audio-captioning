@@ -10,7 +10,7 @@
     <br />
     <br />
     <a>
-        <img src="doc/images/task6_aac_system_example.png" alt="Logo" width="200" height="200">
+        <img src="doc/images/task6_aac_system_example.png" alt="Logo" width="400" height="400">
   </a>
   </p>
 </div>
@@ -74,6 +74,9 @@
 </details>
 
 
+
+
+
 <a id="introduction"></a>
 # Introduction
 
@@ -90,12 +93,12 @@ Recent advancements in deep learning have significantly improved AAC performance
 # About the project
 
 <a id="motivation"></a>
-## Motivation
+## <a name='Motivation'></a>Motivation
 
 AAC represents a cutting‐edge intersection of audio signal processing and natural language generation with significant real-world impact. The practical applications of AAC are manifold—from enhancing accessibility for the hearing-impaired and augmenting multimedia retrieval systems to serving as a critical component in intelligent monitoring and human–machine interaction. In parallel, the emergence of challenges such as [DCASE 2024](#dcase2024) has highlighted the growing research momentum and industry relevance of AAC. The DCASE challenge not only benchmarks state-of-the-art methods but also catalyzes innovation by providing a structured platform for evaluating model performance under diverse conditions. This project is driven by the dual purposes of exploring AAC’s promising practical implementations and taking into account the insights gained from DCASE 2024 to refine and advance current methodologies.
 
 <a id="objectives"></a>
-## Objectives
+## <a name='Objectives'></a>Objectives
 
 Thus, the **objectives of this project** include investigating and experimenting with AAC by systematically analyzing state-of-the-art methods, replicating established baselines, and evaluating modifications to model architectures. The specific key goals are as follows:
 
@@ -117,7 +120,7 @@ This structured approach ensures a methodical evaluation of AAC systems, contrib
 > After studing the DCASE baseline model and trying to use different decoder types like BERT [process explained here](#objective3) for the caption generation process, we concluded that with the time and resources we had left, it was maybe a bit too ambitious objective. Hence, we decided to change it by dropping the decoding modification part (within objective 3) and focus on how to improve the training by exploring different **Hyperparameter** specifications.
 
 <a id="schedule"></a>
-## Schedule
+## <a name='Schedule'></a>Schedule
 
 The project is scheduled to run from December 1st to March 17th.  [Figure 2](#fig-schedule) provides an overview of the main objectives and corresponding tasks.
 
@@ -143,10 +146,10 @@ Lastly, the fourth goal involves synthesizing all gathered insights and conducti
 # Objectives 
 
 <a id="understand-stat-of-the-art-aac-systems"></a>
-## 1. Understand state-of-the-art AAC systems
+## <a name='Understandstate-of-the-artAACsystems'></a>1. Understand state-of-the-art AAC systems
 
 <a id="objective1-introduction"></a>
-### Introduction
+### <a name='Introduction'></a>Introduction
 
 Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. 
 
@@ -166,7 +169,7 @@ Down below we summarize key developments in model architectures, training strate
 
 <a id="objective1-model-architectures"></a>
 
-### Model Architectures
+### <a name='ModelArchitectures'></a>Model Architectures
 
 The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1 [ paper reference CoNette], the encoder processes the input audio clip, and the decoder generates the corresponding caption.
 
@@ -201,7 +204,7 @@ Decoders, typically RNNs or Transformers, generate captions based on the encoded
 
 <a id="objective1-training-strategies"></a>
 
-### Training Strategies
+### <a name='TrainingStrategies'></a>Training Strategies
 
 Recent developments in AAC training strategies focus on addressing key challenges and improving model performance. The main approaches include:
  
@@ -227,7 +230,7 @@ While these strategies show promise, their effectiveness can vary across dataset
 
 <a id="objective1-evaluation-metrics"></a>
 
-### Evaluation Metrics
+### <a name='EvaluationMetrics'></a>Evaluation Metrics
 
 The evaluation of AAC systems involves metrics that assess the quality and relevance of generated captions compared to human-generated references. Common metrics include:
 
@@ -243,14 +246,14 @@ Despite these advancements, a significant gap remains between machine-generated 
 
 <a id="objective2-baseline-models"></a>
 
-## 2. Baseline models replication
+## <a name='Baselinemodelsreplication'></a>2. Baseline models replication
 
 <a id="objective2-dcase-2024-challenge-baseline-replication"></a>
-### DCASE 2024 challenge baseline replication
+### <a name='DCASE2024challengebaselinereplication'></a>DCASE 2024 challenge baseline replication
 
 <a id="objective2-introduction"></a>
 
-#### Introduction
+#### <a name='Introduction-1'></a>Introduction
 
 > [!NOTE]
 > Victor si puedes revisar que en este punto no me haya dejado nada o que no esté diciendo nada que no sea cierto.
@@ -263,7 +266,7 @@ This project is founded on cloud-based infrastructure, specifically Google Cloud
 
 <a id="objective2-prerequisites"></a>
 
-#### Prerequisites
+#### <a name='Prerequisites'></a>Prerequisites
 ##### Hardware
 The machine configuration is as follows:
 
@@ -276,7 +279,7 @@ The NVIDIA L4 GPU was chosen for its optimized performance in deep learning task
 - **Architecture:** x86-64
 The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
 <a id="objective2-installation"></a>
-### Installation
+### <a name='Installation'></a>Installation
 
 Essentially the installation process requires 4 parts: 
 - **1.Prepare Environment and Install Repository**
@@ -314,7 +317,7 @@ We have created different guides and scripts that helps to prepare install and l
 
 <a id="objective2-training-process"></a>
 
-#### Training Process
+#### <a name='TrainingProcess'></a>Training Process
 
 Once the dataset is prepared, model training follows the standard PyTorch Lightning workflow:
 
@@ -336,7 +339,7 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
 
 <a id="objective2-results"></a>
 
-#### Detailed results
+#### <a name='Detailedresults'></a>Detailed results
 
 | Metric | Score on Clotho-eval | Score on our server |           
 | --- | --- | --- |                                 
@@ -366,7 +369,7 @@ Image of the training results here:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2-conclusions"></a>
-#### Conclusions 
+#### <a name='Conclusions'></a>Conclusions 
 
 After overcoming challenges related to dependency management and securing a cost-effective GPU instance within the Google Cloud environment, we successfully deployed the DCASE baseline model. Subsequently, we proceeded with training the model and conducted a comparative analysis against the results reported in the DCASE Challenge. As demonstrated in the figures below, our training results outcomes closely align with those obtained in the challenge proving that our installation and deployment of the baseline model has been successful. 
 
@@ -374,13 +377,13 @@ After overcoming challenges related to dependency management and securing a cost
 
 <a id="objective2b-clap"></a>
 
-## CLAP replication
+## <a name='CLAPreplication'></a>CLAP replication
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2c-demos"></a>
 
-## DCASE 2024 and CLAP demo deployment
+## <a name='DCASE2024andCLAPdemodeployment'></a>DCASE 2024 and CLAP demo deployment
 
 > [!NOTE]
 >  Victor y/o Martí me podeis explicar con un poco más de detalle la demo?
@@ -403,7 +406,7 @@ For more information on the demo, please check the following [demo README](doc/R
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Usage
+## <a name='Usage'></a>Usage
 
 In this section we can provide some simple commands to test the installation works, but we might want to put multiple commands on a separate readme file. We can also have separate notebooks if we have time on a separate folder for different configurations, training processes, etc.
 
@@ -412,7 +415,7 @@ For more information on using this project, please check the following [usage RE
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Roadmap
+## <a name='Roadmap'></a>Roadmap
 
 We can list here while working on the project some roadmap items or we can even leave here what could eventually be done in the future.
 
@@ -424,7 +427,7 @@ We can list here while working on the project some roadmap items or we can even 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective3-modify-and-adjust"></a>
-## 3. Modify the decoder architecture and adjust training strategies</a>
+## <a name=''></a>
 
 > Content here: Roger
 
@@ -432,11 +435,11 @@ We can list here while working on the project some roadmap items or we can even 
 
 <a id="objective4-gain-insights"></a>
 
-## 4. Gain insights into audio captioning and deep learning
+## <a name='Gaininsightsintoaudiocaptioninganddeeplearning'></a>4. Gain insights into audio captioning and deep learning
 
 <a id="objective4-explainability"></a>
 
-### Approach to explainability
+### <a name='Approachtoexplainability'></a>Approach to explainability
 
 Given the transformer-based architecture of the DCASE baseline code, our approach to explainability focuses on getting the attention maps and analyzing them. The originally released code did not provide such feature so we consider this a challenging and interesing enough task to work on for the project.
 
@@ -449,7 +452,7 @@ More details are provided in the next subsection.
 
 <a id="objective4-modified-code"></a>
 
-### Modified code
+### <a name='Modifiedcode'></a>Modified code
 
 There are 2 kind of files which had to be modified:
 - pytorch library files in order to be able to store the attentio maps in the decoder layers.
@@ -471,13 +474,13 @@ These are the files:
 
 <a id="objective4-examples"></a>
 
-### Attention maps examples
+### <a name='Attentionmapsexamples'></a>Attention maps examples
 
 In this section we show some attention maps examples with their corresponding audio samples used as input:
 
 <a id="objective4-examples1"></a>
 
-#### Example 1
+#### <a name='Example1'></a>Example 1
 
 - Decoded sentence: ```a train approaches and passes by on the tracks```
 - Audio:
@@ -513,7 +516,7 @@ train
 
 <a id="objective4-examples2"></a>
 
-#### Example 2
+#### <a name='Example2'></a>Example 2
 
 - Decoded sentence: ```people are talking in the background as a person is walking```
 - Audio:
@@ -526,7 +529,7 @@ train
 </p>
 
 
-- Attention map for all layers:
+- Attention map of the mean of all layers:
 
 <p align="center">
   <img src="doc/images/attention_map_Small_Eatery.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
@@ -545,21 +548,37 @@ train
 
 <a id="objective4-examples3"></a>
 
-#### Example 3
+#### <a name='Example3'></a>Example 3
 
-- Decoded sentence: ```text here```
+- Decoded sentence: ```a machine is running and then turned off```
 - Audio:
 
+<p align="center">
+  <audio controls>
+    <source src="doc/audios/windup_flashlight.wav" type="audio/wav">
+    <a href="doc/audios/windup_flashlight.wav">windup_flashlight.wav</a>
+  </audio>
+</p>
 
-- Attention map:
+
+- Attention map of the mean of all layers:
+
+<p align="center">
+  <img src="doc/images/attention_map_windup_flashlight.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
 
 
 - Audio waveform:
 
+<p align="center">
+  <img src="doc/images/waveform_windup_flashlight.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
 
 
 <a id="objective4-examples4"></a>
-#### Example 4
+#### <a name='Example4'></a>Example 4
 
 - Decoded sentence: ```text here```
 - Audio:
@@ -573,7 +592,7 @@ train
 
 
 <a id="objective4-examples5"></a>
-#### Example 5
+#### <a name='Example5'></a>Example 5
 
 - Decoded sentence: ```text here```
 - Audio:
@@ -588,7 +607,7 @@ train
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Contributing
+## <a name='Contributing'></a>Contributing
 
 Thanks to the following contributors:
 - [Martí Umbert](https://github.com/mumbert)
@@ -599,7 +618,7 @@ Thanks to the following contributors:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## References
+## <a name='References'></a>References
 
 <a id="dcase2024"></a>DCASE. (2024). Detection and Classification of Acoustic Scenes and Events (DCASE) Challenge 2024. DCASE. https://dcase.community/challenge2024/
 
