@@ -521,9 +521,10 @@ train
 <p align="center">
   <audio controls>
     <source src="doc/audios/Small_Eatery.wav" type="audio/wav">
-    [Small_Eatery.wav](doc/audios/Small_Eatery.wav)
+    <a href="doc/audios/Small_Eatery.wav">Small_Eatery.wav</a>
   </audio>
 </p>
+
 
 - Attention map for all layers:
 
