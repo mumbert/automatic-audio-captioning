@@ -56,7 +56,6 @@
                 <li><a href="#objective2-conclusions">Conclusions</a></li>
               </ul>
             </li>
-<<<<<<< HEAD
             <li><a href="#CLAP-replication">CLAP replication</a>
               <ul>
                 <li><a href="#objective2b-introduction">Introduction</a>
@@ -68,10 +67,6 @@
               </ul>
             </li>
             <li><a href="#Understand-state-of-the-art-AAC-systems">DCASE 2024 and CLAP demo deployment</a></li>
-=======
-            <li><a href="#objective2b-clap">CLAP replication</a></li>
-            <li><a href="#objective2c-demos">DCASE 2024 and CLAP demo deployment</a></li>
->>>>>>> a1897e0dfb81955a3966fa5d1f7983f6345961da
           </ul>
         </li>
         <li>
@@ -320,15 +315,9 @@ This project is founded on cloud-based infrastructure, specifically Google Cloud
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2-prerequisites"></a>
-<<<<<<< HEAD
 ### Prerequisites
 <a id="objective2-hardware"></a>
 #### Hardware
-=======
-
-#### <a name='Prerequisites'></a>Prerequisites
-##### Hardware
->>>>>>> a1897e0dfb81955a3966fa5d1f7983f6345961da
 The machine configuration is as follows:
 
 - **Machine Type:** g2-standard-4  
@@ -443,7 +432,6 @@ After overcoming challenges related to dependency management and securing a cost
 
 <a id="objective2b-clap"></a>
 
-<<<<<<< HEAD
 > [!NOTE]
 > Martí si puedes revisar que en este punto no me haya dejado nada o que no esté diciendo nada que no sea cierto.
 
@@ -523,15 +511,6 @@ Integrating CLAP into AAC systems represents a significant advancement in the fi
 I have focused on comparing with the baseline methods by looking at architechtures, adaptations and training strategies, also I have talked about the advantages that are to have the method based on CLAP.
 
 ## DCASE 2024 and CLAP demo deployment
-=======
-### <a name='CLAPreplication'></a>CLAP
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- <a id="objective2c-demos"></a> -->
-
-### <a name='DCASE2024andCLAPdemodeployment'></a>DCASE 2024 and CLAP demo deployment
->>>>>>> a1897e0dfb81955a3966fa5d1f7983f6345961da
 
 > [!NOTE]
 >  Victor y/o Martí me podeis explicar con un poco más de detalle la demo?
@@ -776,7 +755,6 @@ Thanks to the following contributors:
 <a id="drossos2017"></a>Drossos, K., Adavanne, S., & Virtanen, T. (2017). Automated audio captioning with recurrent neural networks. *2017 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA).* [https://doi.org/10.48550/arXiv.1706.10006](https://doi.org/10.48550/arXiv.1706.10006)
 
 <a id="Labbe2023"></a>Labbé, É., Pellegrini, T., & Pinquier, J. (2023). CoNeTTE: An efficient audio captioning system leveraging multiple datasets with task embedding. https://doi.org/10.48550/arXiv.2309.00454
-
 
 <a id="Mei2021"></a>Mei, X., Liu, X., Plumbley, M. D., & Wang, W. (2021). Audio captioning transformer. Detection and Classification of Acoustic Scenes and Events (DCASE 2021). https://doi.org/10.48550/arXiv.2107.09817
 
