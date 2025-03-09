@@ -89,19 +89,18 @@
     - [Training Strategies](#training-strategies)
     - [Evaluation Metrics](#evaluation-metrics)
   - [2. Baseline models replication](#2-baseline-models-replication)
-    - [DCASE 2024 challenge baseline replication](#dcase-2024-challenge-baseline-replication)
+    - [DCASE 2024 challenge baseline](#dcase-2024-challenge-baseline)
       - [Introduction](#introduction-2)
       - [Prerequisites](#prerequisites)
         - [Hardware](#hardware)
-    - [Installation](#installation)
+        - [Software](#software)
+      - [Installation](#installation)
       - [Training Process](#training-process)
       - [Detailed results](#detailed-results)
       - [Conclusions](#conclusions)
-  - [CLAP replication](#clap-replication)
-  - [DCASE 2024 and CLAP demo deployment](#dcase-2024-and-clap-demo-deployment)
-  - [Usage](#usage)
-  - [Roadmap](#roadmap)
-  - [](#)
+    - [CLAP](#clap)
+    - [DCASE 2024 and CLAP demo deployment](#dcase-2024-and-clap-demo-deployment)
+  - [3. Modify the decoder architecture and adjust training strategies](#3-modify-the-decoder-architecture-and-adjust-training-strategies)
   - [4. Gain insights into audio captioning and deep learning](#4-gain-insights-into-audio-captioning-and-deep-learning)
     - [Approach to explainability](#approach-to-explainability)
     - [Modified code](#modified-code)
@@ -111,6 +110,7 @@
       - [Example 3](#example-3)
       - [Example 4](#example-4)
       - [Example 5](#example-5)
+    - [Conclusions](#conclusions-1)
   - [Contributing](#contributing)
   - [References](#references)
   
@@ -290,7 +290,7 @@ Despite these advancements, a significant gap remains between machine-generated 
 ## <a name='Baselinemodelsreplication'></a>2. Baseline models replication
 
 <a id="objective2-dcase-2024-challenge-baseline-replication"></a>
-### <a name='DCASE2024challengebaselinereplication'></a>DCASE 2024 challenge baseline replication
+### <a name='DCASE2024challengebaselinereplication'></a>DCASE 2024 challenge baseline
 
 <a id="objective2-introduction"></a>
 
@@ -319,8 +319,13 @@ The NVIDIA L4 GPU was chosen for its optimized performance in deep learning task
 
 - **Architecture:** x86-64
 The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
+
+##### Software
+
+> TODO: include operating system
+
 <a id="objective2-installation"></a>
-### <a name='Installation'></a>Installation
+#### <a name='Installation'></a>Installation
 
 Essentially the installation process requires 4 parts: 
 - **1.Prepare Environment and Install Repository**
@@ -418,13 +423,13 @@ After overcoming challenges related to dependency management and securing a cost
 
 <a id="objective2b-clap"></a>
 
-## <a name='CLAPreplication'></a>CLAP replication
+### <a name='CLAPreplication'></a>CLAP
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a id="objective2c-demos"></a>
+<!-- <a id="objective2c-demos"></a> -->
 
-## <a name='DCASE2024andCLAPdemodeployment'></a>DCASE 2024 and CLAP demo deployment
+### <a name='DCASE2024andCLAPdemodeployment'></a>DCASE 2024 and CLAP demo deployment
 
 > [!NOTE]
 >  Victor y/o Martí me podeis explicar con un poco más de detalle la demo?
@@ -447,7 +452,7 @@ For more information on the demo, please check the following [demo README](doc/R
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## <a name='Usage'></a>Usage
+<!-- ## <a name='Usage'></a>Usage
 
 In this section we can provide some simple commands to test the installation works, but we might want to put multiple commands on a separate readme file. We can also have separate notebooks if we have time on a separate folder for different configurations, training processes, etc.
 
@@ -465,16 +470,15 @@ We can list here while working on the project some roadmap items or we can even 
 - [ ] Review DCASE dataset
 - [ ] Review DCASE metrics
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
-<a id="objective3-modify-and-adjust"></a>
-## <a name=''></a>
+## 3. Modify the decoder architecture and adjust training strategies
 
 > Content here: Roger
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<a id="objective4-gain-insights"></a>
+<!-- <a id="objective4-gain-insights"></a> -->
 
 ## <a name='Gaininsightsintoaudiocaptioninganddeeplearning'></a>4. Gain insights into audio captioning and deep learning
 
@@ -644,6 +648,10 @@ train
 
 - Audio waveform:
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### <a name='Conclusions'></a>Conclusions
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
