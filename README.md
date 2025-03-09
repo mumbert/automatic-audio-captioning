@@ -34,7 +34,7 @@
       <a href="#objectives-main">Objectives</a>
       <ul>
         <li>
-          <a href="#understand-stat-of-the-art-aac-systems">1. Understand stat of the art AAC systems</a>
+          <a href="#understand-stat-of-the-art-aac-systems">1. Understand state of the art AAC systems</a>
           <ul>
             <li><a href="#objective1-introduction">Introduction</a></li>
             <li><a href="#objective1-model-architectures">Model Architectures</a></li>
@@ -46,13 +46,13 @@
           <a href="#objective2-baseline-models">2. Baseline models replication</a>
           <ul>
             <li>
-              <a href="#dcase-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a>
+              <a href="#objective2-dcase-2024-challenge-baseline-replication">DCASE 2024 challenge baseline replication</a>
               <ul>
                 <li><a href="#objective2-introduction">Introduction</a></li>
                 <li><a href="#objective2-prerequisites">Prerequisites</a></li>
                 <li><a href="#objective2-installation">Installation</a></li>
                 <li><a href="#objective2-training-process">Training Process</a></li>
-                <li><a href="#objective2-results">Results</a></li>
+                <li><a href="#objective2-results">Detailed results</a></li>
                 <li><a href="#objective2-conclusions">Conclusions</a></li>
               </ul>
             </li>
@@ -162,6 +162,8 @@ Despite these advances, several challenges persist. Current systems still face l
 
 Down below we summarize key developments in model architectures, training strategies, and evaluation metrics within the AAC field.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <a id="objective1-model-architectures"></a>
 
 ### Model Architectures
@@ -195,6 +197,8 @@ Encoders extract audio features using various neural networks types, including:
 
 Decoders, typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <a id="objective1-training-strategies"></a>
 
 ### Training Strategies
@@ -219,6 +223,8 @@ Recent developments in AAC training strategies focus on addressing key challenge
 
 While these strategies show promise, their effectiveness can vary across datasets and implementations. Ongoing research continues to refine and combine these approaches to improve AAC performance.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <a id="objective1-evaluation-metrics"></a>
 
 ### Evaluation Metrics
@@ -239,8 +245,7 @@ Despite these advancements, a significant gap remains between machine-generated 
 
 ## 2. Baseline models replication
 
-<a id="dcase-2024-challenge-baseline-replication"></a>
-
+<a id="objective2-dcase-2024-challenge-baseline-replication"></a>
 ### DCASE 2024 challenge baseline replication
 
 <a id="objective2-introduction"></a>
@@ -253,6 +258,8 @@ Despite these advancements, a significant gap remains between machine-generated 
 Manage to deploy the DCase baseline model into our server, will provide the needed foundation for the project. As the rest of the objectives will revolve around this model it is critical that we succeed on running the model to study it. 
 
 This project is founded on cloud-based infrastructure, specifically Google Cloud, to handle the extensive computational requirements associated with the large dataset used. Due to the substantial size of the dataset and the complexity of model training, the project utilizes Google Cloud's Virtual Machines (VMs) with specialized GPU support for efficient processing.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2-prerequisites"></a>
 
@@ -303,6 +310,8 @@ We have created different guides and scripts that helps to prepare install and l
 >
 > Once we have the environment created please follow the next step by step guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md).
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <a id="objective2-training-process"></a>
 
 #### Training Process
@@ -322,6 +331,8 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
 - **3.Evaluate the Model:**
   After training, the model’s performance is assessed using aac-metrics, a package that computes SPIDEr-FL, METEOR, CIDEr, BLEU, and ROUGE scores.
   The results are compared with official DCASE Challenge benchmarks to ensure consistency.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2-results"></a>
 
@@ -351,6 +362,8 @@ Image of the training results here:
   <p align="center">
     <img src="doc/images/dcase24-training.jpg" alt="CNN diagram" width="600" style="height: auto;">
   </p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2-conclusions"></a>
 #### Conclusions 
