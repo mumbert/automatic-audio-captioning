@@ -438,11 +438,9 @@ We can list here while working on the project some roadmap items or we can even 
 
 ### Approach to explainability
 
-Given the transformer-based architecture of the DCASE baseline code, our approach to explainability focuses on getting the attention maps and analyzing them.
+Given the transformer-based architecture of the DCASE baseline code, our approach to explainability focuses on getting the attention maps and analyzing them. The originally released code did not provide such feature so we consider this a challenging and interesing enough task to work on for the project.
 
-The originally released code did not provide such feature so we consider this a challenging and interesing enough task to work on for the project.
-
-There multiple files that need to be modified in order to be able to log in the tensorboard some examples of attention maps. What we want to achieve is that:
+There multiple files that need to be modified in order to be able to log in the tensorboard some examples of attention maps. In short, what we want to achieve is to:
 - perform the analysis via the tensorboard. the original project already makes use of it to log the evolution of the loss values.
 - log the attention plots aligned with the tokens
 - if possible, make use of some NLP libraries to highlight where the actual item is detected in the attention map (just for some relevant words like verbs and nouns).
@@ -494,14 +492,14 @@ In this section we show some attention maps examples with their corresponding au
  - Attention map:
 
 <p align="center">
-  <img src="doc/images/attentionmap.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
+  <img src="doc/images/attentionmap.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
 </p>
 <p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
 
 - Audio waveform:
 
 <p align="center">
-  <img src="doc/images/attention_audio.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
+  <img src="doc/images/attention_audio.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
 </p>
 <p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
 
@@ -517,16 +515,73 @@ train
 
 #### Example 2
 
+- Decoded sentence: ```people are talking in the background as a person is walking```
+- Audio:
+
+<p align="center">
+  <audio controls>
+    <source src="doc/audios/Small_Eatery.wav" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio>
+</p>
+
+- Attention map:
+
+<p align="center">
+  <img src="doc/images/attention_map_Small_Eatery.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+
+
+- Audio waveform:
+
+<p align="center">
+  <img src="doc/images/waveform_Small_Eatery.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+
+
+
 <a id="objective4-examples3"></a>
 
 #### Example 3
+
+- Decoded sentence: ```text here```
+- Audio:
+
+
+- Attention map:
+
+
+- Audio waveform:
+
 
 
 <a id="objective4-examples4"></a>
 #### Example 4
 
+- Decoded sentence: ```text here```
+- Audio:
+
+
+- Attention map:
+
+
+- Audio waveform:
+
+
+
 <a id="objective4-examples5"></a>
 #### Example 5
+
+- Decoded sentence: ```text here```
+- Audio:
+
+
+- Attention map:
+
+
+- Audio waveform:
 
 
 
