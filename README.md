@@ -521,11 +521,11 @@ train
 <p align="center">
   <audio controls>
     <source src="doc/audios/Small_Eatery.wav" type="audio/wav">
-    Your browser does not support the audio element.
+    [Small_Eatery.wav](doc/audios/Small_Eatery.wav)
   </audio>
 </p>
 
-- Attention map:
+- Attention map for all layers:
 
 <p align="center">
   <img src="doc/images/attention_map_Small_Eatery.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
