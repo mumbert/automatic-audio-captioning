@@ -101,8 +101,8 @@
     - [DCASE 2024 challenge baseline](#dcase-2024-challenge-baseline)
       - [Introduction](#introduction-2)
       - [Prerequisites](#prerequisites)
-      - [Hardware](#hardware)
-      - [Software](#software)
+        - [Hardware](#hardware)
+        - [Software](#software)
       - [Installation](#installation)
       - [Training Process](#training-process)
       - [Detailed results](#detailed-results)
@@ -119,13 +119,8 @@
   - [3. Modify the decoder architecture and adjust training strategies](#3-modify-the-decoder-architecture-and-adjust-training-strategies)
   - [4. Gain insights into audio captioning and deep learning](#4-gain-insights-into-audio-captioning-and-deep-learning)
     - [Approach to explainability](#approach-to-explainability)
-    - [Modified code](#modified-code)
+    - [Code modifications](#code-modifications)
     - [Attention maps examples](#attention-maps-examples)
-      - [Example 1](#example-1)
-      - [Example 2](#example-2)
-      - [Example 3](#example-3)
-      - [Example 4](#example-4)
-      - [Example 5](#example-5)
     - [Conclusions](#conclusions-1)
 - [Future directions](#future-directions)
   - [Architectures](#architectures)
@@ -329,7 +324,7 @@ This project is founded on cloud-based infrastructure, specifically Google Cloud
 <a id="objective2-prerequisites"></a>
 #### Prerequisites
 <a id="objective2-hardware"></a>
-#### Hardware
+##### Hardware
 The machine configuration is as follows:
 
 - **Machine Type:** g2-standard-4  
@@ -341,7 +336,7 @@ The NVIDIA L4 GPU was chosen for its optimized performance in deep learning task
 - **Architecture:** x86-64
 The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
 
-#### Software
+##### Software
 
 > TODO: include operating system
 
@@ -600,7 +595,7 @@ More details are provided in the next subsection.
 
 <a id="objective4-modified-code"></a>
 
-### <a name='Modifiedcode'></a>Modified code
+### <a name='Modifiedcode'></a>Code modifications
 
 There are 2 kind of files which had to be modified:
 - pytorch library files in order to be able to store the attentio maps in the decoder layers.
@@ -628,9 +623,7 @@ In this section we show some attention maps examples with their corresponding au
 
 > NOTE: if you are reading this document as an regular online README file you won't have a rendered audio player since github does not support it, but you can click on the corresponding link and download the file. Alternatively, you can clone the current repository and read it via VSCode, for instance, in which the audio players are correctly rendered.
 
-<a id="objective4-examples1"></a>
-
-#### <a name='Example1'></a>Example 1
+**Example 1**
 
 - File name: `140815_drezyna_3.wav`
 - Decoded sentence: ```a train is passing by on the tracks and a person is walking```
@@ -640,7 +633,7 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <audio controls>
     <source src="doc/audios/140815_drezyna_3.wav" type="audio/wav">
-    Your browser does not support the audio element.
+    <a href="doc/audios/140815_drezyna_3.wav">140815_drezyna_3.wav</a>
   </audio>
 </p>
 
@@ -664,11 +657,9 @@ In this section we show some attention maps examples with their corresponding au
 </p>
 <p align="center"><a id="fig-example-demo"></a><em>Figure 6: token etc</em></p> -->
 
-train
+<!-- train -->
 
-<a id="objective4-examples2"></a>
-
-#### <a name='Example2'></a>Example 2
+**Example 2**
 
 - File name: `Small_Eatery.wav`
 - Decoded sentence: ```people are talking in the background as a person is walking```
@@ -700,9 +691,7 @@ train
 
 
 
-<a id="objective4-examples3"></a>
-
-#### <a name='Example3'></a>Example 3
+**Example 3**
 
 - File name: `windup_flashlight.wav`
 - Decoded sentence: ```a machine is running and then turned off```
@@ -733,10 +722,10 @@ train
 <p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
 
 
-<a id="objective4-examples4"></a>
-#### <a name='Example4'></a>Example 4
+**Example 4**
 
 - Decoded sentence: ```text here```
+- Decoded sentence with time stamps:
 - Audio:
 
 <p align="center">
@@ -761,9 +750,7 @@ train
 <p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
 
 
-
-<a id="objective4-examples5"></a>
-#### <a name='Example5'></a>Example 5
+**Example 5**
 
 - Decoded sentence: ```text here```
 - Audio:
