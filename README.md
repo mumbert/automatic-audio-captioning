@@ -16,7 +16,7 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<details>
+<!-- <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -71,9 +71,50 @@
       </ul>
     </li>
   </ol>
+</details> -->
+
+
+<details>
+  <summary>Table of Contents</summary>
+
+- [Introduction](#introduction)
+- [About the project](#about-the-project)
+  - [Motivation](#motivation)
+  - [Objectives](#objectives)
+  - [Schedule](#schedule)
+- [Objectives](#objectives-1)
+  - [1. Understand state-of-the-art AAC systems](#1-understand-state-of-the-art-aac-systems)
+    - [Introduction](#introduction-1)
+    - [Model Architectures](#model-architectures)
+    - [Training Strategies](#training-strategies)
+    - [Evaluation Metrics](#evaluation-metrics)
+  - [2. Baseline models replication](#2-baseline-models-replication)
+    - [DCASE 2024 challenge baseline replication](#dcase-2024-challenge-baseline-replication)
+      - [Introduction](#introduction-2)
+      - [Prerequisites](#prerequisites)
+        - [Hardware](#hardware)
+    - [Installation](#installation)
+      - [Training Process](#training-process)
+      - [Detailed results](#detailed-results)
+      - [Conclusions](#conclusions)
+  - [CLAP replication](#clap-replication)
+  - [DCASE 2024 and CLAP demo deployment](#dcase-2024-and-clap-demo-deployment)
+  - [Usage](#usage)
+  - [Roadmap](#roadmap)
+  - [](#)
+  - [4. Gain insights into audio captioning and deep learning](#4-gain-insights-into-audio-captioning-and-deep-learning)
+    - [Approach to explainability](#approach-to-explainability)
+    - [Modified code](#modified-code)
+    - [Attention maps examples](#attention-maps-examples)
+      - [Example 1](#example-1)
+      - [Example 2](#example-2)
+      - [Example 3](#example-3)
+      - [Example 4](#example-4)
+      - [Example 5](#example-5)
+  - [Contributing](#contributing)
+  - [References](#references)
+  
 </details>
-
-
 
 
 
