@@ -122,7 +122,7 @@
     - [Code modifications](#code-modifications)
     - [Attention maps examples](#attention-maps-examples)
     - [Conclusions](#conclusions-1)
-- [MLOps Tensorboard](#mlops-tensorboard)
+  - [MLOps Tensorboard](#mlops-tensorboard)
 - [Future directions](#future-directions)
   - [Architectures](#architectures)
   - [Datasets](#datasets)
@@ -605,7 +605,27 @@ There are 2 kind of files which had to be modified:
 
 These are the files:
 - from the pytorch library:
-  - sfg
+  - `torch/nn/modules/transformer.py` --> change function [_mha_block()](https://github.com/pytorch/pytorch/blob/1eba9b3aa3c43f86f4a2c807ac8e12c4a7767340/torch/nn/modules/transformer.py#L1140) to:
+```
+    # multihead attention block
+    def _mha_block(self, x: Tensor, mem: Tensor,
+                   attn_mask: Optional[Tensor], key_padding_mask: Optional[Tensor], is_causal: bool = False) -> Tensor:
+        x, attn_weights = self.multihead_attn(x, mem, mem,   # --> Modified line: we capture the attention weights
+                                attn_mask=attn_mask,
+                                key_padding_mask=key_padding_mask,
+                                is_causal=is_causal,
+                                need_weights=True)           # [0] --> Modified line: we want to capture the 2 returned variables, not just one
+        self.attn_weights = attn_weights  # --> Modified line: we store the weights for later retrieval
+        return self.dropout2(x)
+```
+  since we are interesting in setting `need_weights = True`
+```
+        need_weights: If specified, returns ``attn_output_weights`` in addition to ``attn_outputs``.
+            Set ``need_weights=False`` to use the optimized ``scaled_dot_product_attention``
+            and achieve the best performance for MHA.
+            Default: ``True``.
+```
+
 - from the baseline code:
   - `src/conf/expt/baseline.yaml`: where we have used `beam_size: 1` in order to avoid having to backtrack the best path.
   - `src/dcase24t6/models/trans_decoder.py`: 
