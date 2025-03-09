@@ -101,20 +101,20 @@
     - [DCASE 2024 challenge baseline](#dcase-2024-challenge-baseline)
       - [Introduction](#introduction-2)
       - [Prerequisites](#prerequisites)
-        - [Hardware](#hardware)
-        - [Software](#software)
+      - [Hardware](#hardware)
+      - [Software](#software)
       - [Installation](#installation)
       - [Training Process](#training-process)
       - [Detailed results](#detailed-results)
       - [Conclusions](#conclusions)
-    - [CLAP](#clap)
-      - [Introduction](#introduction-2b)
-      - [Prerequisites](#prerequisites-2b)
-        - [Hardware](#hardware-2b)
-        - [Software](#software-2b)
-      - [Installation](#installation-2b)
-      - [Detailed results](#detailed-results-2b)
-      - [Conclusions](#conclusions-2b)
+    - [CLAP model replication](#clap-model-replication)
+      - [Introduction](#introduction-3)
+      - [Prerequisites](#prerequisites-1)
+        - [Hardware](#hardware-1)
+        - [Software](#software-1)
+      - [Installation](#installation-1)
+      - [Detailed results](#detailed-results-1)
+      - [Conclusion](#conclusion)
     - [DCASE 2024 and CLAP demo deployment](#dcase-2024-and-clap-demo-deployment)
   - [3. Modify the decoder architecture and adjust training strategies](#3-modify-the-decoder-architecture-and-adjust-training-strategies)
   - [4. Gain insights into audio captioning and deep learning](#4-gain-insights-into-audio-captioning-and-deep-learning)
@@ -127,8 +127,13 @@
       - [Example 4](#example-4)
       - [Example 5](#example-5)
     - [Conclusions](#conclusions-1)
-  - [Contributing](#contributing)
-  - [References](#references)
+- [Future directions](#future-directions)
+  - [Architectures](#architectures)
+  - [Datasets](#datasets)
+  - [Metrics](#metrics)
+- [Contributing](#contributing)
+- [References](#references)
+
   
 </details>
 
@@ -322,7 +327,7 @@ This project is founded on cloud-based infrastructure, specifically Google Cloud
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2-prerequisites"></a>
-### Prerequisites
+#### Prerequisites
 <a id="objective2-hardware"></a>
 #### Hardware
 The machine configuration is as follows:
@@ -336,7 +341,7 @@ The NVIDIA L4 GPU was chosen for its optimized performance in deep learning task
 - **Architecture:** x86-64
 The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
 
-##### Software
+#### Software
 
 > TODO: include operating system
 
@@ -438,13 +443,13 @@ After overcoming challenges related to dependency management and securing a cost
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2b-clap"></a>
-## <a name='clap'></a>2B. CLAP model replication
+### <a name='clap'></a>CLAP model replication
 
 > [!NOTE]
 > Martí si puedes revisar que en este punto no me haya dejado nada o que no esté diciendo nada que no sea cierto.
 
 <a id="objective2b-introduction"></a>
-### <a name='introduction-2b'></a>Introduction
+#### <a name='introduction-2b'></a>Introduction
 
 While the DCASE 2024 baseline provides a strong foundation for Automated Audio Captioning (AAC), we are also exploring Contrastive Language-Audio Pretraining (CLAP) to leverage its multi-modal learning capabilities. CLAP is designed to align audio and text representations in a shared embedding space, making it particularly effective for tasks that require understanding the relationship between sound and natural language.
 
@@ -463,15 +468,15 @@ CLAP offers a powerful alternative by leveraging pre-training on a massive datas
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <a id="objective2b-prerequisites"></a>
-### <a name='prerequisites-2b'></a>Prerequisites
+#### <a name='prerequisites-2b'></a>Prerequisites
 
-#### <a name='hardware-2b'></a>Hardware
+##### <a name='hardware-2b'></a>Hardware
 We used the same machine configuration as DCASE Baseline defined [here](#objective2-hardware)
 
-#### <a name='software-2b'></a>Software
+##### <a name='software-2b'></a>Software
 > TODO: include operating system
 
-### <a name='installation-2b'></a>Installation
+#### <a name='installation-2b'></a>Installation
 After learning some points replicating the baseline and launching it, deploy CLAP was a bit simpler. Hance we will use the provided list of steps from this guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md). Check CLAP section.
 
 The script follows the next  steps:
@@ -492,7 +497,7 @@ Weights and features cnan be download and installed automatically by the script 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2-results"></a>
-### <a name='detailed-results-2b'></a>Detailed results
+#### <a name='detailed-results-2b'></a>Detailed results
 
 | Metric | Score on Clotho-eval | Score on Clotho-eval our Baseline | Scores on Clotho-eval our CLAP |          
 | --- | --- | --- | --- |                                
@@ -522,12 +527,12 @@ Image of the training results here:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2b-conclusion"></a>
-### <a name='conclusions-2b'></a>Conclusion
+#### <a name='conclusions-2b'></a>Conclusion
 Integrating CLAP into AAC systems represents a significant advancement in the field. By leveraging pre-trained knowledge and cross-modal representations, CLAP-based AAC models can overcome limitations of traditional approaches, leading to improved generalization, reduced data requirements, and more robust caption generation. Future research should focus on addressing the challenges related to computational resources, domain adaptation, and explainability to further enhance the performance of CLAP-based AAC systems.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## DCASE 2024 and CLAP demo deployment
+### DCASE 2024 and CLAP demo deployment
 
 > [!NOTE]
 >  Victor y/o Martí me podeis explicar con un poco más de detalle la demo?
@@ -621,11 +626,15 @@ These are the files:
 
 In this section we show some attention maps examples with their corresponding audio samples used as input:
 
+> NOTE: if you are reading this document as an regular online README file you won't have a rendered audio player since github does not support it, but you can click on the corresponding link and download the file. Alternatively, you can clone the current repository and read it via VSCode, for instance, in which the audio players are correctly rendered.
+
 <a id="objective4-examples1"></a>
 
 #### <a name='Example1'></a>Example 1
 
-- Decoded sentence: ```a train approaches and passes by on the tracks```
+- File name: `140815_drezyna_3.wav`
+- Decoded sentence: ```a train is passing by on the tracks and a person is walking```
+- Decoded sentence with time stamps: ```a train (14.72) is passing (15.04) by on the tracks (14.72) and a person (14.72) is walking (14.72)```
 - Audio:
 
 <p align="center">
@@ -645,15 +654,15 @@ In this section we show some attention maps examples with their corresponding au
 - Audio waveform:
 
 <p align="center">
-  <img src="doc/images/attention_audio.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
+  <img src="doc/images/waveform_140815_drezyna_3.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
 </p>
 <p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
 
-
+<!-- 
 <p align="center">
   <img src="doc/images/token1.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 6: token etc</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 6: token etc</em></p> -->
 
 train
 
@@ -661,7 +670,9 @@ train
 
 #### <a name='Example2'></a>Example 2
 
+- File name: `Small_Eatery.wav`
 - Decoded sentence: ```people are talking in the background as a person is walking```
+- Decoded sentence with time stamps: ```people (6.72) are talking (6.72) in the background (6.72) as a person (6.72) is walking (6.72)```
 - Audio:
 
 <p align="center">
@@ -693,7 +704,9 @@ train
 
 #### <a name='Example3'></a>Example 3
 
+- File name: `windup_flashlight.wav`
 - Decoded sentence: ```a machine is running and then turned off```
+- Decoded sentence with time stamps: ```a machine (18.56) is running (18.56) and then turned (3.52) off```
 - Audio:
 
 <p align="center">
@@ -726,11 +739,26 @@ train
 - Decoded sentence: ```text here```
 - Audio:
 
+<p align="center">
+  <audio controls>
+    <source src="doc/audios/Lighting_matches.wav" type="audio/wav">
+    <a href="doc/audios/Lighting_matches.wav">Lighting_matches.wav</a>
+  </audio>
+</p>
 
 - Attention map:
 
+<p align="center">
+  <img src="doc/images/attention_map_lighting_matches.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
 
 - Audio waveform:
+
+<p align="center">
+  <img src="doc/images/waveform_lighting_matches.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
 
 
 
@@ -751,10 +779,25 @@ train
 
 ### <a name='Conclusions'></a>Conclusions
 
+After pairing attention maps and time-stamps (for verbs and nouns) we can make several observations based on the previous 5 examples:
+- there tends to be a correlation between event detection (high weights values in the attention heat map) and the areas of more energy in the audio waveform/spectrogram.
+- some time-stamps are related to more than one word, in some cases all words are related to the same time-stamp (example 2), or very close one another (example 1)
+- in some cases, events happen more than once (in example 3 the machine is turned off more than once) but one of them appears in the time-stamps (the first one in this example), although from an acoustic point of view it is the more relevant one.
+- it fails to detect some acoustically well known sounds, like noise. Be it white or pink noise, in the example 4 (which is incorrectly labeled to lighting matches sound), it is captioned as waterfall sound. This example highlights the need of either more acoustically informed architectures or a lack of types of sounds in the training dataset.
+- 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## <a name='Contributing'></a>Contributing
+# Future directions
+
+## Architectures
+
+## Datasets
+
+## Metrics
+
+
+# <a name='Contributing'></a>Contributing
 
 Thanks to the following contributors:
 - [Martí Umbert](https://github.com/mumbert)
@@ -765,7 +808,7 @@ Thanks to the following contributors:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## <a name='References'></a>References
+# <a name='References'></a>References
 
 <a id="dcase2024"></a>DCASE. (2024). Detection and Classification of Acoustic Scenes and Events (DCASE) Challenge 2024. DCASE. https://dcase.community/challenge2024/
 
