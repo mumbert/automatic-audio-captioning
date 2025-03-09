@@ -464,6 +464,7 @@ CLAP offers a powerful alternative by leveraging pre-training on a massive datas
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <a id="objective2b-prerequisites"></a>
+
 #### <a name='prerequisites-2b'></a>Prerequisites
 
 ##### <a name='hardware-2b'></a>Hardware
