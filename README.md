@@ -726,8 +726,9 @@ In this section we show some attention maps examples with their corresponding au
 
 **Example 4**
 
-- Decoded sentence: ```text here```
-- Decoded sentence with time stamps:
+- File name: `Lighting_matches.wav`
+- Decoded sentence: ```a large volume of water is flowing down a waterfall```
+- Decoded sentence with time stamps: ```a large volume (0.32) of water (0.32) is flowing (0.32) down a waterfall (0.32)```
 - Audio:
 
 <p align="center">
@@ -754,14 +755,89 @@ In this section we show some attention maps examples with their corresponding au
 
 **Example 5**
 
-- Decoded sentence: ```text here```
-- Audio:
+- File name: `Whistling.wav`
+- Decoded sentence: ```a man is speaking and whistling a song```
+- Decoded sentence with time stamps: ```a man (14.4) is speaking (14.4) and whistling (14.4) a song (14.4)```
 
+
+<p align="center">
+  <audio controls>
+    <source src="doc/audios/Whistling.wav" type="audio/wav">
+    <a href="doc/audios/Whistling.wav">Whistling.wav</a>
+  </audio>
+</p>
 
 - Attention map:
 
+<p align="center">
+  <img src="doc/images/attention_map_Whistling.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
 
 - Audio waveform:
+
+<p align="center">
+  <img src="doc/images/waveform_Whistling.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+
+
+**Example 6**
+
+- File name: `tembi dawn.wav`
+- Decoded sentence: ```a rooster crows and birds chirping in the background```
+- Decoded sentence with time stamps: ```a rooster (6.72) crows (16.96) and birds (6.72) chirping (4.16) in the background (16.96)```
+
+
+<p align="center">
+  <audio controls>
+    <source src="doc/audios/tembi dawn.wav" type="audio/wav">
+    <a href="doc/audios/tembi dawn.wav">.wav</a>
+  </audio>
+</p>
+
+- Attention map:
+
+<p align="center">
+  <img src="doc/images/attention_map_tembi_dawn.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+
+- Audio waveform:
+
+<p align="center">
+  <img src="doc/images/waveform_tembi_dawn.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+
+
+**Example 7**
+
+- File name: `newspaper_handling_reading.wav`
+- Decoded sentence: ```a person is flipping through a book and then rips out a page```
+- Decoded sentence with time stamps: ```a person (2.88) is flipping (21.76) through a book and then rips (2.88) out a page (21.76)```
+
+
+<p align="center">
+  <audio controls>
+    <source src="doc/audios/newspaper_handling_reading.wav" type="audio/wav">
+    <a href="doc/audios/newspaper_handling_reading.wav">.wav</a>
+  </audio>
+</p>
+
+- Attention map:
+
+<p align="center">
+  <img src="doc/images/attention_map_newspaper_handling_reading.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+
+- Audio waveform:
+
+<p align="center">
+  <img src="doc/images/waveform_newspaper_handling_reading.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -773,7 +849,7 @@ After pairing attention maps and time-stamps (for verbs and nouns) we can make s
 - some time-stamps are related to more than one word, in some cases all words are related to the same time-stamp (example 2), or very close one another (example 1)
 - in some cases, events happen more than once (in example 3 the machine is turned off more than once) but one of them appears in the time-stamps (the first one in this example), although from an acoustic point of view it is the more relevant one.
 - it fails to detect some acoustically well known sounds, like noise. Be it white or pink noise, in the example 4 (which is incorrectly labeled to lighting matches sound), it is captioned as waterfall sound. This example highlights the need of either more acoustically informed architectures or a lack of types of sounds in the training dataset.
-- 
+- some really short events seem to be very well captured, like in example 7 where a paper is ripped out.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
