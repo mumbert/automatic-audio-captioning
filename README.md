@@ -444,7 +444,7 @@ After overcoming challenges related to dependency management and securing a cost
 > Martí si puedes revisar que en este punto no me haya dejado nada o que no esté diciendo nada que no sea cierto.
 
 <a id="objective2b-introduction"></a>
-### <a name='Introduction-2b'></a>Introduction
+### <a name='introduction-2b'></a>Introduction
 
 While the DCASE 2024 baseline provides a strong foundation for Automated Audio Captioning (AAC), we are also exploring Contrastive Language-Audio Pretraining (CLAP) to leverage its multi-modal learning capabilities. CLAP is designed to align audio and text representations in a shared embedding space, making it particularly effective for tasks that require understanding the relationship between sound and natural language.
 
@@ -461,11 +461,16 @@ CLAP offers a powerful alternative by leveraging pre-training on a massive datas
   - **Complementary to Transformer-Based AAC:**
   CLAP’s pretrained embeddings can be integrated into the existing pipeline, enhancing feature extraction before feeding them into a Transformer decoder.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <a id="objective2b-prerequisites"></a>
 ### <a name='prerequisites-2b'></a>Prerequisites
+
 #### <a name='hardware-2b'></a>Hardware
 We used the same machine configuration as DCASE Baseline defined [here](#objective2-hardware)
+
 #### <a name='software-2b'></a>Software
+> TODO: include operating system
+
 ### <a name='installation-2b'></a>Installation
 After learning some points replicating the baseline and launching it, deploy CLAP was a bit simpler. Hance we will use the provided list of steps from this guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md). Check CLAP section.
 
@@ -483,6 +488,8 @@ Weights and features cnan be download and installed automatically by the script 
 - **4.Perform inference test & evaluate the Model:**
   Let's run the evaluation process to compute SPIDEr-FL, METEOR, CIDEr, BLEU, and ROUGE scores.
   The results are compared with official DCASE Challenge benchmarks and Baseline model to ensure consistency.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <a id="objective2-results"></a>
 ### <a name='detailed-results-2b'></a>Detailed results
@@ -512,11 +519,13 @@ Image of the training results here:
     <img src="doc/images/evalCLAP2.jpg" alt="CLAP eval" width="600" style="height: auto;">
   </p>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <a id="objective2b-conclusion"></a>
 ### <a name='conclusions-2b'></a>Conclusion
 Integrating CLAP into AAC systems represents a significant advancement in the field. By leveraging pre-trained knowledge and cross-modal representations, CLAP-based AAC models can overcome limitations of traditional approaches, leading to improved generalization, reduced data requirements, and more robust caption generation. Future research should focus on addressing the challenges related to computational resources, domain adaptation, and explainability to further enhance the performance of CLAP-based AAC systems.
 
-I have focused on comparing with the baseline methods by looking at architechtures, adaptations and training strategies, also I have talked about the advantages that are to have the method based on CLAP.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## DCASE 2024 and CLAP demo deployment
 
