@@ -12,6 +12,10 @@ conda activate base
 conda remove -n $CONDA_ENV --all -y
 conda create --name $CONDA_ENV python=$PY_VERSION -y
 
+# PIP VERSION
+conda activate $CONDA_ENV
+pip install --force-reinstall pip==23.0
+
 # HELPER COMMANDS TO CONNECT TO THE ENV
 conda env list
 echo "conda activate $CONDA_ENV"
