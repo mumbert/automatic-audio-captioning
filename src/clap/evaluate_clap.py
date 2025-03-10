@@ -5,6 +5,7 @@ from aac_metrics import Evaluate
 from msclap import CLAP
 from tqdm import tqdm
 import os
+import pandas as pd
 
 import sys
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -57,7 +58,8 @@ clap_model = CLAP(version = 'clapcap', use_cuda=False)
 # Get captions
 candidates = []
 mult_references = []
-max_elements = 2 # float('Inf')
+max_elements = float('Inf')
+audio_files_all = []
 for i, batch in tqdm(enumerate(dataloader), total=min(max_elements, len(dataloader))):
     if i+1 > max_elements:
         break
@@ -72,6 +74,7 @@ for i, batch in tqdm(enumerate(dataloader), total=min(max_elements, len(dataload
                                            temperature=0.01)
     candidates.extend(captions)
     mult_references.extend(batch['captions'])
+    audio_files_all.extend(audio_files)
     # print(f"i: {i+1}/{max_elements}: ")
     # print(batch['captions'])
     # print(captions)
@@ -79,8 +82,10 @@ for i, batch in tqdm(enumerate(dataloader), total=min(max_elements, len(dataload
 # Saving pickle files with the data
 output_file_candidate = os.path.join(output_folder, "candidates.pkl")
 output_file_references = os.path.join(output_folder, "mult_references.pkl")
+output_file_all_audios = os.path.join(output_folder, "audio_files_all.pkl")
 utils.save_pickle(filename=output_file_candidate, data=candidates)
 utils.save_pickle(filename=output_file_references, data=mult_references)
+utils.save_pickle(filename=output_file_all_audios, data=audio_files_all)
 
 # Evaluate captions
 print("Evaluating")
@@ -95,3 +100,23 @@ fense_score = corpus_scores["fense"]
 print(vocab_size)
 print(spider_score)
 print(fense_score)
+
+print("Evaluating only FENSE for ranking")
+evaluate = Evaluate(metrics=["fense"])
+
+res = []
+for f, c, mult_r in tqdm(zip(audio_files_all, candidates, mult_references)):
+    corpus_scores, _ = evaluate([c], [mult_r])
+    sbert_sim = float(corpus_scores["sbert_sim"])
+    fer = float(corpus_scores["fer"])
+    fense = float(corpus_scores["fense"])
+    refs = {f"reference_{i}":r for i, r in enumerate(mult_r)}
+    res.append({"file": f, "sbert_sim": sbert_sim, "fer": fer, "fense": fense, "candidate": c} | refs)
+
+output_file_res = os.path.join(output_folder, "res.pkl")
+utils.save_pickle(filename=output_file_res, data=res)
+
+output_file_csv = os.path.join(output_folder, "res.csv")
+df = pd.DataFrame(res)
+df.sort_values(by=["fense"]).to_csv(output_file_csv, index=False)
+print(output_file_csv)
