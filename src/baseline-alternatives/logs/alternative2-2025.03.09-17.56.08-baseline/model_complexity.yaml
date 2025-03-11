@@ -1,0 +1,17 @@
+metrics:
+  forcing_flops: 462340608
+  forcing_macs: 230966016
+  forcing_params: 11911699
+  forcing_duration: 0.02192544937133789
+  generate_flops: 8021721600
+  generate_macs: 4008283392
+  generate_params: 11911699
+  generate_duration: 0.29273080825805664
+model_class: TransDecoderModel
+batch_size: 1
+fname:
+- Santa Motor.wav
+dataset:
+- clotho
+subset:
+- eval
