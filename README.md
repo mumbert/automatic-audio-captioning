@@ -3,10 +3,10 @@
 <a id="readme-top"></a>
 <br />
 <div align="center">
-  <h1 align="center">Automatic Audio Captioning</h1>
+  <h1 align="center">Automated audio captioning</h1>
 
   <p align="center">
-    Automatic audio captioning project for the AI with DL postgraduate course at the UPC.
+    Automated audio captioning project for the AI with DL postgraduate course at the UPC.
     <br />
     <br />
     <a>
@@ -71,7 +71,7 @@
 <a id="introduction"></a>
 # Introduction
 
-Automatic Audio Captioning (AAC) is the task of generating natural language descriptions for audio recordings. It involves analyzing complex acoustic signals and translating them into human-readable text, often describing specific sound events, their interactions, or environmental context. This process combines signal processing, deep learning, and natural language processing techniques. In contrast to automatic speech recognition (ASR), audio captioning prioritizes environmental sounds while disregarding any speech content that might be present in an audio clip, and thus it is not about transcribing the voice content of what a speaker might be saying.
+Automated audio captioning (AAC) is the task of generating natural language descriptions for audio recordings. It involves analyzing complex acoustic signals and translating them into human-readable text, often describing specific sound events, their interactions, or environmental context. This process combines signal processing, deep learning, and natural language processing techniques. In contrast to automatic speech recognition (ASR), audio captioning prioritizes environmental sounds while disregarding any speech content that might be present in an audio clip, and thus it is not about transcribing the voice content of what a speaker might be saying.
 
 Recent advancements in deep learning have significantly improved AAC performance. Traditional approaches relied on handcrafted audio features such as Mel-Frequency Cepstral Coefficients (MFCCs) and statistical models, but modern systems predominantly use neural networks. Convolutional Neural Networks (CNNs) are commonly employed for feature extraction, transforming raw waveforms or spectrogram representations into high-level embeddings (see [Figure 1](#fig-aac-pipeline)). These embeddings are then processed by sequence models such as Recurrent Neural Networks (RNNs), Transformer architectures, or attention mechanisms to generate coherent textual descriptions.
 
