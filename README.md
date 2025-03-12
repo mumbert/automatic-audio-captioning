@@ -15,6 +15,7 @@
   </p>
 </div>
 
+<!-- GENERATED AUTOMATICALLY WITH THE VSCODE EXTENSION -->
 <details>
   <summary>Table of Contents</summary>
 
@@ -572,7 +573,7 @@ These are the files:
 ```
 
 - from the baseline code:
-  - `src/conf/expt/baseline.yaml`: where we have used `beam_size: 1` in order to avoid having to backtrack the best path.
+  - [`src/conf/expt/baseline.yaml`](https://github.com/mumbert/dcase2024-task6-baseline-project/blob/d49f186e80fdd68d8a2c514d37843fb6f4113fec/src/conf/expt/baseline.yaml#L14): where we have used `beam_size: 1` in order to avoid having to backtrack the best path.
   - `src/dcase24t6/models/trans_decoder.py`: 
     - [decode_audio()](missing link once merged): this function is the wrapper used to generate the encoded audio embeddings into a sequence of words. There are several modes of using it, like `forcing` (for teacher forcing while training), or `generate` while at inference. In the second case, we are interested to provide the sequence of words from the decoded tokens apart from the original string. This is to be able to directly assign time-stamps to the different tokens. That is why we save the list of candidates in `cands_list` variable.
     - [validation_step()](missing link once merged): it is during the validation step that the logging of the attention maps is produced. each time the function is called one example is logged, and given the amount of files for validation this happens a total amount of 17 times. At the end of the validation process that are 17 plots saved for exploration.
