@@ -523,15 +523,28 @@ We can list here while working on the project some roadmap items or we can even 
 Following the approach outlined in [EVALUATING OFF-THE-SHELF MACHINE LISTENING AND NATURAL LANGUAGE MODELS FOR AUTOMATED AUDIO CAPTIONING](#BWeck), 
 we explored replacing the decoder of the baseline model with a BERT-based decoder.
 
-The integration of BERT was inspired by a second paper, [Leveraging Pre-trained BERT for Audio Captioning](#XLiu) beginning with the modification of the Word Embedding model from the baseline. 
-The tokenizer implemented in ACC_Tokenizer.py was replaced with BERTTokenizer from the transformers library, ensuring compatibility with BERT’s text representations.
+The integration of BERT was inspired by a second paper, [Leveraging Pre-trained BERT for Audio Captioning](#XLiu) beginning with the modification of the Word Embedding model from the baseline. The tokenizer implemented in ACC_Tokenizer.py was replaced with BERTTokenizer from the transformers library, ensuring compatibility with BERT’s text representations.
 
-Image
+<p align="center">
+<img width="334" alt="Screenshot 2025-03-14 at 13 29 45" src="https://github.com/user-attachments/assets/e4aa2ac3-6f36-431a-85fb-f991b688ffee" />
+</p>
 
 After this modification, the model was retrained. The results were comparable to those obtained with the original baseline tokenizer, though with a slight performance degradation. 
+
+<p align="center">
+<img width="787" alt="Screenshot 2025-03-14 at 12 36 06" src="https://github.com/user-attachments/assets/2a545280-f785-4066-93bd-376c62fb6b60" />
+</p>
+
 For caption generation, the features extracted by the encoder were fed into the cross-attention module of the BERT-based decoder. The pre-trained BERT model was then used to generate captions, aligning the architecture with advanced Automated Audio Captioning (AAC) strategies.
 
-Image
+<p align="center">
+<img width="362" alt="Screenshot 2025-03-14 at 13 28 03" src="https://github.com/user-attachments/assets/c856e005-fb46-413d-8f63-5c1f886a27b3" />
+</p>
+
+<img width="461" alt="Screenshot 2025-03-14 at 13 31 01" src="https://github.com/user-attachments/assets/dbacf9bc-74ab-4b2c-8c21-828853acdc74" />
+
+<img width="300" alt="Screenshot 2025-03-14 at 13 34 39" src="https://github.com/user-attachments/assets/39bf86c9-8f74-403d-9452-e1bf4186d025" />
+<img width="311" alt="Screenshot 2025-03-14 at 13 31 31" src="https://github.com/user-attachments/assets/9006fe7c-1fdd-4ac2-8376-a4b609f6d0f9" />
 
 This approach follows current trends in AAC, as highlighted in the DCASE 2024 challenge, which encourages hybrid architectures combining audio models with large language models (LLMs). 
 However, the slight drop in performance suggests that future improvements may require better adaptation between audio features and BERT’s textual representations, potentially through fine-tuning or self-supervised learning.
