@@ -709,7 +709,7 @@ https://github.com/user-attachments/assets/ffd60ce4-f3e7-4b5d-8714-67296f4c942d
 - Audio:
 
 
-<video src="https://private-user-images.githubusercontent.com/2475445/422742265-3f31687e-c603-4c8a-9e9c-35a4f29e3f0c.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDE5NDgzMjMsIm5iZiI6MTc0MTk0ODAyMywicGF0aCI6Ii8yNDc1NDQ1LzQyMjc0MjI2NS0zZjMxNjg3ZS1jNjAzLTRjOGEtOWU5Yy0zNWE0ZjI5ZTNmMGMubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDMxNCUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTAzMTRUMTAyNzAzWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9MTI3YWVjNTEzMWY0Nzc5MTRkMzQwNWVjOGRmYmRjODAxNTJlMDMxNzBlYjA2ZjExZWNmNWFlNDMzYTc5N2ZjMCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.7JPM4F0wM_aTzfcJX67qeOFoZhhXmFbpo-J9AK68_S4" data-canonical-src="https://private-user-images.githubusercontent.com/2475445/422742265-3f31687e-c603-4c8a-9e9c-35a4f29e3f0c.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDE5NDgzMjMsIm5iZiI6MTc0MTk0ODAyMywicGF0aCI6Ii8yNDc1NDQ1LzQyMjc0MjI2NS0zZjMxNjg3ZS1jNjAzLTRjOGEtOWU5Yy0zNWE0ZjI5ZTNmMGMubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDMxNCUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTAzMTRUMTAyNzAzWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9MTI3YWVjNTEzMWY0Nzc5MTRkMzQwNWVjOGRmYmRjODAxNTJlMDMxNzBlYjA2ZjExZWNmNWFlNDMzYTc5N2ZjMCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.7JPM4F0wM_aTzfcJX67qeOFoZhhXmFbpo-J9AK68_S4" controls="controls" class="d-block rounded-bottom-2 border-top width-fit" style="height: 55px; width: 100%; !important"></video>
+https://github.com/user-attachments/assets/3f31687e-c603-4c8a-9e9c-35a4f29e3f0c
 
 
 <p align="center">
@@ -853,11 +853,49 @@ After pairing attention maps and time-stamps (for verbs and nouns) we can make s
 
 # Future directions
 
+## Improved attention mechanisms
+Based on the review papers and current trends on transfromers studied in class (NLP - Transformes II), here are some potential improvements to the current architectures for Automated Audio Captioning (AAC):
+
+- **Multi-Query Attention:** This mechanism could allow the decoder to attend to different aspects of the audio encoding simultaneously, potentially capturing more nuanced relationships between audio features and generated text.
+  MQA uses multiple query heads with a single key/value head to reduce computational complexity and accelerate inference . 
+  While this improves efficiency, it risks quality degradation due to oversimplified attention patterns.  
+  For AAC, MQA could streamline processing long audio sequences by focusing shared key-value pairs on dominant audio events (e.g., recurring sounds like "dog barking"), but may struggle with fine-grained temporal relationships 
+- **Grouped Query Attention:** By grouping queries, the model could more efficiently process longer audio sequences, addressing the challenge of long-range dependencies in audio data. 
+  For AAC systems, it could reduce memory bandwidth during autoregressive caption generation, enabling longer audio inputs (e.g., 10+ seconds).
+  Preserve diversity in attention heads to capture distinct audio features (e.g., foreground events vs. ambient noise) while maintaining computational feasibility (Source).
+
+### Challenges:
+
+However, dataset limitations and interpretability issues remain a challenge. Limitation we encounter with the used dataset, Clotho have short audio clips (~30s), 
+limiting the need for extreme efficiency. GQA/MQA may show greater benefits with longer, real-world recordings.
+
+[(Dcase 2024)](#dcase2024), [(Overview of Recent Progress and New Challenges)](#Mei2022c)
 ## Architectures
 
 ## Datasets
 
 ## Metrics
+
+## Aplications  
+
+### Current aplications
+
+- Assistive technology for the hearing-impaired.
+- Content description for multimedia retrieval systems.
+- Audio analysis for security and surveillance.
+
+Current used example:
+
+[![Huawei - Saving the Rainforest by Listening]("doc/images/Huawei.png")]
+(https://www.youtube.com/watch?v=m0L7h9R7deU  )
+
+### Future aplications
+
+- Real-time environmental sound description for augmented reality systems.
+- Automated content moderation for audio-based social media.
+- Detailed audio analysis for smart city applications (e.g., urban noise monitoring).
+- Audio-based storytelling and content creation tools.
+- Enhanced audio navigation systems for visually impaired individuals.
 
 
 # <a name='Contributing'></a>Contributing
@@ -894,5 +932,7 @@ Recent Progress and New Challenges. https://arxiv.org/pdf/2205.05949
 https://ieeexplore.ieee.org/abstract/document/10095889
 
 <a id="Zhou2022"></a>Zhou, Z., Zhang, Z., Xu, X., Xie, Z., Wu, M., & Zhu, K. Q. (2022, May). Can audio captions be evaluated with image caption metrics?. In ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 981-985). IEEE. https://arxiv.org/abs/2110.04684
+
+<a id="Mei2022c"></a>Xinhao Mei, Xubo Liu, Mark D. Plumbley and Wenwu Wang (2022). Automated Audio Captioning: An Overview of Recent Progress and New Challenges. https://arxiv.org/pdf/2205.05949
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
