@@ -599,6 +599,7 @@ In this section we show some attention maps examples with their corresponding au
 - Audio:
 
 <p align="center">
+ 
   <audio controls>
     <source src="doc/audios/140815_drezyna_3.wav" type="audio/wav">
     <a href="doc/audios/140815_drezyna_3.wav">140815_drezyna_3.wav</a>
@@ -667,6 +668,7 @@ In this section we show some attention maps examples with their corresponding au
 - Audio:
 
 <p align="center">
+ <video src="doc/audios/windup_flashlight.mp4"></video>
   <audio controls>
     <source src="doc/audios/windup_flashlight.wav" type="audio/wav">
     <a href="doc/audios/windup_flashlight.wav">windup_flashlight.wav</a>
