@@ -668,23 +668,13 @@ In this section we show some attention maps examples with their corresponding au
 - Audio: 
 
 
-> [!START] Video---->
-<p align="center">
-<video width="320" height="240" controls>
-  <source src="doc/audios/windup_flashlight.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-  
-</p>
-![Audio](doc/audios/windup_flashlight.wav)
-> [!END] Video---->
+
+
 
 <p align="center">
 
-  <audio controls>
-    <source src="doc/audios/windup_flashlight.wav" type="audio/wav">
-    <a href="doc/audios/windup_flashlight.wav">windup_flashlight.wav</a>
-  </audio>
+
+
 </p>
 
 
@@ -710,6 +700,10 @@ In this section we show some attention maps examples with their corresponding au
 - Decoded sentence: ```a large volume of water is flowing down a waterfall```
 - Decoded sentence with time stamps: ```a large volume (0.32) of water (0.32) is flowing (0.32) down a waterfall (0.32)```
 - Audio:
+
+<p align="center">
+https://github.com/user-attachments/assets/3f31687e-c603-4c8a-9e9c-35a4f29e3f0c
+</p>
 
 <p align="center">
   <audio controls>
