@@ -598,6 +598,9 @@ In this section we show some attention maps examples with their corresponding au
 - Decoded sentence with time stamps: ```a train (14.72) is passing (15.04) by on the tracks (14.72) and a person (14.72) is walking (14.72)```
 - Audio:
 
+
+https://github.com/user-attachments/assets/09952d6d-b2b8-4ba0-b036-dc5f4df10276
+
 <p align="center">
  
   <audio controls>
@@ -635,6 +638,10 @@ In this section we show some attention maps examples with their corresponding au
 - Decoded sentence with time stamps: ```people (6.72) are talking (6.72) in the background (6.72) as a person (6.72) is walking (6.72)```
 - Audio:
 
+
+https://github.com/user-attachments/assets/048a8b99-7e76-473e-bd22-e6e982265fc4
+
+
 <p align="center">
   <audio controls>
     <source src="doc/audios/Small_Eatery.wav" type="audio/wav">
@@ -668,13 +675,13 @@ In this section we show some attention maps examples with their corresponding au
 - Audio: 
 
 
-
-
+https://github.com/user-attachments/assets/ffd60ce4-f3e7-4b5d-8714-67296f4c942d
 
 <p align="center">
-
-
-
+  <audio controls>
+    <source src="doc/audios/windup_flashlight.wav" type="audio/wav">
+    <a href="doc/audios/windup_flashligh">Windup Flashligh.wav</a>
+  </audio>
 </p>
 
 
@@ -701,9 +708,9 @@ In this section we show some attention maps examples with their corresponding au
 - Decoded sentence with time stamps: ```a large volume (0.32) of water (0.32) is flowing (0.32) down a waterfall (0.32)```
 - Audio:
 
-<p align="center">
+
 https://github.com/user-attachments/assets/3f31687e-c603-4c8a-9e9c-35a4f29e3f0c
-</p>
+
 
 <details class="details-reset border rounded-2" open="">
   <summary class="px-3 py-2">
@@ -745,6 +752,10 @@ https://github.com/user-attachments/assets/3f31687e-c603-4c8a-9e9c-35a4f29e3f0c
 - Decoded sentence with time stamps: ```a man (14.4) is speaking (14.4) and whistling (14.4) a song (14.4)```
 
 
+https://github.com/user-attachments/assets/f57dd872-ddfd-4701-afae-3483a3ac690c
+
+
+
 <p align="center">
   <audio controls>
     <source src="doc/audios/Whistling.wav" type="audio/wav">
@@ -774,6 +785,10 @@ https://github.com/user-attachments/assets/3f31687e-c603-4c8a-9e9c-35a4f29e3f0c
 - Decoded sentence with time stamps: ```a rooster (6.72) crows (16.96) and birds (6.72) chirping (4.16) in the background (16.96)```
 
 
+
+https://github.com/user-attachments/assets/4f44cf7e-0753-41b9-a16e-9f29c0b06783
+
+
 <p align="center">
   <audio controls>
     <source src="doc/audios/tembi dawn.wav" type="audio/wav">
@@ -801,6 +816,10 @@ https://github.com/user-attachments/assets/3f31687e-c603-4c8a-9e9c-35a4f29e3f0c
 - File name: `newspaper_handling_reading.wav`
 - Decoded sentence: ```a person is flipping through a book and then rips out a page```
 - Decoded sentence with time stamps: ```a person (2.88) is flipping (21.76) through a book and then rips (2.88) out a page (21.76)```
+
+
+
+https://github.com/user-attachments/assets/1e878e48-acdc-4817-a83c-b8ff13efcf15
 
 
 <p align="center">
