@@ -902,6 +902,11 @@ limiting the need for extreme efficiency. GQA/MQA may show greater benefits with
 ## Architectures
 
 ## Datasets
+Based on pur experience with the project Clotho dataset hase some positives and some limitation points. Clotho is an open-source dataset featuring diverse environmental sounds and acoustic scenes, with each audio clip accompanied by five distinct captions to enhance research and reproducibility in Automated Audio Captioning (AAC). However, Clotho's limitations include short audio clips (15-30 seconds) that may miss complex acoustic events, general captions lacking fine-grained temporal details, and English-only annotations, restricting multilingual AAC research.
+
+One way to provide a better dataset would be extending audio clips to 1-5 minutes for richer acoustic scenes, incorporating hierarchical annotations for detailed event labeling, and introducing multilingual captions to support broader AAC research. However we might find that the current architecture generats limitations making not possible to use these type of data. 
+
+There fore, enhancing AAC models could involve hierarchical encoding to capture multi-scale audio features, cross-modal attention for direct audio-text interaction, and memory-augmented networks to handle long-term dependencies, leading to richer datasets and more contextually detailed captions.
 
 ## Metrics
 
