@@ -665,8 +665,10 @@ In this section we show some attention maps examples with their corresponding au
 - File name: `windup_flashlight.wav`
 - Decoded sentence: ```a machine is running and then turned off```
 - Decoded sentence with time stamps: ```a machine (18.56) is running (18.56) and then turned (3.52) off```
-- Audio:
+- Audio: 
 
+
+> [!START] Video---->
 <p align="center">
 <video width="320" height="240" controls>
   <source src="doc/audios/windup_flashlight.mp4" type="video/mp4">
@@ -674,6 +676,8 @@ In this section we show some attention maps examples with their corresponding au
 </video>
   
 </p>
+
+> [!END] Video---->
 
 <p align="center">
 
