@@ -886,8 +886,7 @@ limiting the need for extreme efficiency. GQA/MQA may show greater benefits with
 
 Current used example:
 
-[![Huawei - Saving the Rainforest by Listening]("doc/images/Huawei.png")]
-(https://www.youtube.com/watch?v=m0L7h9R7deU  )
+[![Huawei - Saving the Rainforest by Listening](https://github.com/user-attachments/assets/933964c5-524f-48c1-b210-aa4e7c4ce5da)](https://www.youtube.com/watch?v=m0L7h9R7deU)
 
 ### Future aplications
 
