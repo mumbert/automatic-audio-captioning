@@ -668,26 +668,6 @@ In this section we show some attention maps examples with their corresponding au
 - Audio: 
 
 
-<<<<<<< HEAD
-> [!START] Video---->
-<p align="center">
-<video width="320" height="240" controls>
-  <source src="doc/audios/windup_flashlight.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-  
-</p>
-
-
-> [!END] Video---->
-
-<p align="center">
-
-  <video controls>
-    <source src="doc/audios/windup_flashlight.wav" type="audio/wav">
-    <a href="doc/audios/windup_flashlight.wav">windup_flashlight.wav</a>
-  </video>
-=======
 
 
 
@@ -695,7 +675,6 @@ In this section we show some attention maps examples with their corresponding au
 
 
 
->>>>>>> 2a33e299a303e125ce4f7e2a17e43bdee0b8a5d8
 </p>
 
 
@@ -725,6 +704,17 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
 https://github.com/user-attachments/assets/3f31687e-c603-4c8a-9e9c-35a4f29e3f0c
 </p>
+
+<details class="details-reset border rounded-2" open="">
+  <summary class="px-3 py-2">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
+    <path d="M16 3.75v8.5a.75.75 0 0 1-1.136.643L11 10.575v.675A1.75 1.75 0 0 1 9.25 13h-7.5A1.75 1.75 0 0 1 0 11.25v-6.5C0 3.784.784 3 1.75 3h7.5c.966 0 1.75.784 1.75 1.75v.675l3.864-2.318A.75.75 0 0 1 16 3.75Zm-6.5 1a.25.25 0 0 0-.25-.25h-7.5a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-6.5ZM11 8.825l3.5 2.1v-5.85l-3.5 2.1Z"></path>
+</svg>
+    <span aria-label="Video description Lighting_matches.mp4" class="m-1">Lighting_matches.mp4</span>
+    <span class="dropdown-caret"></span>
+  </summary>
+  <video src="https://private-user-images.githubusercontent.com/2475445/422742265-3f31687e-c603-4c8a-9e9c-35a4f29e3f0c.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDE5NDgzMjMsIm5iZiI6MTc0MTk0ODAyMywicGF0aCI6Ii8yNDc1NDQ1LzQyMjc0MjI2NS0zZjMxNjg3ZS1jNjAzLTRjOGEtOWU5Yy0zNWE0ZjI5ZTNmMGMubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDMxNCUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTAzMTRUMTAyNzAzWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9MTI3YWVjNTEzMWY0Nzc5MTRkMzQwNWVjOGRmYmRjODAxNTJlMDMxNzBlYjA2ZjExZWNmNWFlNDMzYTc5N2ZjMCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.7JPM4F0wM_aTzfcJX67qeOFoZhhXmFbpo-J9AK68_S4" data-canonical-src="https://private-user-images.githubusercontent.com/2475445/422742265-3f31687e-c603-4c8a-9e9c-35a4f29e3f0c.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDE5NDgzMjMsIm5iZiI6MTc0MTk0ODAyMywicGF0aCI6Ii8yNDc1NDQ1LzQyMjc0MjI2NS0zZjMxNjg3ZS1jNjAzLTRjOGEtOWU5Yy0zNWE0ZjI5ZTNmMGMubXA0P1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI1MDMxNCUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNTAzMTRUMTAyNzAzWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9MTI3YWVjNTEzMWY0Nzc5MTRkMzQwNWVjOGRmYmRjODAxNTJlMDMxNzBlYjA2ZjExZWNmNWFlNDMzYTc5N2ZjMCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.7JPM4F0wM_aTzfcJX67qeOFoZhhXmFbpo-J9AK68_S4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="height: 55px;width: 100%;"></video>
+</details>
 
 <p align="center">
   <audio controls>
