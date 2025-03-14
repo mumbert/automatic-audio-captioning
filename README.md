@@ -676,15 +676,16 @@ In this section we show some attention maps examples with their corresponding au
 </video>
   
 </p>
-![Audio](doc/audios/windup_flashlight.wav)
+
+
 > [!END] Video---->
 
 <p align="center">
 
-  <audio controls>
+  <video controls>
     <source src="doc/audios/windup_flashlight.wav" type="audio/wav">
     <a href="doc/audios/windup_flashlight.wav">windup_flashlight.wav</a>
-  </audio>
+  </video>
 </p>
 
 
