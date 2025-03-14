@@ -520,14 +520,17 @@ We can list here while working on the project some roadmap items or we can even 
 
 ## 3. Modify the decoder architecture and adjust training strategies
 
-Following the approach outlined in [EVALUATING OFF-THE-SHELF MACHINE LISTENING AND NATURAL LANGUAGE MODELS FOR AUTOMATED AUDIO CAPTIONING](#BWeck), 
-we explored replacing the decoder of the baseline model with a BERT-based decoder.
+### Pretrained Bert Model as Decoder
 
-The integration of BERT was inspired by a second paper, [Leveraging Pre-trained BERT for Audio Captioning](#XLiu) beginning with the modification of the Word Embedding model from the baseline. The tokenizer implemented in ACC_Tokenizer.py was replaced with BERTTokenizer from the transformers library, ensuring compatibility with BERT’s text representations.
+Doing some research we came accross these following two papares:[Leveraging Pre-trained BERT for Audio Captioning](#XLiu) & [EVALUATING OFF-THE-SHELF MACHINE LISTENING AND NATURAL LANGUAGE MODELS FOR AUTOMATED AUDIO CAPTIONING](#BWeck). They inspired us to explore replacing the decoder of the baseline model with a BERT-based decoder.
 
-<p align="center">
-<img width="334" alt="Screenshot 2025-03-14 at 13 29 45" src="https://github.com/user-attachments/assets/e4aa2ac3-6f36-431a-85fb-f991b688ffee" />
-</p>
+Using Bert as a decoder offered a list of potential benefits and improvements than using the default baseline decoder: 
+- BERT is pre-trained on large-scale text datasets, allowing it to transfer linguistic knowledge to the audio captioning task. This helps mitigate the issue of limited audio captioning training data.
+- Being a pretrained model, enables it to capture syntactic and semantic information, potentially leading to more coherent and contextually appropriate captions.
+- BERT's strong language modeling capabilities may lead to more natural and descriptive captions compared to models without pre-trained language components.
+- Utilizing a pre-trained models for the decoder may require less training time and data to achieve good performance compared to training a decoder from scratch.
+
+Bert process integration was inspired by a second paper: [Leveraging Pre-trained BERT for Audio Captioning](#XLiu) beginning with the modification of the Word Embedding model from the baseline. This required two major changes into the baseline code, by replacing  the tokenizer implemented in ACC_Tokenizer.py with BertTokenizer from the transformers library
 
 After this modification, the model was retrained. The results were comparable to those obtained with the original baseline tokenizer, though with a slight performance degradation. 
 
@@ -541,17 +544,10 @@ For caption generation, the features extracted by the encoder were fed into the 
 <img width="362" alt="Screenshot 2025-03-14 at 13 28 03" src="https://github.com/user-attachments/assets/c856e005-fb46-413d-8f63-5c1f886a27b3" />
 </p>
 
-<img width="461" alt="Screenshot 2025-03-14 at 13 31 01" src="https://github.com/user-attachments/assets/dbacf9bc-74ab-4b2c-8c21-828853acdc74" />
-
-<img width="300" alt="Screenshot 2025-03-14 at 13 34 39" src="https://github.com/user-attachments/assets/39bf86c9-8f74-403d-9452-e1bf4186d025" />
-<img width="311" alt="Screenshot 2025-03-14 at 13 31 31" src="https://github.com/user-attachments/assets/9006fe7c-1fdd-4ac2-8376-a4b609f6d0f9" />
-
-This approach follows current trends in AAC, as highlighted in the DCASE 2024 challenge, which encourages hybrid architectures combining audio models with large language models (LLMs). 
-However, the slight drop in performance suggests that future improvements may require better adaptation between audio features and BERT’s textual representations, potentially through fine-tuning or self-supervised learning.
-
-
 Despite our efforts, the resulting captions were incorrect, indicating a possible issue in the integration process. 
 Due to time constraints, we were unable to fully diagnose and resolve the problem. As a result, we decided to pivot and shift our focus toward a more realistic and achievable objective.
+
+### Adjusting training strategies: Hyperparameters experiments
 
 > Content here: Roger
 
