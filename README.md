@@ -595,6 +595,9 @@ We can list here while working on the project some roadmap items or we can even 
 
 Cada alternativa es mesura per separat (el que es canvia a la alternativa 1 torna al seu valor default a la següent alternativa). This is done per intentar entendre l'efecte de cada paràmetre en particular.
 
+> [!NOTE]
+> Nota per mi mateix: recorda posar els links de cada alternativa per si els professors volen trastejar amb els resultats. EL SUMMARY TOTAL TAMBÉ EL PODEN CONSULTAR A ALTERNATIVA -> OUTPUTS -> stdout
+
 
 #### Alternative 1 (Alt1)
 
@@ -645,22 +648,22 @@ To see if the model becomes unstable
  #### <a name='Detailedresults'></a>Detailed results. Best performers highlighted in bold
 | Metric | Baseline| Alt1 |  Alt2 | Alt3 | Alt4 | Alt5 | Alt6 |
 | --- | --- | --- | --- | ---| --- |  --- | --- |  
-|Training time|    |        |        |                       
-| BLEU-1 | 0.5948 | 0.5791 |                       
-| BLEU-2 | 0.3924 | 0.3773 |
-| BLEU-3 | 0.2603 | 0.2500
-| BLEU-4 | 0.1695 | 0.1627
-| METEOR | 0.1897 | 0.1855
-| ROUGE-L | 0.3927 | 0.3817
-| CIDEr-D | 0.4619 | 0.4510
-| SPICE | 0.1335 | 0.1340
-| SPIDEr | 0.2977 | 0.2925
-| SPIDEr-FL | 0.2962 | 0.2921
-| SBERT-sim | 0.5059 | 0.5067
-| FER | 0.0038 | 0.0029
-| FENSE | 0.5040 | 0.5056
-| BERTScore | 0.9766 | 0.9759
-| Vocabulary (words) | 551 | 599
+|Training time (hh:mm:ss)|    |  5:24:51      |  5:26:49      |                       
+| BLEU-1 | 0.5948 | 0.5791 |0.5759                    
+| BLEU-2 | 0.3924 | 0.3773 |0.3739
+| BLEU-3 | 0.2603 | 0.2500|0.2456
+| BLEU-4 | 0.1695 | 0.1627|0.1565
+| METEOR | 0.1897 | 0.1855|0.1833
+| ROUGE-L | 0.3927 | 0.3817|0.3809
+| CIDEr-D | 0.4619 | 0.4510|0.4381
+| SPICE | 0.1335 | 0.1340|0.1331
+| SPIDEr | 0.2977 | 0.2925|0.2856
+| SPIDEr-FL | 0.2962 | 0.2921|0.2838
+| SBERT-sim | 0.5059 | 0.5067|0.5075
+| FER | 0.0038 | 0.0029|0.0057
+| FENSE | 0.5040 | 0.5056|0.5043
+| BERTScore | 0.9766 | 0.9759|0.9759
+| Vocabulary (words) | 551 | 599|594
 
 
 
