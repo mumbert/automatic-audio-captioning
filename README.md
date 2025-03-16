@@ -266,12 +266,7 @@ Concerning the AAC challenge, the FENSE metric [Zhou et al. (2022)](#Zhou2022) i
 
 #### <a name='Introduction-1'></a>Introduction
 
-> [!NOTE]
-> Victor si puedes revisar que en este punto no me haya dejado nada o que no esté diciendo nada que no sea cierto.
-
-Manage to deploy the DCase baseline model into our server, will provide the needed foundation for the project. As the rest of the objectives will revolve around this model it is critical that we succeed on running the model to study it. 
-
-This project is founded on cloud-based infrastructure, specifically Google Cloud, to handle the extensive computational requirements associated with the large dataset used. Due to the substantial size of the dataset and the complexity of model training, the project utilizes Google Cloud's Virtual Machines (VMs) with specialized GPU support for efficient processing.
+We reproduced the results stated in the original baseline, in order to validate the approach introduced with the baseline and to set the foundation for our work. The process required first to create a virtual machine with sufficient computational resources, particulary a capable GPU. We therefore created a virutal machine on the Google Cloud with the following specifications.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -279,7 +274,6 @@ This project is founded on cloud-based infrastructure, specifically Google Cloud
 #### Prerequisites
 <a id="objective2-hardware"></a>
 ##### Hardware
-The machine configuration is as follows:
 
 - **Machine Type:** g2-standard-4  
 This machine type is equipped with 4 vCPUs and 16 GB of memory, offering an appropriate balance of resources for handling data preprocessing and model training tasks.
@@ -287,12 +281,17 @@ This machine type is equipped with 4 vCPUs and 16 GB of memory, offering an appr
 - **GPU:** 1 x NVIDIA L4 GPU
 The NVIDIA L4 GPU was chosen for its optimized performance in deep learning tasks, ensuring fast training and inference times for large models and datasets.
 
+- **Disk:** 200 GB SSD
+A significant amount of disk space was required to store the dataset.
+
 - **Architecture:** x86-64
 The x86-64 architecture ensures compatibility with most modern computational frameworks and libraries used in machine learning and deep learning tasks.
 
 ##### Software
 
-> TODO: include operating system
+- **Operating system:** Debian GNU/Linux 11 (5.10.234-1)
+
+- **Libraries:** Python 3.11, CUDA v12.1.r12.1, Pytorch 2.2.1, Java OpenJDK v11.0.26
 
 <a id="objective2-installation"></a>
 #### <a name='Installation'></a>Installation
@@ -376,10 +375,16 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
 | Vocabulary (words) | 551 | 523
 
 
-Image of the training results here:
+We present below an screenshot showing the results obtained for the multiple scores used to evaluate the baseline model.
 
   <p align="center">
     <img src="doc/images/dcase24-training.jpg" alt="Baseline Eval" width="600" style="height: auto;">
+  </p>
+
+The baseline training process is monitored by tensorboard. The figure below presents the evolution of the loss metric (cross entropy) during training, which required 5.337 hours.
+
+  <p align="center">
+    <img src="doc/images/trainingBaselineTensorboard.jpg" alt="Baseline Eval" width="600" style="height: auto;">
   </p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -543,7 +548,7 @@ We can list here while working on the project some roadmap items or we can even 
 
 ### Pretrained Bert Model as Decoder
 
-Doing some research we came accross these following two papares:[Leveraging Pre-trained BERT for Audio Captioning](#XLiu) & [EVALUATING OFF-THE-SHELF MACHINE LISTENING AND NATURAL LANGUAGE MODELS FOR AUTOMATED AUDIO CAPTIONING](#BWeck). They inspired us to explore replacing the decoder of the baseline model with a BERT-based decoder.
+During our survey of the state of the art we identified two papers addressing the decoder architecture: [EVALUATING OFF-THE-SHELF MACHINE LISTENING AND NATURAL LANGUAGE MODELS FOR AUTOMATED AUDIO CAPTIONING](#BWeck) and [Leveraging Pre-trained BERT for Audio Captioning](#XLiu). They particularly explored the use of the BERT model for audio captioning, leading us to consider replacing the decoder of the baseline model with a BERT-based decoder.
 
 Using Bert as a decoder offered a list of potential benefits and improvements than using the default baseline decoder: 
 - BERT is pre-trained on large-scale text datasets, allowing it to transfer linguistic knowledge to the audio captioning task. This helps mitigate the issue of limited audio captioning training data.
@@ -551,22 +556,19 @@ Using Bert as a decoder offered a list of potential benefits and improvements th
 - BERT's strong language modeling capabilities may lead to more natural and descriptive captions compared to models without pre-trained language components.
 - Utilizing a pre-trained models for the decoder may require less training time and data to achieve good performance compared to training a decoder from scratch.
 
-Bert process integration was inspired by a second paper: [Leveraging Pre-trained BERT for Audio Captioning](#XLiu) beginning with the modification of the Word Embedding model from the baseline. This required two major changes into the baseline code, by replacing  the tokenizer implemented in ACC_Tokenizer.py with BertTokenizer from the transformers library
+The introduction of the BERT model can take place at different levels. The first of the aforementioned papers employed the tokenizer and the embedding layer of BERT. The second, on the other hand, further incorporates it into the cross attention layer of the transformer. We opted to begin with the adoption of BERT for the tokenizer and the word embedding layer for the baseline, as exemplified by the first paper. 
 
-After this modification, the model was retrained. The results were comparable to those obtained with the original baseline tokenizer, though with a slight performance degradation. 
+The first of the required changes into the baseline code was replacing the tokenizer implemented in ACC_Tokenizer.py with the BertTokenizer from the transformers library. After this modification, the model was retrained. The results were comparable to those obtained with the original baseline tokenizer, though with a slight performance degradation.
 
 <p align="center">
 <img width="787" alt="Screenshot 2025-03-14 at 12 36 06" src="https://github.com/user-attachments/assets/2a545280-f785-4066-93bd-376c62fb6b60" />
 </p>
 
-For caption generation, the features extracted by the encoder were fed into the cross-attention module of the BERT-based decoder. The pre-trained BERT model was then used to generate captions, aligning the architecture with advanced Automated Audio Captioning (AAC) strategies.
+The next step was to introduce the embedding layer of BERT into the baseline. The BERT model is provided in different levels of complexity, both in terms of the total number of parameters and the size of the embeddings. The bert-mini model generates embeddings of size 256, which coincides with the size of the embeddings generated by the default baseline embedding layer. We incorporated the embedding layer of bert-mini into the baseline code.
 
-<p align="center">
-<img width="362" alt="Screenshot 2025-03-14 at 13 28 03" src="https://github.com/user-attachments/assets/c856e005-fb46-413d-8f63-5c1f886a27b3" />
-</p>
+After these changes the training process was able to complete. However, although the loss metric was reduced significantly after training, extremely low scores were generated during testing. This indicated to us that much more work would be required to properly integrate BERT into the audio captioning baseline, particularly due to the complex process of generating the captions via beam search.
 
-Despite our efforts, the resulting captions were incorrect, indicating a possible issue in the integration process. 
-Due to time constraints, we were unable to fully diagnose and resolve the problem. As a result, we decided to pivot and shift our focus toward a more realistic and achievable objective.
+The code corresponding to this experiment can be found in the [berttok](https://github.com/victorcuevasv/upc-dl-2025/tree/berttok) branch of the following GitHub [repository](https://github.com/victorcuevasv/upc-dl-2025). We undertook a similar effort with the GPT2 model, but lower results were obtained for the tokenizer alone, which discouraged further exploration. The related code can be found in the [gpt2tok](https://github.com/victorcuevasv/upc-dl-2025/tree/gpt2tok) branch of the same repository.
 
 ### Adjusting training strategies: Hyperparameters experiments
 
