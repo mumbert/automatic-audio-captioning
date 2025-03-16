@@ -593,33 +593,74 @@ We can list here while working on the project some roadmap items or we can even 
 
 > Content here: Roger
 
+Cada alternativa es mesura per separat (el que es canvia a la alternativa 1 torna al seu valor default a la següent alternativa). This is done per intentar entendre l'efecte de cada paràmetre en particular.
+
+
+#### Alternative 1 (Alt1)
+
+Label smoothing from 0.2 now set to 0.
+
+Why? Label smoothing helps prevent overconfidence in predictions, but reducing it might lead to sharper probability distributions and potentially better accuracy.
+
+
+#### Alternative 2 (Alt2)
+
+Weight decay from 2 now set to 0.1
+
+Why? High weight decay discourages large weights but can also slow down learning. Reducing it might allow the model to learn more flexible representations.
+
+
+#### Alternative 3 (Alt3)
+
+Beam size for decoding from 3 now set to 5.
+
+Why? A larger beam size explores more possible output sequences, which can improve accuracy at the cost of speed. See if it affects test performance.
 
 
 
-Alternative 1 (Alt1)
-Alternative 2 (Alt2)
-Alternative 3 (Alt3)
-Alternative 4 (Alt4)
-Alternative 5 (Alt5)
-Alternative 6 (Alt6)
- #### <a name='Detailedresults'></a>Detailed results
+
+#### Alternative 4 (Alt4)
+
+Transformer hidden dimension number from 256 now set to 512
+
+Why? Increasing it allows for more expressive representations but costs more memory.
+
+
+
+#### Alternative 5 (Alt5)
+
+dropout from 0.5 now set to 0.45
+
+Why? I feel the model is underfitting, lets see what happens
+
+
+#### Alternative 6 (Alt6)
+
+dropout from 0.5 now set to 0.40
+
+To see if the model becomes unstable
+
+
+
+ #### <a name='Detailedresults'></a>Detailed results. Best performers highlighted in bold
 | Metric | Baseline| Alt1 |  Alt2 | Alt3 | Alt4 | Alt5 | Alt6 |
-| --- | --- | --- | --- | ---| --- |  --- | --- |                                             
-| BLEU-1 | 0.5948 | 0.60076 |                       
-| BLEU-2 | 0.3924 | 0.40016 |
-| BLEU-3 | 0.2603 | 0.27183
-| BLEU-4 | 0.1695 | 0.18060
-| METEOR | 0.1897 | 0.18706
-| ROUGE-L | 0.3927 | 0.39235
-| CIDEr-D | 0.4619 | 0.48064
-| SPICE | 0.1335 | 0.13289
-| SPIDEr | 0.2977 | 0.30676
-| SPIDEr-FL | 0.2962 | 0.30551
-| SBERT-sim | 0.5059 | 0.50817
-| FER | 0.0038 | 0.00765
-| FENSE | 0.5040 | 0.50456
-| BERTScore | 0.9766 | 0.97755
-| Vocabulary (words) | 551 | 523
+| --- | --- | --- | --- | ---| --- |  --- | --- |  
+|Training time|    |        |        |                       
+| BLEU-1 | 0.5948 | 0.5791 |                       
+| BLEU-2 | 0.3924 | 0.3773 |
+| BLEU-3 | 0.2603 | 0.2500
+| BLEU-4 | 0.1695 | 0.1627
+| METEOR | 0.1897 | 0.1855
+| ROUGE-L | 0.3927 | 0.3817
+| CIDEr-D | 0.4619 | 0.4510
+| SPICE | 0.1335 | 0.1340
+| SPIDEr | 0.2977 | 0.2925
+| SPIDEr-FL | 0.2962 | 0.2921
+| SBERT-sim | 0.5059 | 0.5067
+| FER | 0.0038 | 0.0029
+| FENSE | 0.5040 | 0.5056
+| BERTScore | 0.9766 | 0.9759
+| Vocabulary (words) | 551 | 599
 
 
 
