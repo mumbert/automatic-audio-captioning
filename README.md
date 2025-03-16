@@ -606,6 +606,12 @@ Label smoothing from 0.2 now set to 0.
 Why? Label smoothing helps prevent overconfidence in predictions, but reducing it might lead to sharper probability distributions and potentially better accuracy.
 
 
+<p align="center">
+  <img src="doc/images/alt1_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
+
+
 #### Alternative 2 (Alt2)
 
 Weight decay from 2 now set to 0.1
@@ -613,11 +619,25 @@ Weight decay from 2 now set to 0.1
 Why? High weight decay discourages large weights but can also slow down learning. Reducing it might allow the model to learn more flexible representations.
 
 
+<p align="center">
+  <img src="doc/images/alt2_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
+
+
+
+
 #### Alternative 3 (Alt3)
 
 Beam size for decoding from 3 now set to 5.
 
 Why? A larger beam size explores more possible output sequences, which can improve accuracy at the cost of speed. See if it affects test performance.
+
+
+<p align="center">
+  <img src="doc/images/alt3_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
 
 
 
@@ -628,6 +648,12 @@ Transformer hidden dimension number from 256 now set to 512
 
 Why? Increasing it allows for more expressive representations but costs more memory.
 
+<p align="center">
+  <img src="doc/images/alt4_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
+
+
 
 
 #### Alternative 5 (Alt5)
@@ -637,6 +663,15 @@ dropout from 0.5 now set to 0.45
 Why? I feel the model is underfitting, lets see what happens
 
 
+
+<p align="center">
+  <img src="doc/images/alt5_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
+
+
+
+
 #### Alternative 6 (Alt6)
 
 dropout from 0.5 now set to 0.40
@@ -644,26 +679,32 @@ dropout from 0.5 now set to 0.40
 To see if the model becomes unstable
 
 
+<p align="center">
+  <img src="doc/images/alt6_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+</p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
 
- #### <a name='Detailedresults'></a>Detailed results. Best performers highlighted in bold
+
+
+ #### <a name='Detailedresults'></a>Detailed results. Best performers highlighted in italic bold
 | Metric | Baseline| Alt1 |  Alt2 | Alt3 | Alt4 | Alt5 | Alt6 |
 | --- | --- | --- | --- | ---| --- |  --- | --- |  
 |Training time (hh:mm:ss)|    |  5:24:51      |  5:26:49      |   5:26:25   |  5:28:22    | 5:27:55 | 5:28:16         
-| BLEU-1 | **0.5948** | 0.5791 |0.5759|0.5829 |0.5786 | 0.5818|0.5871              
-| BLEU-2 | **0.3924** | 0.3773 |0.3739|0.3805|0.3758 |0.3819|0.3832
-| BLEU-3 | **0.2603** | 0.2500|0.2456|0.2526|0.2494 |0.2555|0.2531
-| BLEU-4 | **0.1695** | 0.1627|0.1565|0.1628|0.1632 |0.1675|0.1619
-| METEOR | **0.1897** | 0.1855|0.1833|0.1844|0.1847 |0.1857|0.1874
-| ROUGE-L | **0.3927** | 0.3817|0.3809|0.3832|0.3836 |0.3871|0.3867
-| CIDEr-D | **0.4619** | 0.4510|0.4381|0.4481|0.4432 |0.4519|0.4546
-| SPICE | 0.1335 | **0.1340**|0.1331|0.1318|0.1324 |0.1299|0.1336
-| SPIDEr | **0.2977** | 0.2925|0.2856|0.2899|0.2878 |0.2909|0.2941
-| SPIDEr-FL | **0.2962** | 0.2921|0.2838|0.2890|0.2874 |0.2900|0.2931
-| SBERT-sim | 0.5059 | 0.5067|**0.5075**|0.5043|0.5048 |0.5051|0.4994
-| FER | 0.0038 | 0.0029|**0.0057**|0.0029|0.0019 |**0.0057**|0.0038
-| FENSE | 0.5040 | **0.5056**|0.5043|0.5028|0.5041 |0.5033|0.4975
-| BERTScore | **0.9766** | 0.9759|0.9759|0.9759|0.9759 |0.9754|0.9761
-| Vocabulary (words) | 551 | **599**|594|579|585 |551|540
+| BLEU-1 | **_0.5948_** | 0.5791 |0.5759|0.5829 |0.5786 | 0.5818|0.5871              
+| BLEU-2 | **_0.3924_** | 0.3773 |0.3739|0.3805|0.3758 |0.3819|0.3832
+| BLEU-3 | **_0.2603_** | 0.2500|0.2456|0.2526|0.2494 |0.2555|0.2531
+| BLEU-4 | **_0.1695_** | 0.1627|0.1565|0.1628|0.1632 |0.1675|0.1619
+| METEOR | **_0.1897_** | 0.1855|0.1833|0.1844|0.1847 |0.1857|0.1874
+| ROUGE-L | **_0.3927_** | 0.3817|0.3809|0.3832|0.3836 |0.3871|0.3867
+| CIDEr-D | **_0.4619_** | 0.4510|0.4381|0.4481|0.4432 |0.4519|0.4546
+| SPICE | 0.1335 | **_0.1340_**|0.1331|0.1318|0.1324 |0.1299|0.1336
+| SPIDEr | **_0.2977_** | 0.2925|0.2856|0.2899|0.2878 |0.2909|0.2941
+| SPIDEr-FL | **_0.2962_** | 0.2921|0.2838|0.2890|0.2874 |0.2900|0.2931
+| SBERT-sim | 0.5059 | 0.5067|**_0.5075_**|0.5043|0.5048 |0.5051|0.4994
+| FER | 0.0038 | 0.0029|**0.0057_**|0.0029|0.0019 |**_0.0057_**|0.0038
+| FENSE | 0.5040 | **_0.5056_**|0.5043|0.5028|0.5041 |0.5033|0.4975
+| BERTScore | **_0.9766_**| 0.9759|0.9759|0.9759|0.9759 |0.9754|0.9761
+| Vocabulary (words) | 551 | **_599_**|594|579|585 |551|540
 
 
 
