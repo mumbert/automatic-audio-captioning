@@ -354,6 +354,10 @@ The x86-64 architecture ensures compatibility with most modern computational fra
 
 > TODO: include operating system
 
+ubuntu
+java
+etc
+
 <a id="objective2-installation"></a>
 #### <a name='Installation'></a>Installation
 
@@ -588,6 +592,42 @@ We can list here while working on the project some roadmap items or we can even 
 ## 3. Modify the decoder architecture and adjust training strategies
 
 > Content here: Roger
+
+
+
+
+Alternative 1 (Alt1)
+Alternative 2 (Alt2)
+Alternative 3 (Alt3)
+Alternative 4 (Alt4)
+Alternative 5 (Alt5)
+Alternative 6 (Alt6)
+ #### <a name='Detailedresults'></a>Detailed results
+| Metric | Baseline| Alt1 |  Alt2 | Alt3 | Alt4 | Alt5 | Alt6 |
+| --- | --- | --- | --- | ---| --- |  --- | --- |                                             
+| BLEU-1 | 0.5948 | 0.60076 |                       
+| BLEU-2 | 0.3924 | 0.40016 |
+| BLEU-3 | 0.2603 | 0.27183
+| BLEU-4 | 0.1695 | 0.18060
+| METEOR | 0.1897 | 0.18706
+| ROUGE-L | 0.3927 | 0.39235
+| CIDEr-D | 0.4619 | 0.48064
+| SPICE | 0.1335 | 0.13289
+| SPIDEr | 0.2977 | 0.30676
+| SPIDEr-FL | 0.2962 | 0.30551
+| SBERT-sim | 0.5059 | 0.50817
+| FER | 0.0038 | 0.00765
+| FENSE | 0.5040 | 0.50456
+| BERTScore | 0.9766 | 0.97755
+| Vocabulary (words) | 551 | 523
+
+
+
+
+
+
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
