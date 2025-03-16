@@ -416,7 +416,7 @@ We used the same machine configuration as DCASE Baseline defined [here](#objecti
 > TODO: include operating system
 
 #### <a name='installation-2b'></a>Installation
-After learning some points replicating the baseline and launching it, deploy CLAP was a bit simpler. Hance we will use the provided list of steps from this guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md). Check CLAP section.
+After learning some points replicating the baseline and launching it, deploy CLAP was a bit simpler. Hance we will use the provided list of steps from this guide: [Installing & deploying DCASE baseline Instructions](doc/README_baselines.md). Check CLAP section.
 
 The script follows the next  steps:
 
