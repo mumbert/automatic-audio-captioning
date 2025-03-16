@@ -593,69 +593,62 @@ We can list here while working on the project some roadmap items or we can even 
 
 In this section, we describe a series of controlled experiments designed to isolate the impact of individual hyperparameter changes on the performance of our audio captioning model. Each experiment—referred to as an “alternative”—applies a single modification, with all parameters reset to their default values between experiments. This approach allows us to clearly attribute any observed changes in performance to the specific adjustment under investigation. 
 
-For further reproducibility, detailed outputs and links to each alternative’s results (accessible via the "Outputs -> stdout" section) are provided.
+For further reproducibility, detailed outputs and links to each alternative’s results are provided.
 
 
 
-- [Alternative 1](src/baseline-alternatives/logs/alternative1-2025.03.09-10.03.51-baseline/outputs/stdout.log)
-- [Alternative 2](src/baseline-alternatives/logs/alternative2-2025.03.09-17.56.08-baseline/outputs/stdout.log)
-- [Alternative 3](src/baseline-alternatives/logs/alternative3-2025.03.10-07.06.32-baseline/outputs/stdout.log)
-- [Alternative 4](src/baseline-alternatives/logs/alternative4-2025.03.10-13.22.32-baseline/outputs/stdout.log)
-- [Alternative 5](src/baseline-alternatives/logs/alternative5-2025.03.10-20.37.58-baseline/outputs/stdout.log)
-- [Alternative 6](src/baseline-alternatives/logs/alternative6-2025.03.11-09.16.56-baseline/outputs/stdout.log)
-
-#### Alternative 1 (Alt1)
+#### [Alternative 1](src/baseline-alternatives/logs/alternative1-2025.03.09-10.03.51-baseline/outputs/stdout.log) (Alt1)
 
 - **Modification**: The label smoothing parameter is reduced from 0.2 to 0.0.
 
 - **Rationale**: Label smoothing is commonly used to prevent the model from becoming overconfident in its predictions. However, lowering this value may result in sharper probability distributions and, potentially, improved accuracy.
 
-<p align="center"> <img src="doc/images/alt1_trainloss.png" alt="Training loss graph for Alt1" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 1</em></p>
+<p align="center"> <img src="doc/images/alt1_trainloss.png" alt="Training loss graph for Alt1" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 4: Training loss for alternative 1</em></p>
 
-#### Alternative 2 (Alt2)
+#### [Alternative 2](src/baseline-alternatives/logs/alternative2-2025.03.09-17.56.08-baseline/outputs/stdout.log) (Alt2)
 
 - **Modification**: The weight decay is decreased from 2.0 to 0.1.
 
 - **Rationale**: While high weight decay discourages large weight values to promote generalization, it can also slow down the learning process. A lower weight decay might enable the model to learn more flexible representations, potentially enhancing its performance.
 
-<p align="center"> <img src="doc/images/alt2_trainloss.png" alt="Training loss graph for Alt2" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 3</em></p>
+<p align="center"> <img src="doc/images/alt2_trainloss.png" alt="Training loss graph for Alt2" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 5: Training loss for alternative 3</em></p>
 
 
 
 
-#### Alternative 3 (Alt3)
+#### [Alternative 3](src/baseline-alternatives/logs/alternative3-2025.03.10-07.06.32-baseline/outputs/stdout.log) (Alt3)
 
 - **Modification**: The beam size used during decoding is increased from 3 to 5.
 
 - **Rationale**: A larger beam size allows the decoder to explore a wider range of output sequences during inference. Although this may come at the cost of increased computational demand during decoding, it could lead to more accurate caption generation.
 
-<p align="center"> <img src="doc/images/alt3_trainloss.png" alt="Training loss graph for Alt3" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 3</em></p>
+<p align="center"> <img src="doc/images/alt3_trainloss.png" alt="Training loss graph for Alt3" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 6: Training loss for alternative 3</em></p>
 
 
 
-#### Alternative 4 (Alt4)
+#### [Alternative 4](src/baseline-alternatives/logs/alternative4-2025.03.10-13.22.32-baseline/outputs/stdout.log) (Alt4)
 
 - **Modification**: The transformer hidden dimension is increased from 256 to 512.
 
 - **Rationale**: Increasing the hidden dimension allows the model to capture more complex and expressive representations of the input data. This modification is expected to enhance performance, although it also entails higher memory usage and computational cost.
-<p align="center"> <img src="doc/images/alt4_trainloss.png" alt="Training loss graph for Alt4" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 4</em></p>
+<p align="center"> <img src="doc/images/alt4_trainloss.png" alt="Training loss graph for Alt4" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 7: Training loss for alternative 4</em></p>
 
 
 
-#### Alternative 5 (Alt5)
+#### [Alternative 5](src/baseline-alternatives/logs/alternative5-2025.03.10-20.37.58-baseline/outputs/stdout.log) (Alt5)
 
 - **Modification**: The dropout rate is adjusted from 0.5 to 0.45.
 
 - **Rationale**: A slight reduction in dropout may alleviate underfitting by allowing the model to capture more nuanced patterns in the data, while still providing enough regularization to prevent overfitting.
-<p align="center"> <img src="doc/images/alt5_trainloss.png" alt="Training loss graph for Alt5" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 5</em></p>
+<p align="center"> <img src="doc/images/alt5_trainloss.png" alt="Training loss graph for Alt5" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 8: Training loss for alternative 5</em></p>
 
 
-#### Alternative 6 (Alt6)
+#### [Alternative 6](src/baseline-alternatives/logs/alternative6-2025.03.11-09.16.56-baseline/outputs/stdout.log) (Alt6)
 
 - **Modification**: The dropout rate is further reduced from 0.5 to 0.40.
 
 - **Rationale**: This experiment investigates whether a further reduction in dropout might lead to instability in the training process. By testing this lower rate, we assess the limits of regularization before the model's performance degrades.
-<p align="center"> <img src="doc/images/alt6_trainloss.png" alt="Training loss graph for Alt6" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 6</em></p>
+<p align="center"> <img src="doc/images/alt6_trainloss.png" alt="Training loss graph for Alt6" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 9: Training loss for alternative 6</em></p>
 
 
  #### <a name='Detailedresults'></a>Detailed results. Best performers highlighted in italic bold
@@ -789,14 +782,14 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <img src="doc/images/attentionmap.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 10: Attention map example</em></p>
 
 - Audio waveform:
 
 <p align="center">
   <img src="doc/images/waveform_140815_drezyna_3.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 11: Audio</em></p>
 
 <!-- 
 <p align="center">
@@ -826,7 +819,7 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <img src="doc/images/attention_map_Small_Eatery.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 12: Attention map example</em></p>
 
 
 - Audio waveform:
@@ -834,7 +827,7 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <img src="doc/images/waveform_Small_Eatery.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 13: Audio</em></p>
 
 
 
@@ -858,7 +851,7 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <img src="doc/images/attention_map_windup_flashlight.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 14: Attention map example</em></p>
 
 
 - Audio waveform:
@@ -866,7 +859,7 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <img src="doc/images/waveform_windup_flashlight.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 15: Audio</em></p>
 
 
 **Example 4**
@@ -888,14 +881,14 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <img src="doc/images/attention_map_lighting_matches.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 16: Attention map example</em></p>
 
 - Audio waveform:
 
 <p align="center">
   <img src="doc/images/waveform_lighting_matches.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 17: Audio</em></p>
 
 
 **Example 5**
@@ -917,14 +910,14 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <img src="doc/images/attention_map_Whistling.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 18: Attention map example</em></p>
 
 - Audio waveform:
 
 <p align="center">
   <img src="doc/images/waveform_Whistling.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 19: Audio</em></p>
 
 
 **Example 6**
@@ -946,14 +939,14 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <img src="doc/images/attention_map_tembi_dawn.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 20: Attention map example</em></p>
 
 - Audio waveform:
 
 <p align="center">
   <img src="doc/images/waveform_tembi_dawn.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 21: Audio</em></p>
 
 
 **Example 7**
@@ -975,14 +968,14 @@ In this section we show some attention maps examples with their corresponding au
 <p align="center">
   <img src="doc/images/attention_map_newspaper_handling_reading.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 22: Attention map example</em></p>
 
 - Audio waveform:
 
 <p align="center">
   <img src="doc/images/waveform_newspaper_handling_reading.png" alt="waveform" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure 5: Audio</em></p>
+<p align="center"><a id="fig-example-demo"></a><em>Figure 23: Audio</em></p>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
