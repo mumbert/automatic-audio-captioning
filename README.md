@@ -597,12 +597,12 @@ For further reproducibility, detailed outputs and links to each alternative’s 
 
 
 
-- [Alternative 1](src/baseline-alternatives/logs/alternative1-2025.03.09-10.03.51-baseline/outputs/stdout.txt)
-- [Alternative 2](src/baseline-alternatives/logs/alternative2-2025.03.09-17.56.08-baseline/outputs/stdout.txt)
-- [Alternative 3](src/baseline-alternatives/logs/alternative3-2025.03.10-07.06.32-baseline/outputs/stdout.txt)
-- [Alternative 4](src/baseline-alternatives/logs/alternative4-2025.03.10-13.22.32-baseline/outputs/stdout.txt)
-- [Alternative 5](src/baseline-alternatives/logs/alternative5-2025.03.10-20.37.58-baseline/outputs/stdout.txt)
-- [Alternative 6](src/baseline-alternatives/logs/alternative6-2025.03.11-09.16.56-baseline/outputs/stdout.txt)
+- [Alternative 1](src/baseline-alternatives/logs/alternative1-2025.03.09-10.03.51-baseline/outputs/stdout.log)
+- [Alternative 2](src/baseline-alternatives/logs/alternative2-2025.03.09-17.56.08-baseline/outputs/stdout.log)
+- [Alternative 3](src/baseline-alternatives/logs/alternative3-2025.03.10-07.06.32-baseline/outputs/stdout.log)
+- [Alternative 4](src/baseline-alternatives/logs/alternative4-2025.03.10-13.22.32-baseline/outputs/stdout.log)
+- [Alternative 5](src/baseline-alternatives/logs/alternative5-2025.03.10-20.37.58-baseline/outputs/stdout.log)
+- [Alternative 6](src/baseline-alternatives/logs/alternative6-2025.03.11-09.16.56-baseline/outputs/stdout.log)
 
 #### Alternative 1 (Alt1)
 
