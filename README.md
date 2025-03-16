@@ -24,6 +24,7 @@
   - [Motivation](#motivation)
   - [Objectives](#objectives)
   - [Schedule](#schedule)
+  - [Repositories](#repositories)
 - [Objectives](#objectives-1)
   - [1. Understand state-of-the-art AAC systems](#1-understand-state-of-the-art-aac-systems)
     - [Introduction](#introduction-1)
@@ -137,6 +138,16 @@ The third goal focuses on evaluating the current model architecture, modifying i
 
 Lastly, the fourth goal involves synthesizing all gathered insights and conducting the final discussion and conclusions. This phase is scheduled for the last weeks of the project in March.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## <a name='Repositories'></a>Repositories
+
+For this project, several repositories have been developed, which are mentioned in this readme:
+- [Automated Audio Captioning](https://github.com/mumbert/automatic-audio-captioning), the current repository
+- [Automated Audio Captioning Demo Code](https://github.com/mumbert/automatic-audio-captioning-demo)
+- [Automated Audio Captioning Demo at Huggingface](https://huggingface.co/spaces/mumbert/automatic-audio-captioning-demo)
+- [dcase2024-task6-baseline-project](https://github.com/mumbert/dcase2024-task6-baseline-project)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
