@@ -190,7 +190,7 @@ The model is composed by an audio encoder which produces a frame-level audio rep
 
 Encoders extract audio features using various neural networks types, including:
 
-- **Recurrent Neural Networks (RNNs):** Early approaches utilized RNNs (e.g., GRUs, LSTMs) to model temporal relationships in audio. For instance, Drossos et al. (cited within the provided paper) used a three-layered bi-directional GRU network as the encoder. RNNs process audio as a time-series signal, where the hidden states of the last layer of the RNN are regarded as the audio feature sequences, which are then fed into the text decoder for caption generation.
+- **Recurrent Neural Networks (RNNs):** Early approaches utilized RNNs (e.g., GRUs, LSTMs) to model temporal relationships in audio. For instance, Drossos et al. [Drossos et al. (2017)](#drossos2017) used a three-layered bi-directional GRU network as the encoder. RNNs process audio as a time-series signal, where the hidden states of the last layer of the RNN are regarded as the audio feature sequences, which are then fed into the text decoder for caption generation.
   - ***Challenges:*** RNNs alone may struggle with long-range dependencies, making it difficult to learn the correspondence between words and audio features.Also, using RNNs alone as the encoder is not found to give strong performance.
   - ***Advantages:*** RNNs are simple to implement and designed to process sequential data of variable lengths.
 
