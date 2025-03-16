@@ -56,8 +56,8 @@
     - [Approach to explainability](#approach-to-explainability)
     - [Code modifications](#code-modifications)
     - [Attention maps examples](#attention-maps-examples)
+    - [MLOps: exploring the tensorboard for training](#mlops-exploring-the-tensorboard-for-training)
     - [Conclusions](#conclusions-1)
-  - [MLOps Tensorboard](#mlops-tensorboard)
 - [Future directions](#future-directions)
   - [Improved attention mechanisms](#improved-attention-mechanisms)
     - [Challenges:](#challenges)
@@ -826,7 +826,7 @@ https://github.com/user-attachments/assets/4f44cf7e-0753-41b9-a16e-9f29c0b06783
 <p align="center">
   <audio controls>
     <source src="doc/audios/tembi dawn.wav" type="audio/wav">
-    <a href="doc/audios/tembi dawn.wav">.wav</a>
+    <a href="doc/audios/tembi dawn.wav">tembi dawn.wav</a>
   </audio>
 </p>
 
@@ -880,6 +880,16 @@ https://github.com/user-attachments/assets/1e878e48-acdc-4817-a83c-b8ff13efcf15
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+### <a name='exploring_mlops_tensorboard_training'></a>MLOps: exploring the tensorboard for training
+
+In order to be able to explore more in detail the generated tensorboard during the training process and listen to the audio files we have created this [notebook on attention maps](notebooks/attention_maps.ipynb). Please follow the guidelines in order to be able to run it directly on google collab.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 ### <a name='Conclusions'></a>Conclusions
 
 After pairing attention maps and time-stamps (for verbs and nouns) we can make several observations based on the previous 5 examples:
@@ -890,11 +900,6 @@ After pairing attention maps and time-stamps (for verbs and nouns) we can make s
 - some really short events seem to be very well captured, like in example 7 where a paper is ripped out.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## <a name='mlops-tensorboard'></a>MLOps Tensorboard
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 # Future directions
 
