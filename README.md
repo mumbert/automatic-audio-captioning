@@ -481,6 +481,8 @@ The scripts needed to evaluate CLAP are [evaluate_clap.sh](https://github.com/mu
 #### <a name='conclusions-2b'></a>Conclusion
 Integrating CLAP into AAC systems represents a significant advancement in the field. By leveraging pre-trained knowledge and cross-modal representations, CLAP-based AAC models can overcome limitations of traditional approaches, leading to improved generalization, reduced data requirements, and more robust caption generation. Future research should focus on addressing the challenges related to computational resources, domain adaptation, and explainability to further enhance the performance of CLAP-based AAC systems.
 
+In terms of the FENSE metric, CLAP-based AAC seems not to outperform the baseline model released by the DCASE challenge (0.470 cs 0.504).
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### DCASE 2024 and CLAP demo deployment
