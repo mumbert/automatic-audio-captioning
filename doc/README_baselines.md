@@ -34,6 +34,10 @@ bash src/baseline/test_inference.sh
 
 ## CLAP
 
+Regarding the google cloud instance, some relevant configuration used:
+- Image: debian-11-bullseye-v20250114 (IMPORTANT for the Java Version requirements of the metrics)
+- HW: CPU, no GPU
+
 The following scripts use the configuration in file:
 
 ```
