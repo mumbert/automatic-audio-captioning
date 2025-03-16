@@ -50,6 +50,8 @@
       - [Conclusion](#conclusion)
     - [DCASE 2024 and CLAP demo deployment](#dcase-2024-and-clap-demo-deployment)
   - [3. Modify the decoder architecture and adjust training strategies](#3-modify-the-decoder-architecture-and-adjust-training-strategies)
+    - [Pretrained Bert Model as Decoder](#pretrained-bert-model-as-decoder)
+    - [Adjusting training strategies: Hyperparameters experiments](#adjusting-training-strategies-hyperparameters-experiments)
   - [4. Gain insights into audio captioning and deep learning](#4-gain-insights-into-audio-captioning-and-deep-learning)
     - [Approach to explainability](#approach-to-explainability)
     - [Code modifications](#code-modifications)
@@ -57,9 +59,14 @@
     - [Conclusions](#conclusions-1)
   - [MLOps Tensorboard](#mlops-tensorboard)
 - [Future directions](#future-directions)
+  - [Improved attention mechanisms](#improved-attention-mechanisms)
+    - [Challenges:](#challenges)
   - [Architectures](#architectures)
   - [Datasets](#datasets)
   - [Metrics](#metrics)
+  - [Aplications](#aplications)
+    - [Current aplications](#current-aplications)
+    - [Future aplications](#future-aplications)
 - [Contributing](#contributing)
 - [References](#references)
 
@@ -307,9 +314,9 @@ Before training, the raw audio files need to be converted into a structured form
 
 We have created different guides and scripts that helps to prepare install and lunch the DCASE Baseline into a GPU instance.
 
-> For a step by step guide to create the environment, please check the following [Environment Setup](doc/README_baseline_setps.md).
+> For a step by step guide to create the environment, please check the following [Environment Setup](doc/README_baseline_steps.md).
 >
-> Once we have the environment created please follow the next step by step guide: [Installing & deploying DCASE baseline Instructions](doc/README_baseline.md).
+> Once we have the environment created please follow the next step by step guide: [Installing & deploying DCASE baseline Instructions](doc/README_baselines.md).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
