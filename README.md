@@ -413,7 +413,7 @@ CLAP offers a powerful alternative by leveraging pre-training on a massive datas
 We used the same machine configuration as DCASE Baseline defined [here](#objective2-hardware)
 
 ##### <a name='software-2b'></a>Software
-> TODO: include operating system
+No specific software since CLAP inference can run on CPU hardware as well, so any operating system image seems to be able to run it.
 
 #### <a name='installation-2b'></a>Installation
 After learning some points replicating the baseline and launching it, deploy CLAP was a bit simpler. Hance we will use the provided list of steps from this guide: [Installing & deploying DCASE baseline Instructions](doc/README_baselines.md). Check CLAP section.
