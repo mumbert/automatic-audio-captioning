@@ -591,99 +591,71 @@ We can list here while working on the project some roadmap items or we can even 
 
 ## 3. Modify the decoder architecture and adjust training strategies
 
-> Content here: Roger
+In this section, we describe a series of controlled experiments designed to isolate the impact of individual hyperparameter changes on the performance of our audio captioning model. Each experiment—referred to as an “alternative”—applies a single modification, with all parameters reset to their default values between experiments. This approach allows us to clearly attribute any observed changes in performance to the specific adjustment under investigation. 
 
-Cada alternativa es mesura per separat (el que es canvia a la alternativa 1 torna al seu valor default a la següent alternativa). This is done per intentar entendre l'efecte de cada paràmetre en particular.
+For further reproducibility, detailed outputs and links to each alternative’s results (accessible via the "Outputs -> stdout" section) are provided.
 
-> [!NOTE]
-> Nota per mi mateix: recorda posar els links de cada alternativa per si els professors volen trastejar amb els resultats. EL SUMMARY TOTAL TAMBÉ EL PODEN CONSULTAR A ALTERNATIVA -> OUTPUTS -> stdout
 
+
+- [Alternative 1](src/baseline-alternatives/logs/alternative1-2025.03.09-10.03.51-baseline/outputs/stdout.txt)
+- [Alternative 2](src/baseline-alternatives/logs/alternative2-2025.03.09-17.56.08-baseline/outputs/stdout.txt)
+- [Alternative 3](src/baseline-alternatives/logs/alternative3-2025.03.10-07.06.32-baseline/outputs/stdout.txt)
+- [Alternative 4](src/baseline-alternatives/logs/alternative4-2025.03.10-13.22.32-baseline/outputs/stdout.txt)
+- [Alternative 5](src/baseline-alternatives/logs/alternative5-2025.03.10-20.37.58-baseline/outputs/stdout.txt)
+- [Alternative 6](src/baseline-alternatives/logs/alternative6-2025.03.11-09.16.56-baseline/outputs/stdout.txt)
 
 #### Alternative 1 (Alt1)
 
-Label smoothing from 0.2 now set to 0.
+- **Modification**: The label smoothing parameter is reduced from 0.2 to 0.0.
 
-Why? Label smoothing helps prevent overconfidence in predictions, but reducing it might lead to sharper probability distributions and potentially better accuracy.
+- **Rationale**: Label smoothing is commonly used to prevent the model from becoming overconfident in its predictions. However, lowering this value may result in sharper probability distributions and, potentially, improved accuracy.
 
-
-<p align="center">
-  <img src="doc/images/alt1_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
-</p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
-
+<p align="center"> <img src="doc/images/alt1_trainloss.png" alt="Training loss graph for Alt1" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 1</em></p>
 
 #### Alternative 2 (Alt2)
 
-Weight decay from 2 now set to 0.1
+- **Modification**: The weight decay is decreased from 2.0 to 0.1.
 
-Why? High weight decay discourages large weights but can also slow down learning. Reducing it might allow the model to learn more flexible representations.
+- **Rationale**: While high weight decay discourages large weight values to promote generalization, it can also slow down the learning process. A lower weight decay might enable the model to learn more flexible representations, potentially enhancing its performance.
 
-
-<p align="center">
-  <img src="doc/images/alt2_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
-</p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
+<p align="center"> <img src="doc/images/alt2_trainloss.png" alt="Training loss graph for Alt2" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 3</em></p>
 
 
 
 
 #### Alternative 3 (Alt3)
 
-Beam size for decoding from 3 now set to 5.
+- **Modification**: The beam size used during decoding is increased from 3 to 5.
 
-Why? A larger beam size explores more possible output sequences, which can improve accuracy at the cost of speed. See if it affects test performance.
+- **Rationale**: A larger beam size allows the decoder to explore a wider range of output sequences during inference. Although this may come at the cost of increased computational demand during decoding, it could lead to more accurate caption generation.
 
-
-<p align="center">
-  <img src="doc/images/alt3_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
-</p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
-
+<p align="center"> <img src="doc/images/alt3_trainloss.png" alt="Training loss graph for Alt3" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 3</em></p>
 
 
 
 #### Alternative 4 (Alt4)
 
-Transformer hidden dimension number from 256 now set to 512
+- **Modification**: The transformer hidden dimension is increased from 256 to 512.
 
-Why? Increasing it allows for more expressive representations but costs more memory.
-
-<p align="center">
-  <img src="doc/images/alt4_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
-</p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
-
+- **Rationale**: Increasing the hidden dimension allows the model to capture more complex and expressive representations of the input data. This modification is expected to enhance performance, although it also entails higher memory usage and computational cost.
+<p align="center"> <img src="doc/images/alt4_trainloss.png" alt="Training loss graph for Alt4" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 4</em></p>
 
 
 
 #### Alternative 5 (Alt5)
 
-dropout from 0.5 now set to 0.45
+- **Modification**: The dropout rate is adjusted from 0.5 to 0.45.
 
-Why? I feel the model is underfitting, lets see what happens
-
-
-
-<p align="center">
-  <img src="doc/images/alt5_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
-</p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
-
-
+- **Rationale**: A slight reduction in dropout may alleviate underfitting by allowing the model to capture more nuanced patterns in the data, while still providing enough regularization to prevent overfitting.
+<p align="center"> <img src="doc/images/alt5_trainloss.png" alt="Training loss graph for Alt5" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 5</em></p>
 
 
 #### Alternative 6 (Alt6)
 
-dropout from 0.5 now set to 0.40
+- **Modification**: The dropout rate is further reduced from 0.5 to 0.40.
 
-To see if the model becomes unstable
-
-
-<p align="center">
-  <img src="doc/images/alt6_trainloss.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
-</p>
-<p align="center"><a id="fig-example-demo"></a><em>Figure x: x</em></p>
-
+- **Rationale**: This experiment investigates whether a further reduction in dropout might lead to instability in the training process. By testing this lower rate, we assess the limits of regularization before the model's performance degrades.
+<p align="center"> <img src="doc/images/alt6_trainloss.png" alt="Training loss graph for Alt6" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure x: Training loss for alternative 6</em></p>
 
 
  #### <a name='Detailedresults'></a>Detailed results. Best performers highlighted in italic bold
@@ -706,22 +678,19 @@ To see if the model becomes unstable
 | BERTScore | **_0.9766_**| 0.9759|0.9759|0.9759|0.9759 |0.9754|0.9761
 | Vocabulary (words) | 551 | **_599_**|594|579|585 |551|540
 
-**Alternative 1 (No label smoothing)**:
-Removing label smoothing led to a modest drop in BLEU, METEOR, ROUGE-L, and CIDEr‑D. However, it improved SPICE, FENSE, and vocabulary. This suggests that while the model may produce a richer vocabulary and slightly better semantic propositions, it might also become more overconfident, potentially harming n‑gram overlap metrics.
+**Discussion**
+
+**Alternative 1 (no label smoothing)**: Removing label smoothing led to a modest drop in BLEU, METEOR, ROUGE-L, and CIDEr‑D. However, it improved SPICE, FENSE, and vocabulary. This suggests that while the model may produce a richer vocabulary and slightly better semantic propositions, it might also become more overconfident, potentially harming n‑gram overlap metrics.
 
 
-**Alternative 2 (reduced weight decay)**:
-With a lower weight decay, the model’s capacity to fit the training data appears to improve semantic similarity (highest SBERT-sim) and FER. Yet, overall performance in traditional metrics (BLEU, METEOR, etc.) still lags behind the baseline. This trade-off indicates that a reduction in weight decay can favor semantic flexibility at the cost of some precision.
+**Alternative 2 (reduced weight decay)**: With a lower weight decay, the model’s capacity to fit the training data appears to improve semantic similarity (highest SBERT-sim) and FER. Yet, overall performance in traditional metrics (BLEU, METEOR, etc.) still lags behind the baseline. This trade-off indicates that a reduction in weight decay can favor semantic flexibility at the cost of some precision.
 
-**Alternative 3 (increased beam size)**:
-Increasing the beam size for decoding has a minor impact. While beam search is known to explore a wider set of output sequences, the improvements here are not significant.
+**Alternative 3 (increased beam size)**: Increasing the beam size for decoding has a minor impact. While beam search is known to explore a wider set of output sequences, the improvements here are not significant.
 
 
-**Alternative 4 (larger transformer hidden dimension)**:
-Doubling the transformer hidden dimension from 256 to 512 should, in theory, offer more expressive power. However, the results do not reflect an improvement—likely due to overparameterization or insufficient data to exploit the additional capacity. The baseline remains better across nearly all metrics.
+**Alternative 4 (larger transformer hidden dimension)**: Doubling the transformer hidden dimension from 256 to 512 should, in theory, offer more expressive power. However, the results do not reflect an improvement—likely due to overparameterization or insufficient data to exploit the additional capacity. The baseline remains better across nearly all metrics.
 
-**Alternatives 5 & 6 (dropout adjustments)**:
-Reducing dropout slightly (to 0.45 in Alt5) appears to help with FER, suggesting that the model might be underfitting at a dropout of 0.5. However, further reducing dropout to 0.4 (Alt6) seems to push the model toward instability, as reflected by a drop in several metrics. This demonstrates a delicate balance in dropout rates where too little can compromise model robustness.
+**Alternatives 5 & 6 (dropout adjustments)**: Reducing dropout slightly (to 0.45 in Alt5) appears to help with FER, suggesting that the model might be underfitting at a dropout of 0.5. However, further reducing dropout to 0.4 (Alt6) seems to push the model toward instability, as reflected by a drop in several metrics. This demonstrates a delicate balance in dropout rates where too little can compromise model robustness.
 
 
 **Final remarks**
@@ -1037,6 +1006,8 @@ After pairing attention maps and time-stamps (for verbs and nouns) we can make s
 # Future directions
 
 ## Architectures
+
+For future work, it would be valuable to investigate alternative attention mechanisms within the decoder to improve both performance and efficiency. One promising direction is the exploration of grouped-query or multi-query attention, which has shown potential to reduce the number of parameters and inference time while maintaining or even enhancing the model's accuracy. These mechanisms can provide a more efficient way of processing input sequences, potentially leading to faster convergence and reduced computational costs. Additionally, other advanced attention strategies, such as Linformer or Performer, could be explored to further optimize the model. Furthermore, techniques like knowledge distillation could be employed to compress the model, facilitating its deployment in resource-constrained environments without sacrificing performance. These improvements could lead to a more scalable and efficient solution for automatic audio captioning.
 
 ## Datasets
 
