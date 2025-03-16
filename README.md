@@ -923,13 +923,21 @@ limiting the need for extreme efficiency. GQA/MQA may show greater benefits with
 ## Architectures
 
 ## Datasets
-Based on pur experience with the project Clotho dataset hase some positives and some limitation points. Clotho is an open-source dataset featuring diverse environmental sounds and acoustic scenes, with each audio clip accompanied by five distinct captions to enhance research and reproducibility in Automated Audio Captioning (AAC). However, Clotho's limitations include short audio clips (15-30 seconds) that may miss complex acoustic events, general captions lacking fine-grained temporal details, and English-only annotations, restricting multilingual AAC research.
+Based on our experience with the project Clotho dataset has some positives and some limitation points. Clotho is an open-source dataset featuring diverse environmental sounds and acoustic scenes, with each audio clip accompanied by five distinct captions to enhance research and reproducibility in Automated Audio Captioning (AAC). However, Clotho's limitations include short audio clips (15-30 seconds) that may miss complex acoustic events, general captions lacking fine-grained temporal details, and English-only annotations, restricting multilingual AAC research.
 
 One way to provide a better dataset would be extending audio clips to 1-5 minutes for richer acoustic scenes, incorporating hierarchical annotations for detailed event labeling, and introducing multilingual captions to support broader AAC research. However we might find that the current architecture generats limitations making not possible to use these type of data. 
 
-There fore, enhancing AAC models could involve hierarchical encoding to capture multi-scale audio features, cross-modal attention for direct audio-text interaction, and memory-augmented networks to handle long-term dependencies, leading to richer datasets and more contextually detailed captions.
+Therefore, enhancing AAC models could involve hierarchical encoding to capture multi-scale audio features, cross-modal attention for direct audio-text interaction, and memory-augmented networks to handle long-term dependencies, leading to richer datasets and more contextually detailed captions.
+
+As we introduced in the [conclusions](#conclusions-1) after analyzing the attention maps during training, it would interesting to design audio datasets for audio captioning that ensure the coverage over a wide variety of sounds, ranging from human-made, nature, music or noise. Generaing such a topology of sounds seems a really challenging task itself. Finally, anotating audio clips by a higher amount of subjects could be really usefull as well in order to have more diverse references. A higher amount of reference captions would help to analyze them and take conclusions on what type of sounds have more agreement or similarity among annotations and which sounds have more dissimilar captions, as a measure of the difficulty of the nature of the sound for this task.
+
+In relation to the analysis we did on providing time stamps, this could be a task in itself: automated audio captioning with sound localization. We have included time stamps, but this could be evaluated if this groundtruth information was included in the dataset as well. The evaluation could work in a similar way as diarization works in speech-related tasks, in which a the groudntruth and the candidate segmentations are compared by measuring the overlap, the identities of the speakers (e.g. sounds in our case) and allowing a certain collar (a certain margin to evaluate beginning and ending time stamps of a segment).
 
 ## Metrics
+
+As introduced in [conclusions](#conclusions-1), acoustically informed metrics could boost this field of study in order to have a more comprehensive evaluation.
+
+In this direction, [MACE](#Dixit2024) metric has recently been proposed, although not adopted by the DCASE challenge yet. "Unlike metrics that compare machine-generated captions solely to human references, MACE uses both audio and text to improve evaluation. By integrating both audio and text, it produces assessments that align better with human judgments." However, MACE has a relative improvement of a 3-4% over FENSE which will probably improve in the near future as the field advances by including both audio and text information. 
 
 ## Aplications  
 
@@ -995,5 +1003,6 @@ MODELS FOR AUTOMATED AUDIO CAPTIONING https://arxiv.org/pdf/2110.07410
 
 <a id="XLiu"></a>Xubo Liu, Xinhao Mei, Qiushi Huang, Jianyuan Sun, Jinzheng Zhao, Haohe Liu,Mark D. Plumbley, Volkan Kılıc, Wenwu Wang (2022). Leveraging Pre-trained BERT for Audio Captioning https://arxiv.org/pdf/2110.07410
 
+<a id="Dixit2024"></a> Dixit, S., Deshmukh, S., & Raj, B. (2024). MACE: Leveraging Audio for Evaluating Audio Captioning Systems. arXiv preprint arXiv:2411.00321. https://arxiv.org/abs/2411.00321
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
