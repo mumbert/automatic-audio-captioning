@@ -701,16 +701,34 @@ To see if the model becomes unstable
 | SPIDEr | **_0.2977_** | 0.2925|0.2856|0.2899|0.2878 |0.2909|0.2941
 | SPIDEr-FL | **_0.2962_** | 0.2921|0.2838|0.2890|0.2874 |0.2900|0.2931
 | SBERT-sim | 0.5059 | 0.5067|**_0.5075_**|0.5043|0.5048 |0.5051|0.4994
-| FER | 0.0038 | 0.0029|**0.0057_**|0.0029|0.0019 |**_0.0057_**|0.0038
+| FER | 0.0038 | 0.0029|**_0.0057_**|0.0029|0.0019 |**_0.0057_**|0.0038
 | FENSE | 0.5040 | **_0.5056_**|0.5043|0.5028|0.5041 |0.5033|0.4975
 | BERTScore | **_0.9766_**| 0.9759|0.9759|0.9759|0.9759 |0.9754|0.9761
 | Vocabulary (words) | 551 | **_599_**|594|579|585 |551|540
 
+**Alternative 1 (No label smoothing)**:
+Removing label smoothing led to a modest drop in BLEU, METEOR, ROUGE-L, and CIDEr‑D. However, it improved SPICE, FENSE, and vocabulary. This suggests that while the model may produce a richer vocabulary and slightly better semantic propositions, it might also become more overconfident, potentially harming n‑gram overlap metrics.
 
 
+**Alternative 2 (reduced weight decay)**:
+With a lower weight decay, the model’s capacity to fit the training data appears to improve semantic similarity (highest SBERT-sim) and FER. Yet, overall performance in traditional metrics (BLEU, METEOR, etc.) still lags behind the baseline. This trade-off indicates that a reduction in weight decay can favor semantic flexibility at the cost of some precision.
+
+**Alternative 3 (increased beam size)**:
+Increasing the beam size for decoding has a minor impact. While beam search is known to explore a wider set of output sequences, the improvements here are not significant.
 
 
+**Alternative 4 (larger transformer hidden dimension)**:
+Doubling the transformer hidden dimension from 256 to 512 should, in theory, offer more expressive power. However, the results do not reflect an improvement—likely due to overparameterization or insufficient data to exploit the additional capacity. The baseline remains better across nearly all metrics.
 
+**Alternatives 5 & 6 (dropout adjustments)**:
+Reducing dropout slightly (to 0.45 in Alt5) appears to help with FER, suggesting that the model might be underfitting at a dropout of 0.5. However, further reducing dropout to 0.4 (Alt6) seems to push the model toward instability, as reflected by a drop in several metrics. This demonstrates a delicate balance in dropout rates where too little can compromise model robustness.
+
+
+**Final remarks**
+
+The detailed results confirm that the baseline configuration, which likely benefits from extensive hyperparameter tuning, remains robust across most standard metrics (BLEU, METEOR, ROUGE-L, CIDEr‑D, SPIDEr, BERTScore). While some alternatives show marginal improvements in certain areas (e.g., SPICE with no label smoothing and SBERT-sim with reduced weight decay), these gains are often accompanied by declines in other critical metrics. The training times remain comparable, suggesting that the changes did not incur additional computational costs. 
+
+So, as a final observation, even small changes can lead to trade-offs—improving some aspects of caption quality while degrading others. The findings emphasize the importance of considering multiple evaluation metrics when fine-tuning models for tasks like automatic audio captioning.
 
 
 
