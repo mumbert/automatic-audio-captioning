@@ -668,7 +668,7 @@ https://github.com/user-attachments/assets/09952d6d-b2b8-4ba0-b036-dc5f4df10276
  - Attention map:
 
 <p align="center">
-  <img src="doc/images/attentionmap.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
+  <img src="doc/images/attentionmap_drezyna.png" alt="attention map" width="600" style="max-width: 100%; height: auto;">
 </p>
 <p align="center"><a id="fig-example-demo"></a><em>Figure 4: Attention map example</em></p>
 
