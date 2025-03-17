@@ -1,0 +1,153 @@
+[2025-03-09 10:03:52,914][dcase24t6.train][INFO] - Full configuration:
+ckpt:
+  _target_: dcase24t6.callbacks.ckpt.CustomModelCheckpoint
+  dirpath: ./logs/alternative1-2025.03.09-10.03.51-baseline/./checkpoints
+  monitor: val/loss
+  mode: min
+  filename: '{epoch:03d}-{step:06d}-mode_min-{val/loss:.4f}'
+  replace_slash_in_filename: true
+  create_best_symlink: true
+datamodule:
+  _target_: dcase24t6.datamodules.hdf.HDFDatamodule
+  root: ./data
+  train_hdfs: clotho_dev_cnext.hdf
+  val_hdfs: clotho_val_cnext.hdf
+  test_hdfs: clotho_eval_cnext.hdf
+  predict_hdfs:
+  - clotho_dcase_aac_analysis_cnext.hdf
+  - clotho_dcase_aac_test_cnext.hdf
+  train_batch_keys:
+  - frame_embs
+  - frame_embs_shape
+  - captions
+  val_batch_keys:
+  - frame_embs
+  - frame_embs_shape
+  - dataset
+  - subset
+  - fname
+  - mult_captions
+  - mult_references
+  test_batch_keys:
+  - frame_embs
+  - frame_embs_shape
+  - dataset
+  - subset
+  - fname
+  - mult_captions
+  - mult_references
+  predict_batch_keys:
+  - frame_embs
+  - frame_embs_shape
+  - dataset
+  - subset
+  - fname
+  batch_size: 64
+  num_workers: auto
+  pin_memory: true
+  train_drop_last: false
+  verbose: 1
+emission:
+  _target_: dcase24t6.callbacks.emissions.CustomEmissionTracker
+  save_dir: ./logs/alternative1-2025.03.09-10.03.51-baseline/.
+  emissions_fname: emissions/{task}_emissions.yaml
+  country_iso_code: null
+  offline: false
+  disabled: false
+  experiment_name: alternative1-2025.03.09-10.03.51-baseline
+model:
+  _target_: dcase24t6.models.trans_decoder.TransDecoderModel
+  sched_num_steps: 400
+  verbose: 1
+  lr: 0.0005
+  weight_decay: 2
+  beam_size: 3
+  d_model: 256
+  label_smoothing: 0.2
+  mixup_alpha: 0.4
+tokenizer:
+  _target_: dcase24t6.tokenization.aac_tokenizer.AACTokenizer
+path:
+  data_root: ./data
+  save_root: ./logs
+datetime: 2025.03.09-10.03.51
+save_dir: ./logs/alternative1-2025.03.09-10.03.51-baseline/.
+save_name: alternative1-2025.03.09-10.03.51-baseline
+seed: 42
+verbose: 1
+val_ckpt_path: null
+test_ckpt_path: best
+logger:
+  _target_: lightning.pytorch.loggers.tensorboard.TensorBoardLogger
+  save_dir: ./logs/alternative1-2025.03.09-10.03.51-baseline/.
+  name: tensorboard
+  version: .
+trainer:
+  _target_: lightning.pytorch.trainer.Trainer
+  accelerator: gpu
+  accumulate_grad_batches: 8
+  benchmark: false
+  detect_anomaly: false
+  deterministic: false
+  devices: 1
+  enable_checkpointing: true
+  enable_model_summary: false
+  fast_dev_run: false
+  gradient_clip_algorithm: norm
+  gradient_clip_val: 1
+  limit_predict_batches: null
+  limit_test_batches: null
+  limit_train_batches: null
+  limit_val_batches: null
+  log_every_n_steps: 5
+  max_epochs: 400
+  max_steps: -1
+  num_nodes: 1
+  num_sanity_val_steps: 0
+  precision: 32
+  reload_dataloaders_every_n_epochs: 0
+  val_check_interval: null
+evaluator:
+  _target_: dcase24t6.callbacks.evaluator.Evaluator
+  save_dir: ./logs/alternative1-2025.03.09-10.03.51-baseline/.
+  val_metrics:
+  - cider_d
+  - vocab
+  test_metrics: all
+  exclude_keys:
+  - frame_embs
+
+[2025-03-09 10:03:52,920][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: paraphrase-TinyBERT-L6-v2
+[2025-03-09 10:03:55,762][dcase24t6.train][INFO] - Adding 7 callbacks: Evaluator, ModelSummary, ComplexityProfiler, LearningRateMonitor, PrintModelHash, CustomModelCheckpoint, EarlyStopping
+[2025-03-09 10:03:57,285][dcase24t6.nn.decoding.common][INFO] - Forbid repetition mask 4262/4371 tokens during testing.
+[2025-03-09 15:25:57,382][aac_metrics.functional.evaluate][WARNING] - Found overlapping metric outputs names. (found corpus_overlap=('fer',) and sents_overlap=('fer',))
+[2025-03-09 15:26:15,212][dcase24t6.callbacks.evaluator][INFO] - Metrics results for test at epoch 400:
+test/clotho_eval.bleu_1: 0.5790836831293579
+test/clotho_eval.bleu_2: 0.37732636338401204
+test/clotho_eval.bleu_3: 0.25004585199297624
+test/clotho_eval.bleu_4: 0.16266002804804214
+test/clotho_eval.meteor: 0.18554844934700346
+test/clotho_eval.rouge_l: 0.38165866505793794
+test/clotho_eval.sbert_sim: 0.5066503660352322
+test/clotho_eval.fer: 0.0028708133971291866
+test/clotho_eval.fense: 0.5056206416620307
+test/clotho_eval.cider_d: 0.45103445086855387
+test/clotho_eval.spice: 0.13395539487450855
+test/clotho_eval.spider: 0.2924949228715312
+test/clotho_eval.fer.add_tail_prob: 0.046013616025447845
+test/clotho_eval.fer.repeat_event_prob: 0.07238596677780151
+test/clotho_eval.fer.repeat_adv_prob: 0.0020195902325212955
+test/clotho_eval.fer.remove_conj_prob: 0.12386956810951233
+test/clotho_eval.fer.remove_verb_prob: 0.22428804636001587
+test/clotho_eval.fer.error_prob: 0.3447837829589844
+test/clotho_eval.spider_fl: 0.29205014845627136
+test/clotho_eval.vocab.cands: 599.0
+test/clotho_eval.vocab.mrefs_full: 3516.0
+test/clotho_eval.vocab.ratio_full: 0.17036405005688282
+test/clotho_eval.vocab.mrefs_avg: 1837.4
+test/clotho_eval.vocab.ratio_avg: 0.3260041362795254
+test/clotho_eval.bert_score.precision: 0.9769541621208191
+test/clotho_eval.bert_score.recall: 0.9768991470336914
+test/clotho_eval.bert_score.f1: 0.9759425520896912
+
+[2025-03-09 15:28:43,036][dcase24t6.train][INFO] - Job results are saved in './logs/alternative1-2025.03.09-10.03.51-baseline/.'. (duration=5:24:51)
