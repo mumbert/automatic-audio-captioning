@@ -956,22 +956,32 @@ In this direction, [MACE](#Dixit2024) metric has recently been proposed, althoug
 
 ### Current aplications
 
-- Assistive technology for the hearing-impaired.
-- Content description for multimedia retrieval systems.
-- Audio analysis for security and surveillance.
+- Assistive technology for the hearing-impaired:
+  AAC systems can generate text descriptions of environmental sounds, helping hearing-impaired individuals understand their surroundings better. This technology can be integrated into hearing aids or smartphone apps to provide real-time audio descriptions.
+- Content description for multimedia retrieval systems:
+  AAC enables more efficient searching and indexing of audio and video content by generating text descriptions. This can improve content discovery in large multimedia databases for applications in education, film production, and web searching.
+- Audio analysis for security and surveillance:
+  AAC systems can automatically describe audio events in surveillance footage, alerting security personnel to potential threats or unusual activities without constant human monitoring.
 
-Current used example:
+Current used example about monitoring audio for surveillance:
 
 **Huawei - Saving the Rainforest by Listening:**
 [![Huawei - Saving the Rainforest by Listening](https://github.com/user-attachments/assets/933964c5-524f-48c1-b210-aa4e7c4ce5da)](https://www.youtube.com/watch?v=m0L7h9R7deU)
 
 ### Future aplications
 
-- Real-time environmental sound description for augmented reality systems.
-- Automated content moderation for audio-based social media.
-- Detailed audio analysis for smart city applications (e.g., urban noise monitoring).
-- Audio-based storytelling and content creation tools.
-- Enhanced audio navigation systems for visually impaired individuals.
+- Real-time environmental sound description for augmented reality systems:
+  AAC could enhance AR experiences by providing contextual audio information. For example, in an AR city tour app, AAC could describe ambient sounds to enrich the user's understanding of the environment.
+- Automated content moderation for audio-based social media:
+  As audio content becomes more prevalent on social media platforms, AAC could assist in identifying and flagging inappropriate or harmful audio content, improving moderation efficiency.
+- Detailed audio analysis for smart city applications (e.g., urban noise monitoring):
+  AAC systems could be used for urban noise monitoring, traffic management, and public safety. For instance, they could identify and report unusual sounds like gunshots or car accidents to authorities.
+- Audio-based storytelling and content creation tools
+  AAC could inspire creative writing by generating descriptions of ambient sounds or music, potentially assisting in scriptwriting, podcast production, or interactive storytelling experiences.
+- Enhanced audio navigation systems for visually impaired individuals:
+  Building on current assistive technologies, future AAC systems could provide more detailed and context-aware audio descriptions of the environment, significantly improving mobility and independence for visually impaired people.
+
+These applications demonstrate the potential of AAC to enhance accessibility, content analysis, and user experiences across various domains. As the technology continues to improve, we can expect to see more innovative uses of AAC in both consumer and industrial applications
 
 
 # <a name='Contributing'></a>Contributing
