@@ -524,6 +524,16 @@ The application provides two primary modes for audio input:
 
 For more information on the demo, please check the following [demo README](doc/README_demo.md).
 
+<p align="center">
+  <img src="doc/images/example_demo_huggingface.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
+</p>
+
+### DCASE 2024 inference demo deployment
+
+  <video controls>
+    <source src="doc/video/AudioCaptioning.mp4" type="video/mp4">
+  </video>
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -944,7 +954,7 @@ https://github.com/user-attachments/assets/1e878e48-acdc-4817-a83c-b8ff13efcf15
 <p align="center">
   <audio controls>
     <source src="doc/audios/newspaper_handling_reading.wav" type="audio/wav">
-    <a href="doc/audios/newspaper_handling_reading.wav">.wav</a>
+    <a href="doc/audios/newspaper_handling_reading.wav">newspaper_handling_reading.wav</a>
   </audio>
 </p>
 
