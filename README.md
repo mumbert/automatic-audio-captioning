@@ -527,13 +527,6 @@ For more information on the demo, please check the following [demo README](doc/R
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ## <a name='Usage'></a>Usage
-
-In this section we can provide some simple commands to test the installation works, but we might want to put multiple commands on a separate readme file. We can also have separate notebooks if we have time on a separate folder for different configurations, training processes, etc.
-
-For more information on using this project, please check the following [usage README](doc/README_usage.md).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 3. Modify the decoder architecture and adjust training strategies
 
@@ -541,21 +534,11 @@ For more information on using this project, please check the following [usage RE
 
 During our survey of the state of the art we identified two papers addressing the decoder architecture: [EVALUATING OFF-THE-SHELF MACHINE LISTENING AND NATURAL LANGUAGE MODELS FOR AUTOMATED AUDIO CAPTIONING](#BWeck) and [Leveraging Pre-trained BERT for Audio Captioning](#XLiu). They particularly explored the use of the BERT model for audio captioning, leading us to consider replacing the decoder of the baseline model with a BERT-based decoder.
 
-<<<<<<< HEAD
-<p align="center">
-<img width="334" alt="Screenshot 2025-03-14 at 13 29 45" src="https://github.com/user-attachments/assets/e4aa2ac3-6f36-431a-85fb-f991b688ffee" />
-<img width="461" alt="Screenshot 2025-03-14 at 13 31 01" src="https://github.com/user-attachments/assets/dbacf9bc-74ab-4b2c-8c21-828853acdc74" />
-
-<img width="300" alt="Screenshot 2025-03-14 at 13 34 39" src="https://github.com/user-attachments/assets/39bf86c9-8f74-403d-9452-e1bf4186d025" />
-<img width="311" alt="Screenshot 2025-03-14 at 13 31 31" src="https://github.com/user-attachments/assets/9006fe7c-1fdd-4ac2-8376-a4b609f6d0f9" />
-</p>
-=======
 Using Bert as a decoder offered a list of potential benefits and improvements than using the default baseline decoder: 
 - BERT is pre-trained on large-scale text datasets, allowing it to transfer linguistic knowledge to the audio captioning task. This helps mitigate the issue of limited audio captioning training data.
 - Being a pretrained model, enables it to capture syntactic and semantic information, potentially leading to more coherent and contextually appropriate captions.
 - BERT's strong language modeling capabilities may lead to more natural and descriptive captions compared to models without pre-trained language components.
 - Utilizing a pre-trained models for the decoder may require less training time and data to achieve good performance compared to training a decoder from scratch.
->>>>>>> da58ff66a8b2e7cd99fd0a9a0dcaf8fa15fbc6ce
 
 The introduction of the BERT model can take place at different levels. The first of the aforementioned papers employed the tokenizer and the embedding layer of BERT. The second, on the other hand, further incorporates it into the cross attention layer of the transformer. We opted to begin with the adoption of BERT for the tokenizer and the word embedding layer for the baseline, as exemplified by the first paper. 
 
@@ -570,22 +553,99 @@ The next step was to introduce the embedding layer of BERT into the baseline. Th
 
 After these changes the training process was able to complete. However, although the loss metric was reduced significantly after training, extremely low scores were generated during testing. This indicated to us that much more work would be required to properly integrate BERT into the audio captioning baseline, particularly due to the complex process of generating the captions via beam search.
 
-<<<<<<< HEAD
-
-
-This approach follows current trends in AAC, as highlighted in the DCASE 2024 challenge, which encourages hybrid architectures combining audio models with large language models (LLMs). 
-However, the slight drop in performance suggests that future improvements may require better adaptation between audio features and BERT’s textual representations, potentially through fine-tuning or self-supervised learning.
-
-
-Despite our efforts, the resulting captions were incorrect, indicating a possible issue in the integration process. 
-Due to time constraints, we were unable to fully diagnose and resolve the problem. As a result, we decided to pivot and shift our focus toward a more realistic and achievable objective.
-=======
 The code corresponding to this experiment can be found in the [berttok](https://github.com/victorcuevasv/upc-dl-2025/tree/berttok) branch of the following GitHub [repository](https://github.com/victorcuevasv/upc-dl-2025). We undertook a similar effort with the GPT2 model, but lower results were obtained for the tokenizer alone, which discouraged further exploration. The related code can be found in the [gpt2tok](https://github.com/victorcuevasv/upc-dl-2025/tree/gpt2tok) branch of the same repository.
 
 ### Adjusting training strategies: Hyperparameters experiments
->>>>>>> da58ff66a8b2e7cd99fd0a9a0dcaf8fa15fbc6ce
 
-> Content here: Roger
+In this section, we describe a series of controlled experiments designed to isolate the impact of individual hyperparameter changes on the performance of our audio captioning model. Each experiment—referred to as an “alternative”—applies a single modification, with all parameters reset to their default values between experiments. This approach allows us to clearly attribute any observed changes in performance to the specific adjustment under investigation. 
+
+For further reproducibility, detailed outputs and links to each alternative’s results are provided.
+
+#### [Alternative 1](src/baseline-alternatives/logs/alternative1-2025.03.09-10.03.51-baseline/outputs/stdout.log) (Alt1)
+
+- **Modification**: The label smoothing parameter is reduced from 0.2 to 0.0.
+
+- **Rationale**: Label smoothing is commonly used to prevent the model from becoming overconfident in its predictions. However, lowering this value may result in sharper probability distributions and, potentially, improved accuracy.
+
+<p align="center"> <img src="doc/images/alt1_trainloss.png" alt="Training loss graph for Alt1" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 4: Training loss for alternative 1</em></p>
+
+#### [Alternative 2](src/baseline-alternatives/logs/alternative2-2025.03.09-17.56.08-baseline/outputs/stdout.log) (Alt2)
+
+- **Modification**: The weight decay is decreased from 2.0 to 0.1.
+
+- **Rationale**: While high weight decay discourages large weight values to promote generalization, it can also slow down the learning process. A lower weight decay might enable the model to learn more flexible representations, potentially enhancing its performance.
+
+<p align="center"> <img src="doc/images/alt2_trainloss.png" alt="Training loss graph for Alt2" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 5: Training loss for alternative 3</em></p>
+
+#### [Alternative 3](src/baseline-alternatives/logs/alternative3-2025.03.10-07.06.32-baseline/outputs/stdout.log) (Alt3)
+
+- **Modification**: The beam size used during decoding is increased from 3 to 5.
+
+- **Rationale**: A larger beam size allows the decoder to explore a wider range of output sequences during inference. Although this may come at the cost of increased computational demand during decoding, it could lead to more accurate caption generation.
+
+<p align="center"> <img src="doc/images/alt3_trainloss.png" alt="Training loss graph for Alt3" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 6: Training loss for alternative 3</em></p>
+
+#### [Alternative 4](src/baseline-alternatives/logs/alternative4-2025.03.10-13.22.32-baseline/outputs/stdout.log) (Alt4)
+
+- **Modification**: The transformer hidden dimension is increased from 256 to 512.
+
+- **Rationale**: Increasing the hidden dimension allows the model to capture more complex and expressive representations of the input data. This modification is expected to enhance performance, although it also entails higher memory usage and computational cost.
+<p align="center"> <img src="doc/images/alt4_trainloss.png" alt="Training loss graph for Alt4" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 7: Training loss for alternative 4</em></p>
+
+#### [Alternative 5](src/baseline-alternatives/logs/alternative5-2025.03.10-20.37.58-baseline/outputs/stdout.log) (Alt5)
+
+- **Modification**: The dropout rate is adjusted from 0.5 to 0.45.
+
+- **Rationale**: A slight reduction in dropout may alleviate underfitting by allowing the model to capture more nuanced patterns in the data, while still providing enough regularization to prevent overfitting.
+<p align="center"> <img src="doc/images/alt5_trainloss.png" alt="Training loss graph for Alt5" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 8: Training loss for alternative 5</em></p>
+
+#### [Alternative 6](src/baseline-alternatives/logs/alternative6-2025.03.11-09.16.56-baseline/outputs/stdout.log) (Alt6)
+
+- **Modification**: The dropout rate is further reduced from 0.5 to 0.40.
+
+- **Rationale**: This experiment investigates whether a further reduction in dropout might lead to instability in the training process. By testing this lower rate, we assess the limits of regularization before the model's performance degrades.
+<p align="center"> <img src="doc/images/alt6_trainloss.png" alt="Training loss graph for Alt6" width="600" style="max-width: 100%; height: auto;"> </p> <p align="center"><em>Figure 9: Training loss for alternative 6</em></p>
+
+ #### <a name='Detailedresults'></a>Detailed results. Best performers highlighted in italic bold
+| Metric | Baseline| Alt1 |  Alt2 | Alt3 | Alt4 | Alt5 | Alt6 |
+| --- | --- | --- | --- | ---| --- |  --- | --- |  
+|Training time (hh:mm:ss)|    |  5:24:51      |  5:26:49      |   5:26:25   |  5:28:22    | 5:27:55 | 5:28:16         
+| BLEU-1 | **_0.5948_** | 0.5791 |0.5759|0.5829 |0.5786 | 0.5818|0.5871              
+| BLEU-2 | **_0.3924_** | 0.3773 |0.3739|0.3805|0.3758 |0.3819|0.3832
+| BLEU-3 | **_0.2603_** | 0.2500|0.2456|0.2526|0.2494 |0.2555|0.2531
+| BLEU-4 | **_0.1695_** | 0.1627|0.1565|0.1628|0.1632 |0.1675|0.1619
+| METEOR | **_0.1897_** | 0.1855|0.1833|0.1844|0.1847 |0.1857|0.1874
+| ROUGE-L | **_0.3927_** | 0.3817|0.3809|0.3832|0.3836 |0.3871|0.3867
+| CIDEr-D | **_0.4619_** | 0.4510|0.4381|0.4481|0.4432 |0.4519|0.4546
+| SPICE | 0.1335 | **_0.1340_**|0.1331|0.1318|0.1324 |0.1299|0.1336
+| SPIDEr | **_0.2977_** | 0.2925|0.2856|0.2899|0.2878 |0.2909|0.2941
+| SPIDEr-FL | **_0.2962_** | 0.2921|0.2838|0.2890|0.2874 |0.2900|0.2931
+| SBERT-sim | 0.5059 | 0.5067|**_0.5075_**|0.5043|0.5048 |0.5051|0.4994
+| FER | 0.0038 | 0.0029|**_0.0057_**|0.0029|0.0019 |**_0.0057_**|0.0038
+| FENSE | 0.5040 | **_0.5056_**|0.5043|0.5028|0.5041 |0.5033|0.4975
+| BERTScore | **_0.9766_**| 0.9759|0.9759|0.9759|0.9759 |0.9754|0.9761
+| Vocabulary (words) | 551 | **_599_**|594|579|585 |551|540
+
+**Discussion**
+
+**Alternative 1 (no label smoothing)**: Removing label smoothing led to a modest drop in BLEU, METEOR, ROUGE-L, and CIDEr‑D. However, it improved SPICE, FENSE, and vocabulary. This suggests that while the model may produce a richer vocabulary and slightly better semantic propositions, it might also become more overconfident, potentially harming n‑gram overlap metrics.
+
+
+**Alternative 2 (reduced weight decay)**: With a lower weight decay, the model’s capacity to fit the training data appears to improve semantic similarity (highest SBERT-sim) and FER. Yet, overall performance in traditional metrics (BLEU, METEOR, etc.) still lags behind the baseline. This trade-off indicates that a reduction in weight decay can favor semantic flexibility at the cost of some precision.
+
+**Alternative 3 (increased beam size)**: Increasing the beam size for decoding has a minor impact. While beam search is known to explore a wider set of output sequences, the improvements here are not significant.
+
+
+**Alternative 4 (larger transformer hidden dimension)**: Doubling the transformer hidden dimension from 256 to 512 should, in theory, offer more expressive power. However, the results do not reflect an improvement—likely due to overparameterization or insufficient data to exploit the additional capacity. The baseline remains better across nearly all metrics.
+
+**Alternatives 5 & 6 (dropout adjustments)**: Reducing dropout slightly (to 0.45 in Alt5) appears to help with FER, suggesting that the model might be underfitting at a dropout of 0.5. However, further reducing dropout to 0.4 (Alt6) seems to push the model toward instability, as reflected by a drop in several metrics. This demonstrates a delicate balance in dropout rates where too little can compromise model robustness.
+
+
+**Final remarks**
+
+The detailed results confirm that the baseline configuration, which likely benefits from extensive hyperparameter tuning, remains robust across most standard metrics (BLEU, METEOR, ROUGE-L, CIDEr‑D, SPIDEr, BERTScore). While some alternatives show marginal improvements in certain areas (e.g., SPICE with no label smoothing and SBERT-sim with reduced weight decay), these gains are often accompanied by declines in other critical metrics. The training times remain comparable, suggesting that the changes did not incur additional computational costs. 
+
+So, as a final observation, even small changes can lead to trade-offs—improving some aspects of caption quality while degrading others. The findings emphasize the importance of considering multiple evaluation metrics when fine-tuning models for tasks like automatic audio captioning.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
