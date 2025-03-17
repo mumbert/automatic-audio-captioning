@@ -973,6 +973,9 @@ https://github.com/user-attachments/assets/1e878e48-acdc-4817-a83c-b8ff13efcf15
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+**Demo examples**
+
+[![Watch the video](https://github.com/mumbert/automatic-audio-captioning/blob/roger_workspace/doc/images/thumbnailDemo.jpg)](https://github.com/mumbert/automatic-audio-captioning/blob/roger_workspace/doc/video/AudioCaptioning.mp4)
 
 ### <a name='exploring_mlops_tensorboard_training'></a>MLOps: exploring the tensorboard for training
 
