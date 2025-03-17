@@ -117,6 +117,7 @@ This structured approach ensures a methodical evaluation of AAC systems, contrib
 
 > [!UPDATE]
 > After studing the DCASE baseline model and trying to use different decoder types like BERT [process explained here](#objective3) for the caption generation process, we concluded that with the time and resources we had left, it was maybe a bit too ambitious objective. Hence, we decided to change it by dropping the decoding modification part (within objective 3) and focus on how to improve the training by exploring different **Hyperparameter** specifications.
+> Another reason for the project simplification is the complexity of the dcase baseline project implementation. Once we tried to implement simple decoder architectures like RNNs, at the time of connecting the encoder with the decoder and the additional changes we had to do to the project seemed unfeasible for the time remaining to complete the project.
 
 <a id="schedule"></a>
 ## <a name='Schedule'></a>Schedule
