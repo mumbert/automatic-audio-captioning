@@ -209,7 +209,10 @@ Encoders extract audio features using various neural networks types, including:
   - ***Challenges:*** Transformers are computationally expensive and require large amounts of training data.
   - ***Advantages:*** Transformers excel at modeling long-range dependencies and can process the input sequence in parallel.
 
-Decoders, typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
+
+When it comes to decoders:
+
+Typically RNNs or Transformers, generate captions based on the encoded audio features. The decoder generates a sentence S = {w1, ..., wN}, where wn is a word and N is the number of words in the sentence. The sentence is typically generated from left to right in an auto-regressive manner.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
