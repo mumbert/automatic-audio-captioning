@@ -180,11 +180,12 @@ Down below we summarize key developments in model architectures, training strate
 
 ### <a name='ModelArchitectures'></a>Model Architectures
 
-The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1 [ paper reference CoNette], the encoder processes the input audio clip, and the decoder generates the corresponding caption.
+The encoder-decoder framework is a prevalent architecture in AAC systems. As illustrated in Figure 1 [CoNette. (2023)](#Labbe2023), the encoder processes the input audio clip, and the decoder generates the corresponding caption.
 
 <p align="center">
   <img src="doc/images/fig1.png" alt="AAC process overview" width="600" style="max-width: 100%; height: auto;">
 </p>
+<p align="center"><em>Figure 3: AAC process overview</em></p>
 
 The model is composed by an audio encoder which produces a frame-level audio representation of the audio and a captioning decoder which produces the next word distribution according to the previous words and to the audio. This process is repeated for each word in the reference, except for the Begin-Of-Sentence (<bos>) token.
 
@@ -199,6 +200,7 @@ Encoders extract audio features using various neural networks types, including:
   <p align="center">
     <img src="doc/images/fig2.png" alt="CNN diagram" width="280" style="height: auto;">
   </p>
+  <p align="center"><em>Figure 4: CNN diagram</em></p>
 
   - ***Challenges:*** CNNs struggle to capture the temporal dependencies within audio signals effectively.
   - ***Advantage:*** CNNs show powerful ability in extracting robust audio patterns
