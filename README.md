@@ -358,6 +358,7 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
 
 #### <a name='Detailedresults'></a>Detailed results
 <p align="center">
+  
 | Metric | Score on Clotho-eval | Score on Clotho-eval our Baseline |           
 | --- | --- | --- |                                 
 | BLEU-1 | 0.5948 | 0.60076 |                       
@@ -375,6 +376,7 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
 | FENSE | 0.5040 | 0.50456
 | BERTScore | 0.9766 | 0.97755
 | Vocabulary (words) | 551 | 523
+
  </p>
 
 We present below an screenshot showing the results obtained for the multiple scores used to evaluate the baseline model.
