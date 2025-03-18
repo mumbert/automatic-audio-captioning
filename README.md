@@ -544,7 +544,13 @@ For more information on the demo, please check the following [demo README](doc/R
 
 ### DCASE 2024 inference demo deployment
 
+The attention recording capabilities were also incorporated at the inference level within the baseline codebase. Concretely, the attention information generated during inference is stored in a SQLite database. The database information can then be used to generate a visualization of the attention weights. This functionality was incorporated into the web application depicted in the video below.
+
 https://github.com/user-attachments/assets/b9bdd0cc-c0af-4067-a5ce-607d6d588d59
+
+As the video shows, two audio clips were processed, resulting in the captions as well as attention weight charts displayed. In case the audio is not available the video can be downloaded using this [link](https://github.com/mumbert/automatic-audio-captioning/blob/roger_workspace/doc/video/AudioCaptioning.mp4). The application source code can be found in this [repository](https://github.com/victorcuevasv/upc-dl-2025/tree/attnweights).
+
+This application relies on a checkpoint of the baseline model used in conjunction with the modified baseline and Pytorch code. During inference, typically three alternative captions are generated using beam search, the last step of the caption with the highest probability is displayed in the application along with a chart of its associated attention weights. The attention weights, in turn, are subject to min-max normalization in order to display them in a scale of 0 to 1. As can be seen, usually the words that have the largest attention weights are nouns and verbs of the audio caption.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -985,10 +991,6 @@ https://github.com/user-attachments/assets/1e878e48-acdc-4817-a83c-b8ff13efcf15
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-**Demo examples**
-
-[![Watch the video](https://github.com/mumbert/automatic-audio-captioning/blob/roger_workspace/doc/images/thumbnailDemo.jpg)](https://github.com/mumbert/automatic-audio-captioning/blob/roger_workspace/doc/video/AudioCaptioning.mp4)
 
 ### <a name='exploring_mlops_tensorboard_training'></a>MLOps: exploring the tensorboard for training
 
