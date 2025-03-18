@@ -276,7 +276,10 @@ We reproduced the results stated in the original baseline, in order to validate 
 
 
 <p align="center">
-    ![Baaseline2](https://github.com/user-attachments/assets/db4bb25b-7d20-4253-aab4-d81340c85018)
+
+![Baaseline2](https://github.com/user-attachments/assets/8f9641d3-368e-4f2b-a412-475a3a930ca8)
+
+    
 </p>
 <p align="center"><a id="fig-7"></a><em>Figure 5: Baseline Architecture</em></p>
 
