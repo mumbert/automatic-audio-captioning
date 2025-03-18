@@ -257,8 +257,7 @@ The evaluation of AAC systems involves metrics that assess the quality and relev
  - **METEOR (Metric for Evaluation of Translation with Explicit Ordering):** Based on explicit word-to-word matching between the generated and reference captions.
  - **Word Error Rate (WER):** WER is based on the Levenshtein distance and represents the number of edits needed to change one sequence into the other.
 Despite these advancements, a significant gap remains between machine-generated and human-level captions, highlighting the need for future research.
-
-Concerning the AAC challenge, the FENSE metric [Zhou et al. (2022)](#Zhou2022) is how to results are ranked. This metric leverages SentenceBERT for better estimation of semantic similarity and is combined with Error Detector to penalize sentences with fluency issues. Such combination of 2 metrics within FENSE shows better results than the other introduced metrics.
+- **FENSE:** Concerning the AAC challenge, the FENSE metric [Zhou et al. (2022)](#Zhou2022) is how to results are ranked. This metric leverages SentenceBERT for better estimation of semantic similarity and is combined with Error Detector to penalize sentences with fluency issues. Such combination of 2 metrics within FENSE shows better results than the other introduced metrics.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -1016,7 +1015,6 @@ However, dataset limitations and interpretability issues remain a challenge. Lim
 limiting the need for extreme efficiency. GQA/MQA may show greater benefits with longer, real-world recordings.
 
 [(Dcase 2024)](#dcase2024), [(Overview of Recent Progress and New Challenges)](#Mei2022c)
-## Architectures
 
 ## Datasets
 Based on our experience with the project Clotho dataset has some positives and some limitation points. Clotho is an open-source dataset featuring diverse environmental sounds and acoustic scenes, with each audio clip accompanied by five distinct captions to enhance research and reproducibility in Automated Audio Captioning (AAC). However, Clotho's limitations include short audio clips (15-30 seconds) that may miss complex acoustic events, general captions lacking fine-grained temporal details, and English-only annotations, restricting multilingual AAC research.
