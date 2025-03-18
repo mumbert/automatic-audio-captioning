@@ -275,11 +275,8 @@ Despite these advancements, a significant gap remains between machine-generated 
 We reproduced the results stated in the original baseline, in order to validate the approach introduced with the baseline and to set the foundation for our work. The process required first to create a virtual machine with sufficient computational resources, particulary a capable GPU. We therefore created a virutal machine on the Google Cloud with the following specifications.
 
 
-<p align="center"  width="600" >
-
-![Baaseline2](https://github.com/user-attachments/assets/8f9641d3-368e-4f2b-a412-475a3a930ca8)
-
-    
+<p align="center" >
+  <img src="doc/images/Baaseline2.png" alt="Baseline architecture" width="600" style="height: auto;"> 
 </p>
 <p align="center"><a id="fig-7"></a><em>Figure 5: Baseline Architecture</em></p>
 
