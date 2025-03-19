@@ -187,7 +187,9 @@ The encoder-decoder framework is a prevalent architecture in AAC systems. As ill
 <p align="center">
   <img src="doc/images/fig1.png" alt="AAC process overview" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><em>Figure 3: AAC process overview  [CoNette. (2023)](#Labbe2023)</em></p>
+<p align="center"><em>Figure 3: AAC process overview  
+[CoNette. (2023)](#Labbe2023)
+</em></p>
 
 The model is composed by an audio encoder which produces a frame-level audio representation of the audio and a captioning decoder which produces the next word distribution according to the previous words and to the audio. This process is repeated for each word in the reference, except for the Begin-Of-Sentence (<bos>) token.
 
