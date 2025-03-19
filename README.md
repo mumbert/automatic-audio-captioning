@@ -11,9 +11,10 @@
     <br />
     <a>
         <img src="doc/images/task6_aac_system_example.png" alt="Logo" width="400" height="400">
-  </a>
-  </p>
-</div>
+    </a>
+    </p>
+    <p align="center"><a id="fig-0"></a><em>Figure 0: An example of an automated audio captioning system and process. <a href="#dcase2024">DCASE 2024</a> </em></p>
+  </div>
 
 <!-- GENERATED AUTOMATICALLY WITH THE VSCODE EXTENSION -->
 <details>
