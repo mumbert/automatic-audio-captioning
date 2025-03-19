@@ -590,13 +590,14 @@ For further reproducibility, detailed outputs and links to each alternative’s 
 
 
  #### <a name='alternatvies'></a>Summary of hyperparameters experiments performed.
-| Alternative | Hyperparameter | Original value | Modification value | 
-|1|Label smoothing| 0.2|0.0|
-|2|Weight decay| 2.0|0.1|
-|3| Beam size |3|5|
-|4|Transformer hidden dimension|256|512|
-|5|Dropout rate|0.5|0.45|
-|6|Dropout rate|0.5|0.4|
+| Alternative   | Hyperparameter                  | Original Value | Modification value |
+|---------------|---------------------------------|----------------|--------------------|
+| Alt1          | Label smoothing                 | 0.2            | 0.0                |
+| Alt2          | Weight decay                    | 2.0            | 0.1                |
+| Alt3          | Beam size                       | 3              | 5                  |
+| Alt4          | Transformer hidden dimension    | 256            | 512                |
+| Alt5          | Dropout rate                    | 0.5            | 0.45               |
+| Alt6          | Dropout rate                    | 0.5            | 0.4                |
 
 
 #### [Alternative 1](src/baseline-alternatives/logs/alternative1-2025.03.09-10.03.51-baseline/outputs/stdout.log) (Alt1)
