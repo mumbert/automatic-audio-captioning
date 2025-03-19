@@ -590,7 +590,7 @@ For further reproducibility, detailed outputs and links to each alternative’s 
 
 
  #### <a name='alternatvies'></a>Summary of hyperparameters experiments performed.
-| Alternative   | Hyperparameter                  | Original Value | Modification value |
+| Alternative   | Hyperparameter                  | Original value | New value          |
 |---------------|---------------------------------|----------------|--------------------|
 | Alt1          | Label smoothing                 | 0.2            | 0.0                |
 | Alt2          | Weight decay                    | 2.0            | 0.1                |
