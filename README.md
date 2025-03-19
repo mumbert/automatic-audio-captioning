@@ -187,9 +187,7 @@ The encoder-decoder framework is a prevalent architecture in AAC systems. As ill
 <p align="center">
   <img src="doc/images/fig1.png" alt="AAC process overview" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><em>Figure 3: AAC process overview  
-[CoNette. (2023)](#Labbe2023)
-</em></p>
+<p align="center"><em>Figure 3: AAC process overview  <a href="#Labbe2023">CoNette. (2023)</a> </em></p>
 
 The model is composed by an audio encoder which produces a frame-level audio representation of the audio and a captioning decoder which produces the next word distribution according to the previous words and to the audio. This process is repeated for each word in the reference, except for the Begin-Of-Sentence (<bos>) token.
 
@@ -204,7 +202,7 @@ Encoders extract audio features using various neural networks types, including:
   <p align="center">
     <img src="doc/images/fig2.png" alt="CNN diagram" width="280" style="height: auto;">
   </p>
-  <p align="center"><em>Figure 4: CNN diagram [Drossos et al. (2017)](#drossos2017)</em></p>
+  <p align="center"><em>Figure 4: CNN diagram <a href="#drossos2017">Drossos et al. (2017)</a></em></p>
 
   - ***Challenges:*** CNNs struggle to capture the temporal dependencies within audio signals effectively.
   - ***Advantage:*** CNNs show powerful ability in extracting robust audio patterns
@@ -427,7 +425,7 @@ While the DCASE 2024 baseline provides a strong foundation for Automated Audio C
  <p align="center">
     <img width="369" alt="Screenshot 2025-03-18 at 19 41 34" src="https://github.com/user-attachments/assets/7f6ec5ef-07bc-4988-9ea0-6da94ec151c6" />
   </p>
-  <p align="center"><a id="fig-7"></a><em>Figure 8: CLAP Architecture [Microsoft CLAP](#clap)</em></p>
+  <p align="center"><a id="fig-7"></a><em>Figure 8: CLAP Architecture <a href="#clap">Microsoft CLAP</a></em></p>
 
 
 
