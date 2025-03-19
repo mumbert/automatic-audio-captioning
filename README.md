@@ -414,9 +414,6 @@ After overcoming challenges related to dependency management and securing a cost
 <a id="objective2b-clap"></a>
 ### <a name='clap'></a>CLAP model replication
 
-> [!NOTE]
-> Martí si puedes revisar que en este punto no me haya dejado nada o que no esté diciendo nada que no sea cierto.
-
 <a id="objective2b-introduction"></a>
 #### <a name='introduction-2b'></a>Introduction
 
@@ -541,7 +538,7 @@ The application provides two primary modes for audio input:
 </p>
 <p align="center"><a id="fig-example-demo"></a><em>Figure 10: Example of the DCASE demo deployment employing microphone input for audio recording.</em></p>
 
-For more information on the demo, please check the following [demo README](doc/README_demo.md).
+For more information on the demo, please check the following <a href="https://github.com/mumbert/automatic-audio-captioning-demo"> Demo Read Me </a>.
 
 ### DCASE 2024 inference demo deployment
 
