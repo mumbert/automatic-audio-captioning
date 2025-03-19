@@ -203,7 +203,7 @@ Encoders extract audio features using various neural networks types, including:
   <p align="center">
     <img src="doc/images/fig2.png" alt="CNN diagram" width="280" style="height: auto;">
   </p>
-  <p align="center"><em>Figure 4: CNN diagram <a href="#drossos2017">Drossos et al. (2017)</a></em></p>
+  <p align="center"><em>Figure 4: CNN diagram <a href="#Mei2022">Mei et al., 2022</a></em></p>
 
   - ***Challenges:*** CNNs struggle to capture the temporal dependencies within audio signals effectively.
   - ***Advantage:*** CNNs show powerful ability in extracting robust audio patterns
