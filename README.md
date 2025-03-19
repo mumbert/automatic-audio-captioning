@@ -86,7 +86,7 @@ Recent advancements in deep learning have significantly improved AAC performance
 <p align="center">
   <img src="doc/images/1_aac_pipeline.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-aac-pipeline"></a><em>Figure 1: Overview of a typical AAC pipeline [(Mei et al., 2022)](#Mei2022) </em></p>
+<p align="center"><a id="fig-aac-pipeline"></a><em>Figure 1: Overview of a typical AAC pipeline <a ref="#Mei2022">Mei et al., 2022</a> </em></p>
 
 <a id="about-the-project"></a>
 # About the project
