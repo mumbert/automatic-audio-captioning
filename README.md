@@ -588,6 +588,17 @@ In this section, we describe a series of controlled experiments designed to isol
 
 For further reproducibility, detailed outputs and links to each alternative’s results are provided.
 
+
+ #### <a name='alternatvies'></a>Summary of hyperparameters experiments performed.
+| Alternative | Hyperparameter | Original value | Modification value | 
+|1|Label smoothing| 0.2|0.0|
+|2|Weight decay| 2.0|0.1|
+|3| Beam size |3|5|
+|4|Transformer hidden dimension|256|512|
+|5|Dropout rate|0.5|0.45|
+|6|Dropout rate|0.5|0.4|
+
+
 #### [Alternative 1](src/baseline-alternatives/logs/alternative1-2025.03.09-10.03.51-baseline/outputs/stdout.log) (Alt1)
 
 - **Modification**: The label smoothing parameter is reduced from 0.2 to 0.0.
