@@ -383,7 +383,7 @@ Once the dataset is prepared, model training follows the standard PyTorch Lightn
 | SPIDEr-FL | 0.2962 | 0.30551
 | SBERT-sim | 0.5059 | 0.50817
 | FER | 0.0038 | 0.00765
-| FENSE | 0.5040 | 0.50456
+| FENSE | **_0.5040_** | **_0.50456_**
 | BERTScore | 0.9766 | 0.97755
 | Vocabulary (words) | 551 | 523
 
@@ -491,7 +491,7 @@ Weights and features cnan be download and installed automatically by the script 
 | SPIDEr-FL | 0.2962 | 0.30551 | --- |
 | SBERT-sim | 0.5059 | 0.50817 | 0.4956 |
 | FER | 0.0038 | 0.00765 | 0.0612 |
-| FENSE | 0.5040 | 0.50456 | 0.4700 |
+| FENSE | 0.5040 | **_0.50456_** | **_0.4700_** |
 | BERTScore | 0.9766 | 0.97755 | --- |
 | Vocabulary (words) | 551 | 523 | 636 |
 
