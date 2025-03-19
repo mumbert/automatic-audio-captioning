@@ -86,7 +86,7 @@ Recent advancements in deep learning have significantly improved AAC performance
 <p align="center">
   <img src="doc/images/1_aac_pipeline.png" alt="AAC Pipeline" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><a id="fig-aac-pipeline"></a><em>Figure 1: Overview of a typical AAC pipeline </em></p>
+<p align="center"><a id="fig-aac-pipeline"></a><em>Figure 1: Overview of a typical AAC pipeline [(Mei et al., 2022)](#Mei2022) </em></p>
 
 <a id="about-the-project"></a>
 # About the project
@@ -116,7 +116,7 @@ Thus, the **objectives of this project** include investigating and experimenting
 This structured approach ensures a methodical evaluation of AAC systems, contributing both to theoretical understanding and practical advancements in the field.
 
 > [!UPDATE]
-> After studing the DCASE baseline model and trying to use different decoder types like BERT [process explained here](#objective3) for the caption generation process, we concluded that with the time and resources we had left, it was maybe a bit too ambitious objective. Hence, we decided to change it by dropping the decoding modification part (within objective 3) and focus on how to improve the training by exploring different **Hyperparameter** specifications.
+> After studing the DCASE baseline model and trying to use different decoder types like BERT [process explained here](#pretrained-bert-model-as-decoder) for the caption generation process, we concluded that with the time and resources we had left, it was maybe a bit too ambitious objective. Hence, we decided to change it by dropping the decoding modification part (within objective 3) and focus on how to improve the training by exploring different **Hyperparameter** specifications.
 > 
 > Another reason for the project simplification is the complexity of the dcase baseline project implementation. Once we tried to implement simple decoder architectures like RNNs, at the time of connecting the encoder with the decoder and the additional changes we had to do to the project seemed unfeasible for the time remaining to complete the project.
 
@@ -164,7 +164,7 @@ For this project, several repositories have been developed, which are mentioned 
 
 Automated Audio Captioning (AAC) has emerged as a prominent cross-modal translation task, aiming to generate natural language descriptions for audio clips. This task bridges the gap between audio signal processing and natural language processing (NLP). Recent progress has been significantly driven by deep learning techniques and the availability of datasets like Clotho. 
 
-Recent advances in AAC have progressively enhanced the ability to generate natural language descriptions for audio content. Early work in the field established the feasibility of the task by employing encoder–decoder frameworks based on RNNs with attention mechanisms. For example, [Drossos et al. (2017)](#drossos2017) introduced one of the first AAC systems using bi-directional gated recurrent units (GRUs) to capture temporal dynamics and an alignment model to focus the decoder on relevant audio features. While this approach demonstrated promising results, it also highlighted challenges in modeling long-range dependencies and the fine-grained acoustic details required for accurate captioning.
+Recent advances in AAC have progressively enhanced the ability to generate natural language descriptions for audio content. Early work in the field established the feasibility of the task by employing encoder–decoder frameworks based on RNNs with attention mechanisms. For example, [Drossos et al. [Drossos et al. (2017)](#drossos2017) introduced one of the first AAC systems using bi-directional gated recurrent units (GRUs) to capture temporal dynamics and an alignment model to focus the decoder on relevant audio features. While this approach demonstrated promising results, it also highlighted challenges in modeling long-range dependencies and the fine-grained acoustic details required for accurate captioning.
 
 Subsequent research shifted towards leveraging CNNs and their hybrid forms (e.g., CRNNs) to improve feature extraction. CNN-based encoders proved effective at capturing local patterns and robust audio representations from spectrogram inputs. However, due to the inherent limitations of fixed receptive fields in CNNs, these methods often struggled to capture global contextual information across longer audio sequences.
 
@@ -187,7 +187,7 @@ The encoder-decoder framework is a prevalent architecture in AAC systems. As ill
 <p align="center">
   <img src="doc/images/fig1.png" alt="AAC process overview" width="600" style="max-width: 100%; height: auto;">
 </p>
-<p align="center"><em>Figure 3: AAC process overview</em></p>
+<p align="center"><em>Figure 3: AAC process overview  [CoNette. (2023)](#Labbe2023)</em></p>
 
 The model is composed by an audio encoder which produces a frame-level audio representation of the audio and a captioning decoder which produces the next word distribution according to the previous words and to the audio. This process is repeated for each word in the reference, except for the Begin-Of-Sentence (<bos>) token.
 
@@ -202,7 +202,7 @@ Encoders extract audio features using various neural networks types, including:
   <p align="center">
     <img src="doc/images/fig2.png" alt="CNN diagram" width="280" style="height: auto;">
   </p>
-  <p align="center"><em>Figure 4: CNN diagram</em></p>
+  <p align="center"><em>Figure 4: CNN diagram [Drossos et al. (2017)](#drossos2017)</em></p>
 
   - ***Challenges:*** CNNs struggle to capture the temporal dependencies within audio signals effectively.
   - ***Advantage:*** CNNs show powerful ability in extracting robust audio patterns
@@ -425,7 +425,7 @@ While the DCASE 2024 baseline provides a strong foundation for Automated Audio C
  <p align="center">
     <img width="369" alt="Screenshot 2025-03-18 at 19 41 34" src="https://github.com/user-attachments/assets/7f6ec5ef-07bc-4988-9ea0-6da94ec151c6" />
   </p>
-  <p align="center"><a id="fig-7"></a><em>Figure 8: CLAP Architecture</em></p>
+  <p align="center"><a id="fig-7"></a><em>Figure 8: CLAP Architecture [Microsoft CLAP](#clap)</em></p>
 
 
 
@@ -503,7 +503,7 @@ Image of the training results here:
   <p align="center"><a id="fig-7"></a><em>Figure 9: CLAP training results</em></p>
 
   
-As we introduce later, one of the tested baselines models is CLAP. As a way to better understand how the metric works, we've run the CLAP model against the CLOTHO evaluation dataset and sorted best ranked sentences and the worst ranked sentences. Here are the worst and two best examples (low score is bad, high score is good). High scored candidate sentences are closer closer in meaning to the reference captions than the low scored candidate captions in the following table:
+As we introduce later, one of the tested baselines models is CLAP. As a way to better understand how the metric works, we've run the CLAP model against the CLOTHO evaluation dataset and sorted best ranked sentences and the worst ranked sentences. Here are the worst and two best examples (low score is bad, high score is good). High scored candidate sentences are closer in meaning to the reference captions than the low scored candidate captions in the following table:
 
 | Sentence | Score | Candidate | Reference 1 | Reference 2 | Reference 3 | Reference 4 | Reference 5 |
 | --- | --- | --- | --- |--- |--- |--- | --- |
@@ -1136,5 +1136,7 @@ MODELS FOR AUTOMATED AUDIO CAPTIONING https://arxiv.org/pdf/2110.07410
 <a id="XLiu"></a>Xubo Liu, Xinhao Mei, Qiushi Huang, Jianyuan Sun, Jinzheng Zhao, Haohe Liu,Mark D. Plumbley, Volkan Kılıc, Wenwu Wang (2022). Leveraging Pre-trained BERT for Audio Captioning https://arxiv.org/pdf/2110.07410
 
 <a id="Dixit2024"></a> Dixit, S., Deshmukh, S., & Raj, B. (2024). MACE: Leveraging Audio for Evaluating Audio Captioning Systems. arXiv preprint arXiv:2411.00321. https://arxiv.org/abs/2411.00321
+
+<a id="clap"></a> Benjamin Elizalde, Soham Deshmukh, Mahmoud Al Ismail, Huaming Wang CLAP: Learning Audio Concepts From Natural Language Supervision. https://github.com/microsoft/CLAP , https://www.microsoft.com/en-us/research/publication/clap-learning-audio-concepts-from-natural-language-supervision/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
