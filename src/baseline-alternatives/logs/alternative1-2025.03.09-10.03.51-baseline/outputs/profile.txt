@@ -1,0 +1,41 @@
+
+-------------------------- DeepSpeed Flops Profiler --------------------------
+Profile Summary at step 1:
+Notations:
+data parallel size (dp_size), model parallel size(mp_size),
+number of parameters (params), number of multiply-accumulate operations(MACs),
+number of floating-point operations (flops), floating-point operations per second (FLOPS),
+fwd latency (forward propagation latency), bwd latency (backward propagation latency),
+step (weights update latency), iter latency (sum of fwd, bwd and step latency)
+
+params per GPU:                                                         11.91 M 
+params of model = params per GPU * mp_size:                             0       
+fwd MACs per GPU:                                                       4.01 GMACs
+fwd flops per GPU:                                                      8.02 G  
+fwd flops of model = fwd flops per GPU * mp_size:                       8.02 G  
+fwd latency:                                                            300.31 ms
+fwd FLOPS per GPU = fwd flops per GPU / fwd latency:                    26.71 GFLOPS
+
+----------------------------- Aggregated Profile per GPU -----------------------------
+Top 1 modules in terms of params, MACs or fwd latency at different model depths:
+depth 0:
+    params      - {'TransDecoderModel': '11.91 M'}
+    MACs        - {'TransDecoderModel': '4.01 GMACs'}
+    fwd latency - {'TransDecoderModel': '300.31 ms'}
+depth 1:
+    params      - {'AACTransformerDecoder': '11.71 M'}
+    MACs        - {'AACTransformerDecoder': '4 GMACs'}
+    fwd latency - {'AACTransformerDecoder': '256.07 ms'}
+depth 2:
+    params      - {'ModuleList': '9.47 M'}
+    MACs        - {'ModuleList': '3.75 GMACs'}
+    fwd latency - {'ModuleList': '238.02 ms'}
+depth 3:
+    params      - {'TransformerDecoderLayer': '9.47 M'}
+    MACs        - {'TransformerDecoderLayer': '3.75 GMACs'}
+    fwd latency - {'TransformerDecoderLayer': '238.02 ms'}
+depth 4:
+    params      - {'Linear': '6.31 M'}
+    MACs        - {'MultiheadAttention': '2.34 GMACs'}
+    fwd latency - {'MultiheadAttention': '114.13 ms'}
+------------------------------------------------------------------------------

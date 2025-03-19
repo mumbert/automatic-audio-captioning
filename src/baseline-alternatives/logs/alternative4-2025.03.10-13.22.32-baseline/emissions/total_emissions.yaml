@@ -1,0 +1,31 @@
+timestamp: '2025-03-10T18:50:55'
+project_name: dcase24t6
+run_id: c9c9ed35-8261-49e9-a524-d3f1f44e90ff
+duration: 19701.22558760643
+emissions: 0.19055900142253418
+emissions_rate: 9.672445237319493e-06
+cpu_power: 42.5
+gpu_power: 40.023326719404416
+ram_power: 5.8543381690979
+cpu_energy: 0.23258391820275123
+gpu_energy: 0.21903014133508414
+ram_energy: 0.032038228336616896
+energy_consumed: 0.48365228787445225
+country_name: USA
+country_iso_code: USA
+region: Iowa
+cloud_provider: gcp
+cloud_region: us-central1
+os: Linux-5.15.0-1078-gcp-x86_64-with-glibc2.31
+python_version: 3.11.11
+codecarbon_version: 2.3.4
+cpu_count: 4
+cpu_model: Intel(R) Xeon(R) CPU @ 2.20GHz
+gpu_count: 1
+gpu_model: 1 x NVIDIA L4
+longitude: null
+latitude: null
+ram_total_size: 15.611568450927734
+tracking_mode: machine
+on_cloud: Y
+pue: 1.0
